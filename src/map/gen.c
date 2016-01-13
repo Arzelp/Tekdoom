@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Wed Jan 13 15:57:08 2016 Arnaud Alies
+** Last update Wed Jan 13 19:10:28 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -32,4 +32,27 @@ t_map	*map_gen(int size)
       x += 1;
     }
   return (res);
+}
+
+t_map		*map_set_flat(t_map *map)
+{
+  t_block	block;
+  t_pos		pos;
+  int		size;
+
+  block.x = 1;
+  size = (map->head).size;
+  pos.x = 0;
+  pos.y = 0;
+  pos.z = 0;
+  while (pos.y < size)
+    {
+      map_set(map, &pos, block);
+      pos.x += 1;
+      if (pos.x > size)
+	{
+	  pos.x = 0;
+	  pos.y += 1;
+	}
+    }
 }
