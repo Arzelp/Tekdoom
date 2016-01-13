@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 13 15:03:49 2016 Arthur Josso
+** Last update Wed Jan 13 19:32:14 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -20,19 +20,40 @@
 
 #include <lapin.h>
 
-typedef	struct s_vec
+typedef struct s_vec
 {
-  float	x;
-  float	y;
+  float x;
+  float y;
   float z;
 } t_vec;
+
+typedef struct s_me
+{
+  t_vec	pos;
+  int   alpha;
+  int	beta;
+} t_me;
+
+typedef struct s_data
+{
+  t_bunny_window	*win;
+  t_bunny_pixelarray	*pix;
+  const bool		*keys;
+  t_me			me;
+} t_data;
 
 /*
 ** get_point_on_plane.c
 */
 
-#define MAX (999)
+#define MAX (99)
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
+
+typedef struct t_pos
+{
+  int x;
+  int y;
+} t_pos;
 
 typedef struct s_ray
 {
@@ -41,13 +62,6 @@ typedef struct s_ray
 } t_ray;
 
 void    get_point(t_ray *ray, char plane, int lvl, t_vec *point);
-
-typedef struct s_data
-{
-  t_bunny_window *win;
-  t_bunny_pixelarray *pix;
-  const bool *keys;
-} t_data;
 
 void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,
