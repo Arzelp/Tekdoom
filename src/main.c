@@ -5,12 +5,12 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 13 19:23:34 2016 Arnaud Alies
+** Last update Wed Jan 13 20:25:49 2016 Arnaud Alies
 */
 
 #include <lapin.h>
-#include "map.h"
 #include "doom.h"
+#include "map.h"
 
 static t_bunny_response	loop(void *data_pt)
 {
@@ -38,31 +38,36 @@ t_bunny_response key_listenner(t_bunny_event_state state,
   return (GO_ON);
 }
 
-void		test()
+t_map		*init_map()
 {
-  t_block block;
-  t_pos pos;
   t_map *map;
   
-  block.x = 1;
-  map = map_gen(5);
+  if ((map = map_gen(5)) == NULL)
+    return (NULL);
   map_set_flat(map);
   map_set_wall(map);
-  pos.x = 0;
-  pos.y = 0;
-  pos.z = 1;
-  map_set(map, &pos, block);
-  
   map_print(map);
+  return (map);
+}
+
+void		init_player(t_me *player)
+{
+  (player->pos).x = 2;
+  (player->pos).y = 2;
+  (player->pos).z = 2;
+  player->alpha = 0;
+  player->beta = 0;
 }
 
 int		main(int ac, char **av)
 {
   t_data	data;
 
-  test();
   (void)ac;
   (void)av;
+  if ((data.map = init_map()) == NULL)
+    return (1);
+  init_player(&(data.me));
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)

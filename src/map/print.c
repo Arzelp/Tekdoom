@@ -5,9 +5,10 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 17:31:45 2016 Arnaud Alies
-** Last update Wed Jan 13 18:07:57 2016 Arnaud Alies
+** Last update Wed Jan 13 20:26:25 2016 Arnaud Alies
 */
 
+#include <stdio.h>
 #include "map.h"
 #include "my.h"
 
@@ -40,4 +41,5 @@ int		map_print(t_map *map)
 	  printf("\n\n");
 	}
     }
+  return (0);
 }
