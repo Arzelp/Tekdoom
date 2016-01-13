@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Wed Jan 13 19:12:49 2016 Arnaud Alies
+** Last update Wed Jan 13 19:22:41 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -53,6 +53,29 @@ void		map_set_flat(t_map *map)
 	{
 	  pos.x = 0;
 	  pos.y += 1;
+	}
+    }
+}
+
+void            map_set_wall(t_map *map)
+{
+  t_block	block;
+  t_pos		pos;
+  int		size;
+
+  block.x = 1;
+  size = (map->head).size;
+  pos.x = 0;
+  pos.y = 0;
+  pos.z = 0;
+  while(pos.z < size)
+    {
+      map_set(map, &pos, block);
+      pos.x += 1;
+      if (pos.x > size)
+	{
+	  pos.x = 0;
+	  pos.z += 1;
 	}
     }
 }
