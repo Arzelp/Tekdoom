@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 13 14:36:09 2016 Arthur Josso
+** Last update Wed Jan 13 15:03:49 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -32,7 +32,7 @@ typedef	struct s_vec
 */
 
 #define MAX (999)
-#define LIM(x) ((x) < MAX ? MAX : ((x) > MAX ? MAX : (x)))
+#define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
 
 typedef struct s_ray
 {
@@ -40,7 +40,7 @@ typedef struct s_ray
   t_vec	beta;
 } t_ray;
 
-void    get_point(t_ray *ray, char plane, t_vec *point);
+void    get_point(t_ray *ray, char plane, int lvl, t_vec *point);
 
 typedef struct s_data
 {
