@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 13 19:10:55 2016 Arnaud Alies
+** Last update Wed Jan 13 19:23:34 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -43,14 +43,16 @@ void		test()
   t_block block;
   t_pos pos;
   t_map *map;
-
-  pos.x = 1;
-  pos.y = 1;
-  pos.z = 2;
+  
   block.x = 1;
   map = map_gen(5);
-  /*map_set(map, &pos, block);*/
   map_set_flat(map);
+  map_set_wall(map);
+  pos.x = 0;
+  pos.y = 0;
+  pos.z = 1;
+  map_set(map, &pos, block);
+  
   map_print(map);
 }
 
