@@ -1,11 +1,11 @@
 /*
 ** map.h for map in /home/alies/rendu/gfx_tekdoom
-** 
+**
 ** Made by Arnaud Alies
 ** Login   <alies_a@epitech.net>
-** 
+**
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Wed Jan 13 18:09:17 2016 Arnaud Alies
+** Last update Wed Jan 13 18:26:58 2016 Frederic ODDOU
 */
 
 #ifndef MAP_H_
@@ -51,5 +51,6 @@ int	map_print(t_map *map);
 t_map   *map_gen(int size);
 t_block *map_get(t_map *map, t_pos *pos);
 int     map_set(t_map *map, t_pos *pos, t_block block);
+int		map_check_pos(t_map *map, int x, int y);
 
 #endif

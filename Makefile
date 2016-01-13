@@ -1,11 +1,11 @@
 ##
 ## Makefile for tekdoom in /home/alies/rendu/gfx_tekdoom
-## 
+##
 ## Made by Arnaud Alies
 ## Login   <alies_a@epitech.net>
-## 
+##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Wed Jan 13 18:05:46 2016 Arnaud Alies
+## Last update Wed Jan 13 18:27:28 2016 Frederic ODDOU
 ##
 
 NAME    =       tekdoom
@@ -36,6 +36,7 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)gen.c \
 		$(MAP)print.c \
 		$(MAP)pos.c \
+		$(MAP)map_check_pos.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \
 		$(MY)my_strcat.c \
