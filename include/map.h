@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Wed Jan 13 15:51:46 2016 Arnaud Alies
+** Last update Wed Jan 13 15:56:52 2016 Arnaud Alies
 */
 
 #ifndef MAP_H_
@@ -20,7 +20,7 @@ typedef struct s_block
   uint32_t x;
 } __attribute__((packed)) t_block;
 
-typedef s_map_head
+typedef struct s_map_head
 {
   uint32_t version;
   uint32_t size;
@@ -34,7 +34,7 @@ typedef s_map_head
 ** <blocks> blocks start after offset defined in the header
 */
 
-typedef s_map
+typedef struct s_map
 {
   t_map_head head;
   t_block *blocks;

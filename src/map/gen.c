@@ -5,9 +5,10 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Wed Jan 13 15:51:37 2016 Arnaud Alies
+** Last update Wed Jan 13 15:57:08 2016 Arnaud Alies
 */
 
+#include <stdlib.h>
 #include "map.h"
 
 t_map	*map_gen(int size)
@@ -16,7 +17,7 @@ t_map	*map_gen(int size)
   int	x;
   int	max;
 
-  max = (size * size * size)
+  max = (size * size * size);
   if ((res = malloc(sizeof(t_map))) == NULL)
     return (NULL);
   (res->head).version = MAP_VERSION;
@@ -28,7 +29,7 @@ t_map	*map_gen(int size)
   while (x < max)
     {
       ((res->blocks)[x]).x = 0;
-      x = 1;
+      x += 1;
     }
   return (res);
 }
