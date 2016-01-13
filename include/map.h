@@ -5,11 +5,13 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Wed Jan 13 14:05:01 2016 Arnaud Alies
+** Last update Wed Jan 13 15:51:46 2016 Arnaud Alies
 */
 
 #ifndef MAP_H_
 #define MAP_H_
+
+#define MAP_VERSION (1)
 
 #include <stdint.h>
 
@@ -21,9 +23,7 @@ typedef struct s_block
 typedef s_map_head
 {
   uint32_t version;
-  uint32_t width;
-  uint32_t depth;
-  uint32_t height;
+  uint32_t size;
   uint32_t offset;
 } __attribute__((packed)) t_map_head;
 
@@ -37,7 +37,9 @@ typedef s_map_head
 typedef s_map
 {
   t_map_head head;
-  t_block ***blocks;
+  t_block *blocks;
 } __attribute__((packed)) t_map;
+
+t_map   *map_gen(int size);
 
 #endif
