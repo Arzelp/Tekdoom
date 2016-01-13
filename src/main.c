@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 12 17:52:11 2016 Arnaud Alies
+** Last update Tue Jan 12 22:15:20 2016 oddou_f
 */
 
 #include <lapin.h>
@@ -41,6 +41,8 @@ int		main(int ac, char **av)
 {
   t_data	data;
 
+  (void)ac;
+  (void)av;
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)
