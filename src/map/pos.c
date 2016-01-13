@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 15:58:21 2016 Arnaud Alies
-** Last update Wed Jan 13 18:18:10 2016 Arnaud Alies
+** Last update Wed Jan 13 18:19:42 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -13,6 +13,9 @@
 
 static int	in_map(t_map *map, t_pos *pos)
 {
+  int		size;
+
+  size = (map->head).size;
   if ((pos->x < size && pos->x >= 0) &&
       (pos->y < size && pos->y >= 0) &&
       (pos->z < size && pos->z >= 0))
