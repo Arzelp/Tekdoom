@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 13 14:14:47 2016 Arnaud Alies
+** Last update Wed Jan 13 14:21:26 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -25,6 +25,12 @@ typedef	struct s_vec
   float	y;
   float z;
 } t_vec;
+
+typedef struct s_ray
+{
+  t_vec	alpha;
+  t_vec	beta;
+} t_ray;
 
 typedef struct s_data
 {
