@@ -5,10 +5,11 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 12 22:15:20 2016 oddou_f
+** Last update Wed Jan 13 18:10:43 2016 Arnaud Alies
 */
 
 #include <lapin.h>
+#include "map.h"
 #include "doom.h"
 
 static t_bunny_response	loop(void *data_pt)
@@ -37,10 +38,26 @@ t_bunny_response key_listenner(t_bunny_event_state state,
   return (GO_ON);
 }
 
+void		test()
+{
+  t_block block;
+  t_pos pos;
+  t_map *map;
+
+  pos.x = 1;
+  pos.y = 1;
+  pos.z = 2;
+  block.x = 1;
+  map = map_gen(3);
+  map_set(map, &pos, block);
+  map_print(map);
+}
+
 int		main(int ac, char **av)
 {
   t_data	data;
 
+  test();
   (void)ac;
   (void)av;
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)

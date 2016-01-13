@@ -5,9 +5,10 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 15:58:21 2016 Arnaud Alies
-** Last update Wed Jan 13 17:29:03 2016 Arnaud Alies
+** Last update Wed Jan 13 18:06:09 2016 Arnaud Alies
 */
 
+#include <stdlib.h>
 #include "map.h"
 
 t_block	*map_get(t_map *map, t_pos *pos)
