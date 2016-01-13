@@ -5,12 +5,24 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 13 20:25:49 2016 Arnaud Alies
+** Last update Wed Jan 13 21:14:00 2016 Arnaud Alies
 */
 
 #include <lapin.h>
 #include "doom.h"
 #include "map.h"
+
+int     move(t_data *data)
+{
+  if (data->keys != NULL)
+    {
+      if (data->keys[BKS_D])
+	(data->me).alpha -= 0.05;
+      if (data->keys[BKS_Q])
+	(data->me).alpha += 0.05;
+    }
+  return (0);
+}
 
 static t_bunny_response	loop(void *data_pt)
 {
@@ -20,6 +32,8 @@ static t_bunny_response	loop(void *data_pt)
   zero.x = 0;
   zero.y = 0;
   data = (t_data*)data_pt;
+  move(data);
+  printf("%f\n", (data->me).alpha);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   bunny_display(data->win);
   return (GO_ON);
@@ -65,6 +79,7 @@ int		main(int ac, char **av)
 
   (void)ac;
   (void)av;
+  data.keys = NULL;
   if ((data.map = init_map()) == NULL)
     return (1);
   init_player(&(data.me));
