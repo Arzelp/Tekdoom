@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Wed Jan 13 19:10:28 2016 Arnaud Alies
+** Last update Wed Jan 13 19:12:49 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -34,7 +34,7 @@ t_map	*map_gen(int size)
   return (res);
 }
 
-t_map		*map_set_flat(t_map *map)
+void		map_set_flat(t_map *map)
 {
   t_block	block;
   t_pos		pos;
