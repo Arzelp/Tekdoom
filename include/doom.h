@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 12 17:12:42 2016 Arnaud Alies
+** Last update Wed Jan 13 14:14:47 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
@@ -19,11 +19,12 @@
 
 #include <lapin.h>
 
-typedef	struct s_pt
+typedef	struct s_vec
 {
   float	x;
   float	y;
-} t_pt;
+  float z;
+} t_vec;
 
 typedef struct s_data
 {
