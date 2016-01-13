@@ -5,11 +5,20 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 15:58:21 2016 Arnaud Alies
-** Last update Wed Jan 13 18:06:09 2016 Arnaud Alies
+** Last update Wed Jan 13 18:18:10 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
 #include "map.h"
+
+static int	in_map(t_map *map, t_pos *pos)
+{
+  if ((pos->x < size && pos->x >= 0) &&
+      (pos->y < size && pos->y >= 0) &&
+      (pos->z < size && pos->z >= 0))
+    return (1);
+  return (0);
+}
 
 t_block	*map_get(t_map *map, t_pos *pos)
 {
@@ -18,7 +27,7 @@ t_block	*map_get(t_map *map, t_pos *pos)
 
   size = (map->head).size;
   x = pos->x + pos->y * size + pos->z * (size * size);
-  if (x >= 0 && x < (size * size * size))
+  if (in_map(map, pos))
     return (&((map->blocks)[x]));
   return (NULL);
 }
@@ -30,7 +39,7 @@ int	map_set(t_map *map, t_pos *pos, t_block block)
 
   size = (map->head).size;
   x = pos->x + pos->y * size + pos->z * (size * size);
-  if (x >= 0 && x < (size * size * size))
+  if (in_map(map, pos))
     {
       ((map->blocks)[x]) = block;
       return (0);
