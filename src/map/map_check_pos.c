@@ -9,15 +9,17 @@
 */
 
 #include <stdlib.h>
+#include "doom.h"
 #include "map.h"
 
-int		map_check_pos(t_map *map, int x, int y)
+int		map_check_pos(t_map *map, t_vec *vec)
 {
   t_pos		pos;
   t_block	*block;
 
-  pos.x = x;
-  pos.y = y;
+  pos.x = vec->x;
+  pos.y = vec->y;
+  pos.z = vec->z;
   if ((block = map_get(map, &pos)) != NULL)
     return (block->x);
   return (0);
