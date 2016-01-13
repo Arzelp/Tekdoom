@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Wed Jan 13 16:12:40 2016 Arnaud Alies
+** Last update Wed Jan 13 18:09:17 2016 Arnaud Alies
 */
 
 #ifndef MAP_H_
@@ -40,7 +40,16 @@ typedef struct s_map
   t_block *blocks;
 } __attribute__((packed)) t_map;
 
+typedef struct s_pos
+{
+  int x;
+  int y;
+  int z;
+} t_pos;
+
+int	map_print(t_map *map);
 t_map   *map_gen(int size);
-t_block *get_map(t_map *map, int x, int y, int z);
+t_block *map_get(t_map *map, t_pos *pos);
+int     map_set(t_map *map, t_pos *pos, t_block block);
 
 #endif

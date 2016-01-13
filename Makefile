@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ## 
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Wed Jan 13 15:53:42 2016 Arnaud Alies
+## Last update Wed Jan 13 18:05:46 2016 Arnaud Alies
 ##
 
 NAME    =       tekdoom
@@ -34,6 +34,8 @@ SRCS	=	$(SRC)main.c \
 		$(SRC)load_bmp.c \
 		$(SRC)tekpixel.c \
 		$(MAP)gen.c \
+		$(MAP)print.c \
+		$(MAP)pos.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \
 		$(MY)my_strcat.c \
