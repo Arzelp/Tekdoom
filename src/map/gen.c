@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Wed Jan 13 19:22:41 2016 Arnaud Alies
+** Last update Thu Jan 14 16:18:45 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -68,13 +68,24 @@ void            map_set_wall(t_map *map)
   pos.x = 0;
   pos.y = 0;
   pos.z = 0;
-  while(pos.z < size)
+  while (pos.z < size)
     {
-      map_set(map, &pos, block);
+      if (pos.x + 2 > size ||
+	  pos.y + 2 > size ||
+	  pos.z + 2 > size ||
+	  pos.x == 0 ||
+	  pos.y == 0 ||
+	  pos.z == 0)
+	map_set(map, &pos, block);
       pos.x += 1;
       if (pos.x > size)
 	{
 	  pos.x = 0;
+	  pos.y += 1;
+	}
+      if (pos.y > size)
+	{
+	  pos.y = 0;
 	  pos.z += 1;
 	}
     }
