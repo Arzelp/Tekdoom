@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 10:56:45 2016 Arnaud Alies
+** Last update Thu Jan 14 11:26:00 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -17,6 +17,7 @@ int     walk(t_data *data, int speed)
 {
   ((data->me).pos).x += cos((data->me).alpha) / 100 * speed;
   ((data->me).pos).y += sin((data->me).alpha) / 100 * speed;
+  //((data->me).pos).z += sin((data->me).) / 100 * speed;
   return (0);
 }
 
@@ -28,6 +29,10 @@ int     move(t_data *data)
 	(data->me).alpha -= 0.05;
       if (data->keys[BKS_RIGHT])
 	(data->me).alpha += 0.05;
+      if (data->keys[BKS_S])
+	(data->me).beta -= 0.05;
+      if (data->keys[BKS_Z])
+	(data->me).beta -= 0.05;
       if (data->keys[BKS_UP])
 	walk(data, 1);
       if (data->keys[BKS_DOWN])
@@ -45,7 +50,11 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   move(data);
-  printf("%f %f %f | %f\n", ((data->me).pos).x, ((data->me).pos).y, ((data->me).pos).z, (data->me).alpha);
+  printf("%f %f %f | %f\n",
+	 ((data->me).pos).x,
+	 ((data->me).pos).y,
+	 ((data->me).pos).z,
+	 (data->me).alpha);
   display(data);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   bunny_display(data->win);
