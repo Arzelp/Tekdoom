@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 17:20:40 2016 Arthur Josso
+** Last update Thu Jan 14 21:26:02 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -29,16 +29,20 @@ int     move(t_data *data)
 	(data->me).alpha -= 0.05;
       if (data->keys[BKS_RIGHT])
 	(data->me).alpha += 0.05;
-      if (data->keys[BKS_S])
-	(data->me).beta -= 0.05;
-      if (data->keys[BKS_Z])
-	(data->me).beta += 0.05;
       if (data->keys[BKS_UP])
-	walk(data, 10);
+	(data->me).beta -= 0.05;
       if (data->keys[BKS_DOWN])
+	(data->me).beta += 0.05;
+      if (data->keys[BKS_Z])
+	walk(data, 10);
+      if (data->keys[BKS_S])
 	walk(data, -10);
       if (data->keys[BKS_P])
 	p = !p;
+      if (data->keys[BKS_O])
+	((data->me).pos).z += 0.1;
+      if (data->keys[BKS_L])
+	((data->me).pos).z -= 0.1;
     }
   return (0);
 }
@@ -90,8 +94,8 @@ t_map		*init_map()
 
 void		init_player(t_me *player)
 {
-  (player->pos).x = 2;
-  (player->pos).y = 2;
+  (player->pos).x = 2.5;
+  (player->pos).y = 2.5;
   (player->pos).z = 2;
   player->alpha = 0;
   player->beta = 0;

@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Thu Jan 14 19:59:50 2016 Arthur Josso
+** Last update Thu Jan 14 21:36:44 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -77,6 +77,7 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
 }
 
 
+/*
 void    get_ray(t_me *me, t_pos *pos, t_ray *ray)
 {
   t_vec scr;
@@ -90,8 +91,34 @@ void    get_ray(t_me *me, t_pos *pos, t_ray *ray)
   ray->beta.x = 2 * (ray->alpha.x - scr.x);
   ray->beta.y = 2 * (ray->alpha.y - scr.y);
   ray->beta.z = 2 * (ray->alpha.z - scr.z);
-}
+  }
+*/
+#define DIST 0.5
+#define FOV 1
 
+void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
+{
+  t_vec scr;
+
+  t_vec res;
+  t_vec final;
+
+  res.x = DIST;
+  res.y = FOV *(((WIDTH / 2) - (float)sr->x) / WIDTH);
+  res.z = FOV * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
+  //printf("%f %f %f\n", res.x, res.y, res.z);
+  final.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
+  final.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
+  final.z = res.z * cos(me->beta) - res.z * sin(me->beta);
+  //printf("%f %f %f\n", final.x, final.y, final.z);
+
+  ray->alpha.x = me->pos.x / 2;
+  ray->alpha.y = me->pos.y / 2;
+  ray->alpha.z = me->pos.z / 2;
+  ray->beta.x = final.x;
+  ray->beta.y = final.y;
+  ray->beta.z = final.z;
+}
 
 void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
 {
