@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Thu Jan 14 10:35:22 2016 Arthur Josso
+** Last update Thu Jan 14 11:32:56 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -19,9 +19,9 @@ void	set_pix(t_data *data, t_pos *pos)
   t_bunny_position p;
 
   get_point(data, pos, &impact, &norme);
-  if (norme > 10)
-    norme = 10;
-  col = MAP(norme, 0, 10, 0, 255);
+  if (norme > 20)
+    norme = 20;
+  col = 255 - MAP(norme, 0, 20, 0, 255);
   color.argb[RED_CMP] = col;
   color.argb[BLUE_CMP] = col;
   color.argb[GREEN_CMP] = col;
