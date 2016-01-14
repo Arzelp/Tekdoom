@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Thu Jan 14 10:24:40 2016 Arthur Josso
+** Last update Thu Jan 14 11:28:33 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -71,8 +71,8 @@ void    get_ray(t_me *me, t_pos *pos, t_ray *ray)
   t_vec scr;
 
   scr.x = 0.5 * cos(me->beta) * cos(me->alpha) + me->pos.x;
-  scr.y = (((WIDTH / 2) - pos->x) / WIDTH) * cos(me->beta) * sin(me->alpha) + me->pos.y;
-  scr.z = (((HEIGHT / 2) - pos->y) / HEIGHT) * sin(me->beta) + me->pos.z;
+  scr.y = (((WIDTH / 2) - (float)pos->x) / WIDTH) * cos(me->beta) * sin(me->alpha) + me->pos.y;
+  scr.z = (((HEIGHT / 2) - (float)pos->y) / HEIGHT) * sin(me->beta) + me->pos.z;
   ray->alpha.x = me->pos.x;
   ray->alpha.y = me->pos.y;
   ray->alpha.z = me->pos.z;
