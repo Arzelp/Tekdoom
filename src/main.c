@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 11:26:00 2016 Arnaud Alies
+** Last update Thu Jan 14 11:26:52 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -32,7 +32,7 @@ int     move(t_data *data)
       if (data->keys[BKS_S])
 	(data->me).beta -= 0.05;
       if (data->keys[BKS_Z])
-	(data->me).beta -= 0.05;
+	(data->me).beta += 0.05;
       if (data->keys[BKS_UP])
 	walk(data, 1);
       if (data->keys[BKS_DOWN])
