@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 14:33:01 2016 Arnaud Alies
+** Last update Thu Jan 14 17:20:40 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -37,6 +37,8 @@ int     move(t_data *data)
 	walk(data, 10);
       if (data->keys[BKS_DOWN])
 	walk(data, -10);
+      if (data->keys[BKS_P])
+	p = !p;
     }
   return (0);
 }
@@ -101,6 +103,7 @@ int		main(int ac, char **av)
 
   (void)ac;
   (void)av;
+  p = 0;
   data.keys = NULL;
   if ((data.map = init_map()) == NULL)
     return (1);

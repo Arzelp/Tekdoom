@@ -5,42 +5,42 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 14:16:07 2016 Arthur Josso
-** Last update Wed Jan 13 21:18:02 2016 Arthur Josso
+** Last update Thu Jan 14 19:52:09 2016 Arthur Josso
 */
 
 #include "doom.h"
 
-static float	get_k(t_ray *ray, char plane, int lvl)
+static float	get_k(t_ray *ray, char plane, float lvl)
 {
   if (plane == 'x')
     {
       if (ray->beta.x == 0)
 	return (MAX);
-      return (LIM(-((ray->alpha.x + lvl) / ray->beta.x)));
+      return (LIM((ray->alpha.x + lvl) / ray->beta.x));
     }
   else if (plane == 'y')
     {
       if (ray->beta.y == 0)
 	return (MAX);
-      return (LIM(-((ray->alpha.y + lvl) / ray->beta.y)));
+      return (LIM((ray->alpha.y + lvl) / ray->beta.y));
     }
   else if (plane == 'z')
     {
       if (ray->beta.z == 0)
 	return (MAX);
-      return (LIM(-((ray->alpha.z + lvl) / ray->beta.z)));
+      return (LIM((ray->alpha.z + lvl) / ray->beta.z));
     }
   return (0);
 }
 
 void	calc_pos(t_vec *result, t_ray *param, float k)
 {
-  result->x = LIM(param->alpha.x + k * param->beta.x);
-  result->y = LIM(param->alpha.y + k * param->beta.y);
-  result->z = LIM(param->alpha.z + k * param->beta.z);
+  result->x = LIM(-param->alpha.x + k * param->beta.x);
+  result->y = LIM(-param->alpha.y + k * param->beta.y);
+  result->z = LIM(-param->alpha.z + k * param->beta.z);
 }
 
-float	get_range(t_ray *ray, char plane, int lvl, t_vec *point)
+float	get_range(t_ray *ray, char plane, float lvl, t_vec *point)
 {
   float	k;
 

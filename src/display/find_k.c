@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Thu Jan 14 11:28:33 2016 Arthur Josso
+** Last update Thu Jan 14 19:59:50 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -30,6 +30,8 @@ static void	test_x(t_data *data, t_ray *ray, float *k_min)
     }
 }
 
+#include <stdio.h>
+
 static void     test_y(t_data *data, t_ray *ray, float *k_min)
 {
   t_vec         pt;
@@ -40,6 +42,13 @@ static void     test_y(t_data *data, t_ray *ray, float *k_min)
   while (i < data->map->head.size)
     {
       k = get_range(ray, 'y', i, &pt);
+      if (p)
+	{
+	  printf("x = %.2f + %.2f * t\n", ray->alpha.x, ray->beta.x);
+	  printf("y = %.2f + %.2f * t\n", ray->alpha.y, ray->beta.y);
+	  printf("z = %.2f + %.2f * t\n", ray->alpha.z, ray->beta.z);
+	  printf("i : %d  y : %.2f\n", i, pt.y);
+	}
       pt.y -= data->me.pos.y >= i ? 1 : 0;
       if (pt.y >= 0 && map_check_pos(data->map, &pt)
 	  && k >= 0 && k < *k_min)
@@ -58,6 +67,7 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
   while (i < data->map->head.size)
     {
       k = get_range(ray, 'z', i, &pt);
+      //printf("i : %d  z : %.2f\n", i, pt.z);
       pt.z -= data->me.pos.z >= i ? 1 : 0;
       if (pt.z >= 0 && map_check_pos(data->map, &pt)
 	  && k >= 0 && k < *k_min)
@@ -66,20 +76,22 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
     }
 }
 
+
 void    get_ray(t_me *me, t_pos *pos, t_ray *ray)
 {
   t_vec scr;
 
-  scr.x = 0.5 * cos(me->beta) * cos(me->alpha) + me->pos.x;
-  scr.y = (((WIDTH / 2) - (float)pos->x) / WIDTH) * cos(me->beta) * sin(me->alpha) + me->pos.y;
-  scr.z = (((HEIGHT / 2) - (float)pos->y) / HEIGHT) * sin(me->beta) + me->pos.z;
+  scr.x = 0.5 * FOV * cos(me->beta) * cos(me->alpha) + me->pos.x;
+  scr.y = (((WIDTH / 2) - (float)pos->x) / WIDTH) * FOV * cos(me->beta) * sin(me->alpha) + me->pos.y;
+  scr.z = (((HEIGHT / 2) - (float)pos->y) / HEIGHT) * FOV * sin(me->beta) + me->pos.z;
   ray->alpha.x = me->pos.x;
   ray->alpha.y = me->pos.y;
   ray->alpha.z = me->pos.z;
-  ray->beta.x = 2 * (scr.x - ray->alpha.x);
-  ray->beta.y = 2 * (scr.y - ray->alpha.y);
-  ray->beta.z = 2 * (scr.z - ray->alpha.z);
+  ray->beta.x = 2 * (ray->alpha.x - scr.x);
+  ray->beta.y = 2 * (ray->alpha.y - scr.y);
+  ray->beta.z = 2 * (ray->alpha.z - scr.z);
 }
+
 
 void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
 {

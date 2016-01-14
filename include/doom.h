@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Thu Jan 14 10:46:07 2016 Arnaud Alies
+** Last update Thu Jan 14 20:00:15 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -14,11 +14,15 @@
 #define WIDTH (400)
 #define HEIGHT (400)
 #define FPS (40)
+#define FOV (1)
+#define DIST (0.5)
 
 #define MAP(x, sA, eA, sB, eB) ((((sA - x) / (sA - eA)) * (eB - sB)) + sB)
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 #include <lapin.h>
+
+int p;
 
 typedef struct s_block
 {
@@ -90,8 +94,9 @@ typedef struct s_ray
 
 void    display(t_data *data);
 
+//void    get_ray(t_me *me, t_pos *pos, t_ray *ray);
 void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme);
-float   get_range(t_ray *ray, char plane, int lvl, t_vec *point);
+float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
 
 /*
