@@ -5,14 +5,14 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Thu Jan 14 10:28:45 2016 Arthur Josso
+** Last update Thu Jan 14 10:46:07 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
 #define DOOM_H_
 
-#define WIDTH (700)
-#define HEIGHT (500)
+#define WIDTH (400)
+#define HEIGHT (400)
 #define FPS (40)
 
 #define MAP(x, sA, eA, sB, eB) ((((sA - x) / (sA - eA)) * (eB - sB)) + sB)
@@ -32,11 +32,11 @@ typedef struct s_map_head
   uint32_t	offset;
 } __attribute__((packed)) t_map_head;
 
-/*                                                                                                      
-** map file format:                                                                                     
-** <header>                                                                                             
-** <textures> textures starts just after header                                                         
-** <blocks> blocks start after offset defined in the header                                             
+/*
+** map file format:
+** <header>
+** <textures> textures starts just after header
+** <blocks> blocks start after offset defined in the header
 */
 
 typedef struct s_map

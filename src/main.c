@@ -5,12 +5,20 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 10:32:01 2016 Arthur Josso
+** Last update Thu Jan 14 10:52:38 2016 Arnaud Alies
 */
 
 #include <lapin.h>
+#include <math.h>
 #include "doom.h"
 #include "map.h"
+
+int     walk(t_data *data, int speed)
+{
+  ((data->me).pos).x += cos((data->me).alpha) / 100 * speed;
+  ((data->me).pos).y += sin((data->me).alpha) / 100 * speed;
+  return (0);
+}
 
 int     move(t_data *data)
 {
@@ -20,6 +28,10 @@ int     move(t_data *data)
 	(data->me).alpha -= 0.05;
       if (data->keys[BKS_Q])
 	(data->me).alpha += 0.05;
+      if (data->keys[BKS_Z])
+	walk(data, 1);
+      if (data->keys[BKS_S])
+	walk(data, -1);
     }
   return (0);
 }
