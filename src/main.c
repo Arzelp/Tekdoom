@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 13 21:14:00 2016 Arnaud Alies
+** Last update Thu Jan 14 10:32:01 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -34,6 +34,7 @@ static t_bunny_response	loop(void *data_pt)
   data = (t_data*)data_pt;
   move(data);
   printf("%f\n", (data->me).alpha);
+  display(data);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   bunny_display(data->win);
   return (GO_ON);

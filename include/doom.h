@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 13 20:25:33 2016 Arnaud Alies
+** Last update Thu Jan 14 10:28:45 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -27,9 +27,9 @@ typedef struct s_block
 
 typedef struct s_map_head
 {
-  uint32_t version;
-  uint32_t size;
-  uint32_t offset;
+  uint32_t	version;
+  int		size;
+  uint32_t	offset;
 } __attribute__((packed)) t_map_head;
 
 /*                                                                                                      
@@ -76,7 +76,7 @@ typedef struct s_data
 } t_data;
 
 /*
-** get_point_on_plane.c
+** Display
 */
 
 #define MAX (99)
@@ -88,7 +88,15 @@ typedef struct s_ray
   t_vec	beta;
 } t_ray;
 
-void    get_point(t_ray *ray, char plane, int lvl, t_vec *point);
+void    display(t_data *data);
+
+void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme);
+float   get_range(t_ray *ray, char plane, int lvl, t_vec *point);
+void    calc_pos(t_vec *result, t_ray *param, float k);
+
+/*
+** Core
+*/
 
 void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,

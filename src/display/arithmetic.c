@@ -5,12 +5,12 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 14:16:07 2016 Arthur Josso
-** Last update Wed Jan 13 15:49:17 2016 Arthur Josso
+** Last update Wed Jan 13 21:18:02 2016 Arthur Josso
 */
 
 #include "doom.h"
 
-static float	get_t(t_ray *ray, char plane, int lvl)
+static float	get_k(t_ray *ray, char plane, int lvl)
 {
   if (plane == 'x')
     {
@@ -30,14 +30,21 @@ static float	get_t(t_ray *ray, char plane, int lvl)
 	return (MAX);
       return (LIM(-((ray->alpha.z + lvl) / ray->beta.z)));
     }
+  return (0);
 }
 
-void	get_point(t_ray *ray, char plane, int lvl, t_vec *point)
+void	calc_pos(t_vec *result, t_ray *param, float k)
 {
-  float	t;
+  result->x = LIM(param->alpha.x + k * param->beta.x);
+  result->y = LIM(param->alpha.y + k * param->beta.y);
+  result->z = LIM(param->alpha.z + k * param->beta.z);
+}
 
-  t = get_t(ray, plane, lvl);
-  point->x = LIM(ray->alpha.x + t * ray->beta.x);
-  point->y = LIM(ray->alpha.y + t * ray->beta.y);
-  point->z = LIM(ray->alpha.z + t * ray->beta.z);
+float	get_range(t_ray *ray, char plane, int lvl, t_vec *point)
+{
+  float	k;
+
+  k = get_k(ray, plane, lvl);
+  calc_pos(point, ray, k);
+  return (k);
 }

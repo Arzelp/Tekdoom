@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Wed Jan 13 18:27:28 2016 Frederic ODDOU
+## Last update Thu Jan 14 10:34:12 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -20,7 +20,7 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -ansi -pedantic
+		-W -Wall -Wextra
 
 SRC	=	./src/
 
@@ -30,6 +30,8 @@ MAP	=	./src/map/
 
 MY	=	./src/my/
 
+DISP	=	./src/display/
+
 SRCS	=	$(SRC)main.c \
 		$(SRC)load_bmp.c \
 		$(SRC)tekpixel.c \
@@ -37,6 +39,9 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)print.c \
 		$(MAP)pos.c \
 		$(MAP)map_check_pos.c \
+		$(DISP)arithmetic.c \
+		$(DISP)find_k.c \
+		$(DISP)display.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \
 		$(MY)my_strcat.c \
