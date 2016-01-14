@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 10:52:38 2016 Arnaud Alies
+** Last update Thu Jan 14 10:56:45 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -24,13 +24,13 @@ int     move(t_data *data)
 {
   if (data->keys != NULL)
     {
-      if (data->keys[BKS_D])
+      if (data->keys[BKS_LEFT])
 	(data->me).alpha -= 0.05;
-      if (data->keys[BKS_Q])
+      if (data->keys[BKS_RIGHT])
 	(data->me).alpha += 0.05;
-      if (data->keys[BKS_Z])
+      if (data->keys[BKS_UP])
 	walk(data, 1);
-      if (data->keys[BKS_S])
+      if (data->keys[BKS_DOWN])
 	walk(data, -1);
     }
   return (0);
@@ -45,7 +45,7 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   move(data);
-  printf("%f\n", (data->me).alpha);
+  printf("%f %f %f | %f\n", ((data->me).pos).x, ((data->me).pos).y, ((data->me).pos).z, (data->me).alpha);
   display(data);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   bunny_display(data->win);
