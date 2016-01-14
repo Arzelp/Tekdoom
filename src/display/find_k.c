@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Thu Jan 14 21:36:44 2016 Arnaud Alies
+** Last update Thu Jan 14 21:55:45 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -109,7 +109,7 @@ void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
   //printf("%f %f %f\n", res.x, res.y, res.z);
   final.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
   final.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
-  final.z = res.z * cos(me->beta) - res.z * sin(me->beta);
+  final.z = res.z * sin(me->beta) + res.z * cos(me->beta);
   //printf("%f %f %f\n", final.x, final.y, final.z);
 
   ray->alpha.x = me->pos.x / 2;

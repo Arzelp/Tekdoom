@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 21:26:02 2016 Arnaud Alies
+** Last update Thu Jan 14 21:57:26 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -84,7 +84,7 @@ t_map		*init_map()
 {
   t_map *map;
   
-  if ((map = map_gen(5)) == NULL)
+  if ((map = map_gen(6)) == NULL)
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
@@ -96,8 +96,8 @@ void		init_player(t_me *player)
 {
   (player->pos).x = 2.5;
   (player->pos).y = 2.5;
-  (player->pos).z = 2;
-  player->alpha = 0;
+  (player->pos).z = -3;
+  player->alpha = 0.5;
   player->beta = 0;
 }
 
