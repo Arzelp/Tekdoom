@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:11:52 2016 Paskal Arzel
-** Last update Fri Jan 15 19:43:33 2016 Paskal Arzel
+** Last update Fri Jan 15 19:48:31 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -74,7 +74,7 @@ int	fallen(t_data *data)
 
 int	gojump(t_data *data)
 {
-  if (data->keys[BKS_E])
+  if (data->keys[BKS_SPACE])
     jumpin(data);
   fallen(data);
   return (0);
