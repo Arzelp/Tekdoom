@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 11:54:43 2016 Arnaud Alies
+** Last update Fri Jan 15 14:04:34 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -96,7 +96,8 @@ void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
   vector.x = impact->x -data->me.pos.x;
   vector.y = impact->y - data->me.pos.y;
   vector.z = impact->z - data->me.pos.z;
-  *norme = k_min * sqrt(vector.x * vector.x
+  /**norme = k_min * sqrt(vector.x * vector.x
 	       + vector.y * vector.y
-	       + vector.z * vector.z);
+	       + vector.z * vector.z);*/
+  *norme = k_min;
 }

@@ -5,12 +5,12 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 10:14:55 2016 Arthur Josso
+** Last update Fri Jan 15 14:08:43 2016 Arnaud Alies
 */
 
 #include "doom.h"
 
-#define LOIN (80)
+#define LOIN (10)
 
 void	set_pix(t_data *data, t_pos *pos)
 {
@@ -21,8 +21,7 @@ void	set_pix(t_data *data, t_pos *pos)
   t_bunny_position p;
 
   get_point(data, pos, &impact, &norme);
-  if (norme > LOIN)
-    norme = LOIN;
+  norme = (norme > LOIN ? LOIN : norme);
   col = 255 - MAP(norme, 0, LOIN, 0, 255);
   color.argb[RED_CMP] = col;
   color.argb[BLUE_CMP] = col;
