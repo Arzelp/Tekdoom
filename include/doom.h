@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 15:17:31 2016 Paskal Arzel
+** Last update Fri Jan 15 15:33:07 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -36,7 +36,7 @@ typedef struct s_jump
   int	inair;
   int	fall;
   int	impuls;
-}t_jump
+} t_jump;
 
 typedef struct s_data
 {
