@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Fri Jan 15 18:46:21 2016 Arnaud Alies
+** Last update Fri Jan 15 18:59:44 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -66,6 +66,7 @@ void            map_set_wall(t_map *map)
   int		size;
 
   block.x = 1;
+  block.texture = 1;
   size = (map->head).size;
   pos.x = 0;
   pos.y = 0;

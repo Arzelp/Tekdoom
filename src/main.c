@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 18:50:06 2016 Arnaud Alies
+** Last update Fri Jan 15 18:58:23 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -56,7 +56,7 @@ t_map		*init_map()
   t_pos pos;
 
   x.x = 1;
-  x.texture = 2;
+  x.texture = 4;
   if ((map = map_gen(8)) == NULL)
     return (NULL);
   map_set_flat(map);
