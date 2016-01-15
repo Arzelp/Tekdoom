@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 19:29:37 2016 Paskal Arzel
+** Last update Fri Jan 15 19:44:33 2016 arzel_p
 */
 
 #include <lapin.h>
@@ -57,7 +57,7 @@ t_map		*init_map()
 
   x.x = 1;
   x.texture = 4;
-  if ((map = map_gen(8)) == NULL)
+  if ((map = map_gen(50)) == NULL)
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
@@ -107,7 +107,7 @@ int		main(int ac, char **av)
   //(data.texture)->pixels += 32;
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
-  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)
+  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "TekDoom")) == NULL)
     return (1);
   bunny_set_loop_main_function(loop);
   bunny_set_key_response(&key_listenner);
