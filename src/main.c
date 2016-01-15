@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 10:18:25 2016 Arnaud Alies
+** Last update Fri Jan 15 10:23:48 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -83,11 +83,27 @@ t_bunny_response key_listenner(t_bunny_event_state state,
 t_map		*init_map()
 {
   t_map *map;
+  t_block x;
+  t_pos pos;
+  x.x = 1;
   
   if ((map = map_gen(7)) == NULL)
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
+
+  pos.x = 5;
+  pos.y = 5;
+  pos.z = 3;
+  map_set(map, &pos, x);
+  pos.x = 5;
+  pos.y = 4;
+  pos.z = 2;
+  map_set(map, &pos, x);
+  pos.x = 5;
+  pos.y = 3;
+  pos.z = 1;
+  map_set(map, &pos, x);
   map_print(map);
   return (map);
 }
