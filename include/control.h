@@ -5,13 +5,14 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Fri Jan 15 15:25:18 2016 Paskal Arzel
+** Last update Fri Jan 15 19:19:30 2016 Arthur Josso
 */
 
 #ifndef CONTROL_H_
 #define CONTROL_H_
 
-int     walk(t_data *data, int speed);
+int     walk(t_data *data, float speed);
+int     walk_side(t_data *data, float speed);
 int     move(t_data *data);
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,

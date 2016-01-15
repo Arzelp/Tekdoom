@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 18:50:06 2016 Arnaud Alies
+** Last update Fri Jan 15 19:08:39 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -114,7 +114,7 @@ int		main(int ac, char **av)
   //(data.texture)->pixels += 32;
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
-  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)
+  if ((data.win = bunny_start(WIDTH, HEIGHT, false, "TekDoom")) == NULL)
     return (1);
   bunny_set_loop_main_function(loop);
   bunny_set_key_response(&key_listenner);

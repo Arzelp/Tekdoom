@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Fri Jan 15 15:29:47 2016 Paskal Arzel
+** Last update Fri Jan 15 19:19:05 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -33,31 +33,52 @@ int	walk_checkcoli(t_pos pos, t_data *data)
   return (0);
 }
 
-int     walk(t_data *data, int speed)
+int     walk(t_data *data, float speed)
 {
   t_pos		pos;
 
-  ((data->me).pos).x += cos((data->me).alpha) / 100 * speed;
+  ((data->me).pos).x += cos((data->me).alpha) * speed;
   pos.x = (int)((data->me).pos).x;
   pos.y = (int)((data->me).pos).y;
   pos.z = (int)((data->me).pos).z;
   if (walk_checkcoli(pos, data) == 1)
-    ((data->me).pos).x -= cos((data->me).alpha) / 100 * speed;
-  ((data->me).pos).y += sin((data->me).alpha) / 100 * speed;
+    ((data->me).pos).x -= cos((data->me).alpha) * speed;
+  ((data->me).pos).y += sin((data->me).alpha) * speed;
   pos.x = (int)((data->me).pos).x;
   pos.y = (int)((data->me).pos).y;
   if (walk_checkcoli(pos, data) == 1)
-    ((data->me).pos).y -= sin((data->me).alpha) / 100 * speed;
-  //((data->me).pos).z += sin((data->me).) / 100 * speed;
+    ((data->me).pos).y -= sin((data->me).alpha) * speed;
+  return (0);
+}
+
+int     walk_side(t_data *data, float speed)
+{
+  t_pos         pos;
+
+  ((data->me).pos).x += cos((data->me).alpha + M_PI / 2) * speed;
+  pos.x = (int)((data->me).pos).x;
+  pos.y = (int)((data->me).pos).y;
+  pos.z = (int)((data->me).pos).z;
+  if (walk_checkcoli(pos, data) == 1)
+    ((data->me).pos).x -= cos((data->me).alpha + M_PI / 2) * speed;
+  ((data->me).pos).y += sin((data->me).alpha + M_PI / 2) * speed;
+  pos.x = (int)((data->me).pos).x;
+  pos.y = (int)((data->me).pos).y;
+  if (walk_checkcoli(pos, data) == 1)
+    ((data->me).pos).y -= sin((data->me).alpha + M_PI / 2) * speed;
   return (0);
 }
 
 int	gomove(t_data *data)
 {
-  if (data->keys[BKS_Z])
-    walk(data, 10);
+  if (data->keys[BKS_E])
+    walk(data, 0.1);
+  if (data->keys[BKS_D])
+    walk(data, -0.1);
   if (data->keys[BKS_S])
-    walk(data, -10);
+    walk_side(data, 0.1);
+  if (data->keys[BKS_F])
+    walk_side(data, -0.1);
   if (data->keys[BKS_LEFT])
     (data->me).alpha += 0.05;
   if (data->keys[BKS_RIGHT])

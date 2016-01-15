@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 18:56:33 2016 Arthur Josso
+** Last update Fri Jan 15 19:03:10 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -36,12 +36,10 @@ static void	set_pix(t_data *data, t_bunny_position *pos)
 {
   t_hit		hit;
   t_color	col;
-  float		mem;
 
   get_point(data, pos, &hit);
   set_hit_info(&hit);
   col = get_texture(data, &hit.blk, &hit.ratio);
-  mem = hit.norm;
   hit.norm = 1 / hit.norm;
   col.argb[RED_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[RED_CMP]);
   col.argb[BLUE_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[BLUE_CMP]);
