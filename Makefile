@@ -5,7 +5,11 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
+<<<<<<< HEAD
+## Last update Fri Jan 15 13:28:02 2016 Paskal Arzel
+=======
 ## Last update Fri Jan 15 14:15:37 2016 Arnaud Alies
+>>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
 ##
 
 NAME    =       tekdoom
@@ -32,6 +36,8 @@ MY	=	./src/my/
 
 DISP	=	./src/display/
 
+CTRL = ./src/control/
+
 SRCS	=	$(SRC)main.c \
 		$(SRC)load_bmp.c \
 		$(SRC)tekpixel.c \
@@ -39,6 +45,8 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)print.c \
 		$(MAP)pos.c \
 		$(MAP)map_check_pos.c \
+		$(CTRL)move.c \
+		$(CTRL)control.c \
 		$(DISP)arithmetic.c \
 		$(DISP)find_k.c \
 		$(DISP)display.c \

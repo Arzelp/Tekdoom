@@ -1,49 +1,22 @@
 /*
 ** main.c for main in /home/alies/rendu/gfx_wolf3d
-** 
+**
 ** Made by Arnaud Alies
 ** Login   <alies_a@epitech.net>
-** 
+**
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
+<<<<<<< HEAD
+** Last update Fri Jan 15 13:43:23 2016 Paskal Arzel
+=======
 ** Last update Fri Jan 15 13:22:08 2016 Arnaud Alies
+>>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
 #include "map.h"
-
-int     walk(t_data *data, int speed)
-{
-  ((data->me).pos).x += cos((data->me).alpha) / 100 * speed;
-  ((data->me).pos).y += sin((data->me).alpha) / 100 * speed;
-  //((data->me).pos).z += sin((data->me).) / 100 * speed;
-  return (0);
-}
-
-int     move(t_data *data)
-{
-  if (data->keys != NULL)
-    {
-      if (data->keys[BKS_LEFT])
-	(data->me).alpha += 0.05;
-      if (data->keys[BKS_RIGHT])
-	(data->me).alpha -= 0.05;
-      if (data->keys[BKS_UP])
-	(data->me).beta -= 0.05;
-      if (data->keys[BKS_DOWN])
-	(data->me).beta += 0.05;
-      if (data->keys[BKS_Z])
-	walk(data, 10);
-      if (data->keys[BKS_S])
-	walk(data, -10);
-      if (data->keys[BKS_O])
-	((data->me).pos).z += 0.1;
-      if (data->keys[BKS_L])
-	((data->me).pos).z -= 0.1;
-    }
-  return (0);
-}
+#include "control.h"
 
 static t_bunny_response	loop(void *data_pt)
 {
@@ -65,27 +38,19 @@ static t_bunny_response	loop(void *data_pt)
   return (GO_ON);
 }
 
-t_bunny_response key_listenner(t_bunny_event_state state,
-			       t_bunny_keysym keysym,
-			       void *data_pt)
-{
-  t_data	*data;
-
-  data = (t_data*)data_pt;
-  data->keys = bunny_get_keyboard();
-  if (state == GO_DOWN && keysym == BKS_ESCAPE)
-    return (EXIT_ON_SUCCESS);
-  return (GO_ON);
-}
-
 t_map		*init_map()
 {
   t_map *map;
   t_block x;
   t_pos pos;
   x.x = 1;
+<<<<<<< HEAD
+
+  if ((map = map_gen(7)) == NULL)
+=======
   
   if ((map = map_gen(8)) == NULL)
+>>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);

@@ -5,40 +5,22 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Fri Jan 15 11:44:37 2016 Paskal Arzel
+** Last update Fri Jan 15 13:41:53 2016 Paskal Arzel
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
 #include "map.h"
-
-int     walk(t_data *data, int speed)
-{
-  ((data->me).pos).x += cos((data->me).alpha) * (speed / 100);
-  ((data->me).pos).y += sin((data->me).alpha) * (speed / 100);
-  //((data->me).pos).z += sin((data->me).) / 100 * speed;
-  return (0);
-}
+#include "control.h"
 
 int     move(t_data *data)
 {
   if (data->keys != NULL)
     {
-      if (data->keys[BKS_LEFT])
-	(data->me).alpha += 0.05;
-      if (data->keys[BKS_RIGHT])
-	(data->me).alpha -= 0.05;
-      if (data->keys[BKS_UP])
-	(data->me).beta -= 0.05;
-      if (data->keys[BKS_DOWN])
-	(data->me).beta += 0.05;
-      if (data->keys[BKS_Z])
-	walk(data, 10);
-      if (data->keys[BKS_S])
-	walk(data, -10);
-      if (data->keys[BKS_P])
-	p = !p;
+      gomove(data);
+      /*if (data->keys[BKS_P])
+	p = !p;*/
       if (data->keys[BKS_O])
 	((data->me).pos).z += 0.1;
       if (data->keys[BKS_L])
