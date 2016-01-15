@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 14:51:40 2016 Arthur Josso
+** Last update Fri Jan 15 18:12:51 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -14,7 +14,7 @@
 
 #define LOLMAGICBITCH (0.0001)
 
-static void	test_x(t_data *data, t_ray *ray, float *k_min)
+static void	test_x(t_data *data, t_ray *ray, t_hit *hit)
 {
   t_vec		pt;
   float		k;
@@ -26,13 +26,17 @@ static void	test_x(t_data *data, t_ray *ray, float *k_min)
       k = get_range(ray, 'x', i, &pt);
       pt.x -= data->me.pos.x >= i ? 1 : 0;
       if (pt.x >= 0 && map_check_pos(data->map, &pt)
-	  && k >= 0 && k < *k_min)
-	*k_min = k;
+	  && k >= 0 && k < hit->norm)
+	{
+	  hit->norm = k;
+	  hit->axe = 'x';
+	  hit->pt = pt;
+	}
       i++;
     }
 }
 
-static void     test_y(t_data *data, t_ray *ray, float *k_min)
+static void     test_y(t_data *data, t_ray *ray, t_hit *hit)
 {
   t_vec         pt;
   float         k;
@@ -44,13 +48,17 @@ static void     test_y(t_data *data, t_ray *ray, float *k_min)
       k = get_range(ray, 'y', i, &pt);
       pt.y -= data->me.pos.y >= i ? 1 : 0;
       if (pt.y >= 0 && map_check_pos(data->map, &pt)
-	  && k >= 0 && k < *k_min)
-	*k_min = k;
+	  && k >= 0 && k < hit->norm)
+	{
+	  hit->norm = k;
+	  hit->axe = 'y';
+	  hit->pt = pt;
+	}
       i++;
     }
 }
 
-static void     test_z(t_data *data, t_ray *ray, float *k_min)
+static void     test_z(t_data *data, t_ray *ray, t_hit *hit)
 {
   t_vec         pt;
   float         k;
@@ -62,13 +70,17 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
       k = get_range(ray, 'z', i, &pt);
       pt.z -= data->me.pos.z >= i ? 1 : 0;
       if (pt.z >= 0 && map_check_pos(data->map, &pt)
-	  && k >= 0 && k < *k_min)
-	*k_min = k;
+	  && k >= 0 && k < hit->norm)
+	{
+	  hit->norm = k;
+	  hit->axe = 'z';
+	  hit->pt = pt;
+	}
       i++;
     }
 }
 
-void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
+static void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
 {
   t_vec res;
 
@@ -83,23 +95,13 @@ void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
   ray->alpha.z = -me->pos.z;
 }
 
-void    get_point(t_data *data, t_bunny_position *pos, t_vec *impact, float *norme)
+void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit)
 {
-  float k_min;
   t_ray ray;
 
   get_ray(&data->me, pos, &ray);
-  k_min = 3 * data->map->head.size;
-  test_x(data, &ray, &k_min);
-  test_y(data, &ray, &k_min);
-  test_z(data, &ray, &k_min);
-  calc_pos(impact, &ray, k_min);
-  /*
-  vector.x = impact->x -data->me.pos.x;
-  vector.y = impact->y - data->me.pos.y;
-  vector.z = impact->z - data->me.pos.z;
-  *norme = k_min * sqrt(vector.x * vector.x
-	       + vector.y * vector.y
-	       + vector.z * vector.z);*/
-  *norme = k_min;
+  hit->norm = 3 * data->map->head.size;
+  test_x(data, &ray, hit);
+  test_y(data, &ray, hit);
+  test_z(data, &ray, hit);
 }

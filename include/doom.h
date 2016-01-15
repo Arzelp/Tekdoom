@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 15:33:07 2016 Paskal Arzel
+** Last update Fri Jan 15 18:09:49 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -61,10 +61,18 @@ typedef struct s_ray
   t_vec	beta;
 } t_ray;
 
+typedef struct s_hit
+{
+  t_vec                 pt;
+  char                  axe;
+  float                 norm;
+  t_bunny_position      ratio;
+  t_pos                 blk;
+} t_hit;
+
 void    display(t_data *data);
 
-//void    get_ray(t_me *me, t_pos *pos, t_ray *ray);
-void    get_point(t_data *data, t_bunny_position *pos, t_vec *impact, float *norme);
+void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
 
