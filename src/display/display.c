@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 14:14:06 2016 Arnaud Alies
+** Last update Fri Jan 15 14:30:11 2016 Arnaud Alies
 */
 
 #include "doom.h"
@@ -18,7 +18,6 @@ void	set_pix(t_data *data, t_bunny_position *pos)
   float	norme;
   char	col;
   t_color color;
-  t_bunny_position p;
 
   get_point(data, pos, &impact, &norme);
   norme = (norme > LOIN ? LOIN : norme);
@@ -26,24 +25,23 @@ void	set_pix(t_data *data, t_bunny_position *pos)
   color.argb[RED_CMP] = col;
   color.argb[BLUE_CMP] = col;
   color.argb[GREEN_CMP] = col;
-  p.x = pos->x;
-  p.y = pos->y;
-  tekpixel(data->pix, &p, &color);
+  tekpixel(data->pix, pos, &color);
 }
 
-void	display(t_data *data)
+void			display(t_data *data)
 {
-  t_bunny_position pos;
+  t_bunny_position	pos;
 
   pos.x = 0;
-  while (pos.x < WIDTH)
+  pos.y = 0;
+  while (pos.y < HEIGHT)
     {
-      pos.y = 0;
-      while (pos.y < HEIGHT)
+      set_pix(data, &pos);
+      pos.x += 1;
+      if (pos.x > WIDTH)
 	{
-	  set_pix(data, &pos);
-	  pos.y++;
+	  pos.y += 1;
+	  pos.x = 0;
 	}
-      pos.x++;
     }
 }
