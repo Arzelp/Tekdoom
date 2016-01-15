@@ -5,13 +5,14 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 18:12:51 2016 Arthur Josso
+** Last update Fri Jan 15 19:41:41 2016 Arnaud Alies
 */
 
 #include <math.h>
 #include "doom.h"
 #include "map.h"
 
+#define VIEW_DIST 4
 #define LOLMAGICBITCH (0.0001)
 
 static void	test_x(t_data *data, t_ray *ray, t_hit *hit)
@@ -20,8 +21,9 @@ static void	test_x(t_data *data, t_ray *ray, t_hit *hit)
   float		k;
   float		i;
 
-  i = LOLMAGICBITCH;
-  while (i < data->map->head.size)
+  i = (int)((data->me).pos).x - VIEW_DIST;
+  i += LOLMAGICBITCH;
+  while (i < ((data->me).pos).x + VIEW_DIST)
     {
       k = get_range(ray, 'x', i, &pt);
       pt.x -= data->me.pos.x >= i ? 1 : 0;
@@ -42,8 +44,9 @@ static void     test_y(t_data *data, t_ray *ray, t_hit *hit)
   float         k;
   float		i;
 
-  i = LOLMAGICBITCH;
-  while (i < data->map->head.size)
+  i = (int)((data->me).pos).y - VIEW_DIST;
+  i += LOLMAGICBITCH;
+  while (i < ((data->me).pos).y + VIEW_DIST)
     {
       k = get_range(ray, 'y', i, &pt);
       pt.y -= data->me.pos.y >= i ? 1 : 0;
@@ -64,8 +67,9 @@ static void     test_z(t_data *data, t_ray *ray, t_hit *hit)
   float         k;
   float		i;
 
-  i = LOLMAGICBITCH;
-  while (i < data->map->head.size)
+  i = (int)((data->me).pos).z - VIEW_DIST;
+  i += LOLMAGICBITCH;
+  while (i < ((data->me).pos).z + VIEW_DIST)
     {
       k = get_range(ray, 'z', i, &pt);
       pt.z -= data->me.pos.z >= i ? 1 : 0;
