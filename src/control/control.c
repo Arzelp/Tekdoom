@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Fri Jan 15 15:38:36 2016 Frederic ODDOU
+** Last update Fri Jan 15 19:38:16 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -14,20 +14,30 @@
 #include "map.h"
 #include "control.h"
 
+int	initjump(t_data	*data)
+{
+  t_jump	*jump;
+
+  if ((jump = malloc(sizeof(t_jump))) == NULL)
+    return (1);
+  jump->fall = 0;
+  jump->inair = 0;
+  data->jump = jump;
+  return (0);
+}
+
 int     move(t_data *data)
 {
+  if (data->jump == NULL)
+    initjump(data);
   if (data->keys != NULL)
     {
       gomove(data);
-      /*gojump(data->map, (data->me).vec);*/
+      gojump(data);
       /*if (data->keys[BKS_P])
 	p = !p;*/
       if (data->keys[BKS_B])
 	map_create_block(data->map, (data->me).pos);
-      if (data->keys[BKS_O])
-	((data->me).pos).z += 0.1;
-      if (data->keys[BKS_L])
-	((data->me).pos).z -= 0.1;
     }
   return (0);
 }

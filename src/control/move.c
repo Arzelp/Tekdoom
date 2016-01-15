@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Fri Jan 15 15:29:47 2016 Paskal Arzel
+** Last update Fri Jan 15 18:33:53 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -22,6 +22,8 @@ int	walk_checkcoli(t_pos pos, t_data *data)
   i = 0;
   while (i <= 2)
     {
+      if (pos.z <= 0)
+	return (1);
       block = map_get(data->map, &pos);
       if (block == NULL)
 	return (1);
@@ -48,7 +50,6 @@ int     walk(t_data *data, int speed)
   pos.y = (int)((data->me).pos).y;
   if (walk_checkcoli(pos, data) == 1)
     ((data->me).pos).y -= sin((data->me).alpha) / 100 * speed;
-  //((data->me).pos).z += sin((data->me).) / 100 * speed;
   return (0);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 18:58:23 2016 Arnaud Alies
+** Last update Fri Jan 15 19:29:37 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -82,13 +82,6 @@ t_map		*init_map()
   return (map);
 }
 
-/*void	init_jump(t_jump *jump)
-{
-  jump->fall = 0;
-  jump->inair = 0;
-  jump->impuls = 0;
-}*/
-
 void		init_player(t_me *player)
 {
   (player->pos).x = 2.5;
@@ -107,8 +100,8 @@ int		main(int ac, char **av)
   data.keys = NULL;
   if ((data.map = init_map()) == NULL)
     return (1);
+  data.jump = NULL;
   init_player(&(data.me));
-/*  init_jump(&(data.jump));*/
   if ((data.texture = load_bitmap("res/textures.bmp")) == NULL)
     return (1);
   //(data.texture)->pixels += 32;
