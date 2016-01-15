@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 15:33:07 2016 Paskal Arzel
+** Last update Fri Jan 15 18:27:41 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
@@ -42,6 +42,7 @@ typedef struct s_data
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
+  t_bunny_pixelarray	*texture;
   const bool		*keys;
   t_me			me;
   t_jump		*jump;
@@ -71,6 +72,9 @@ void    calc_pos(t_vec *result, t_ray *param, float k);
 /*
 ** Core
 */
+
+t_color	get_pixel(t_bunny_pixelarray *pix,
+		  t_bunny_position *pos);
 
 void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,

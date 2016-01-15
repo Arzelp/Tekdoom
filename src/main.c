@@ -5,14 +5,33 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 15:32:24 2016 Paskal Arzel
+** Last update Fri Jan 15 18:28:25 2016 Arnaud Alies
 */
 
 #include <lapin.h>
 #include <math.h>
+#include "bmp.h"
 #include "doom.h"
 #include "map.h"
 #include "control.h"
+
+
+t_color		get_texture(t_data *data,
+			    t_pos *block_x,
+			    t_bunny_position *pos)
+{
+  t_texture	*tex;
+  t_block	*block;
+  t_color	res;
+
+  res.full = WHITE;
+  if ((block = map_get(data->map, block_x)) == NULL)
+    return (res);
+  text = data->texture;
+  text->pixels += block->texture * 32;
+  res = get_pixel(tex, pos)
+  return (res);
+}
 
 static t_bunny_response	loop(void *data_pt)
 {
@@ -23,13 +42,9 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   move(data);
-  /*printf("%f %f %f | %f\n",
-	 ((data->me).pos).x,
-	 ((data->me).pos).y,
-	 ((data->me).pos).z,
-	 (data->me).alpha);*/
   display(data);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  //bunny_blit(&((data->win)->buffer), &((data->texture)->clipable), &zero);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -93,6 +108,9 @@ int		main(int ac, char **av)
     return (1);
   init_player(&(data.me));
 /*  init_jump(&(data.jump));*/
+  if ((data.texture = load_bitmap("res/textures.bmp")) == NULL)
+    return (1);
+  //(data.texture)->pixels += 32;
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)

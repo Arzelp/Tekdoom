@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Thu Jan 14 16:18:45 2016 Arnaud Alies
+** Last update Fri Jan 15 18:07:38 2016 Arnaud Alies
 */
 
 #include <stdlib.h>
@@ -29,6 +29,7 @@ t_map	*map_gen(int size)
   while (x < max)
     {
       ((res->blocks)[x]).x = 0;
+      ((res->blocks)[x]).texture = 1;
       x += 1;
     }
   return (res);

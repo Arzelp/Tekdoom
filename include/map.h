@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Fri Jan 15 15:21:19 2016 Frederic ODDOU
+** Last update Fri Jan 15 18:02:48 2016 Arnaud Alies
 */
 
 #ifndef MAP_H_
@@ -26,6 +26,7 @@
 typedef struct s_block
 {
   uint32_t x;
+  uint32_t texture;
 } __attribute__((packed)) t_block;
 
 typedef struct s_map_head
