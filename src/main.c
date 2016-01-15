@@ -6,7 +6,7 @@
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
 <<<<<<< HEAD
-** Last update Fri Jan 15 13:43:23 2016 Paskal Arzel
+** Last update Fri Jan 15 14:55:26 2016 Arnaud Alies
 =======
 ** Last update Fri Jan 15 13:22:08 2016 Arnaud Alies
 >>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
@@ -43,14 +43,9 @@ t_map		*init_map()
   t_map *map;
   t_block x;
   t_pos pos;
-  x.x = 1;
-<<<<<<< HEAD
 
-  if ((map = map_gen(7)) == NULL)
-=======
-  
+  x.x = 1;
   if ((map = map_gen(8)) == NULL)
->>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
