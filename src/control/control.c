@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Fri Jan 15 15:33:38 2016 Paskal Arzel
+** Last update Fri Jan 15 15:38:36 2016 Frederic ODDOU
 */
 
 #include <lapin.h>
@@ -22,8 +22,8 @@ int     move(t_data *data)
       /*gojump(data->map, (data->me).vec);*/
       /*if (data->keys[BKS_P])
 	p = !p;*/
-      /*if (data->keys[BKS_B])
-	map_create_block(data->me);*/
+      if (data->keys[BKS_B])
+	map_create_block(data->map, (data->me).pos);
       if (data->keys[BKS_O])
 	((data->me).pos).z += 0.1;
       if (data->keys[BKS_L])
