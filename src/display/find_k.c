@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 10:14:40 2016 Arthur Josso
+** Last update Fri Jan 15 10:17:35 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -68,23 +68,17 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
 
 void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
 {
-  t_vec scr;
-
   t_vec res;
-  t_vec final;
 
   res.x = DIST;
   res.y = FOV *(((WIDTH / 2) - (float)sr->x) / WIDTH);
   res.z = FOV * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
-  final.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
-  final.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
-  final.z = res.z * sin(me->beta) + res.z * cos(me->beta);
+  ray->beta.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
+  ray->beta.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
+  ray->beta.z = res.z * sin(me->beta) + res.z * cos(me->beta);
   ray->alpha.x = -me->pos.x;
   ray->alpha.y = -me->pos.y;
   ray->alpha.z = -me->pos.z;
-  ray->beta.x = final.x;
-  ray->beta.y = final.y;
-  ray->beta.z = final.z;
 }
 
 void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)

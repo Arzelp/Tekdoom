@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 10:04:10 2016 Arthur Josso
+** Last update Fri Jan 15 10:18:25 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -56,11 +56,11 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   move(data);
-  printf("%f %f %f | %f\n",
+  /*printf("%f %f %f | %f\n",
 	 ((data->me).pos).x,
 	 ((data->me).pos).y,
 	 ((data->me).pos).z,
-	 (data->me).alpha);
+	 (data->me).alpha);*/
   display(data);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   bunny_display(data->win);
@@ -84,7 +84,7 @@ t_map		*init_map()
 {
   t_map *map;
   
-  if ((map = map_gen(6)) == NULL)
+  if ((map = map_gen(7)) == NULL)
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
