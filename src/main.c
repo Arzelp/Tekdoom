@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 18:40:15 2016 Arnaud Alies
+** Last update Fri Jan 15 18:50:06 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -21,16 +21,15 @@ t_color		get_texture(t_data *data,
 			    t_bunny_position *pos)
 {
   t_bunny_pixelarray	*text;
-  t_block	*block;
-  t_color	res;
+  t_block		*block;
+  t_color		res;
 
   res.full = WHITE;
   if ((block = map_get(data->map, block_x)) == NULL)
     return (res);
   text = data->texture;
-  text->pixels += block->texture * 32;
+  pos->x += block->texture * 32;
   res = get_pixel(text, pos);
-  text->pixels -= block->texture * 32;
   return (res);
 }
 
