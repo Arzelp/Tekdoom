@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 18:22:17 2016 Arthur Josso
+** Last update Fri Jan 15 18:31:19 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -40,8 +40,8 @@ static void	set_pix(t_data *data, t_bunny_position *pos)
   get_point(data, pos, &hit);
   set_hit_info(&hit);
   //printf("block : %d %d %d    ratio : %d %d\n", hit.blk.x, hit.blk.y, hit.blk.z, hit.ratio.x, hit.ratio.y);
-  color.full = rand();
-  //color = get_texture(data, &hit.blk, &hit.ratio);
+  //color.full = rand();
+  color = get_texture(data, &hit.blk, &hit.ratio);
   tekpixel(data->pix, pos, &color);
 }
 
