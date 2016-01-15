@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 18:56:33 2016 Arthur Josso
+** Last update Fri Jan 15 19:07:39 2016 Arnaud Alies
 */
 
 #include "doom.h"
@@ -43,9 +43,12 @@ static void	set_pix(t_data *data, t_bunny_position *pos)
   col = get_texture(data, &hit.blk, &hit.ratio);
   mem = hit.norm;
   hit.norm = 1 / hit.norm;
-  col.argb[RED_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[RED_CMP]);
-  col.argb[BLUE_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[BLUE_CMP]);
-  col.argb[GREEN_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[GREEN_CMP]);
+  if (hit.norm < 1)
+    {
+      col.argb[RED_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[RED_CMP]);
+      col.argb[BLUE_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[BLUE_CMP]);
+      col.argb[GREEN_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[GREEN_CMP]);
+    }
   tekpixel(data->pix, pos, &col);
 }
 
