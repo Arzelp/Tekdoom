@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 14 21:57:26 2016 Arnaud Alies
+** Last update Fri Jan 15 10:04:10 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -96,7 +96,7 @@ void		init_player(t_me *player)
 {
   (player->pos).x = 2.5;
   (player->pos).y = 2.5;
-  (player->pos).z = -3;
+  (player->pos).z = 3;
   player->alpha = 0.5;
   player->beta = 0;
 }
