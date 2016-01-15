@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 10:17:35 2016 Arnaud Alies
+** Last update Fri Jan 15 10:53:35 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -75,7 +75,7 @@ void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
   res.z = FOV * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
   ray->beta.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
   ray->beta.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
-  ray->beta.z = res.z * sin(me->beta) + res.z * cos(me->beta);
+  ray->beta.z = res.z/* * sin(me->beta) + res.z * cos(me->beta)*/;
   ray->alpha.x = -me->pos.x;
   ray->alpha.y = -me->pos.y;
   ray->alpha.z = -me->pos.z;

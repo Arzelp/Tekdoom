@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 10:30:02 2016 Arnaud Alies
+** Last update Fri Jan 15 11:12:52 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
@@ -21,47 +21,8 @@
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 #include <lapin.h>
-
-int p;
-
-typedef struct s_block
-{
-  uint32_t x;
-} __attribute__((packed)) t_block;
-
-typedef struct s_map_head
-{
-  uint32_t	version;
-  int		size;
-  uint32_t	offset;
-} __attribute__((packed)) t_map_head;
-
-/*
-** map file format:
-** <header>
-** <textures> textures starts just after header
-** <blocks> blocks start after offset defined in the header
-*/
-
-typedef struct s_map
-{
-  t_map_head head;
-  t_block *blocks;
-} __attribute__((packed)) t_map;
-
-typedef struct s_pos
-{
-  int x;
-  int y;
-  int z;
-} t_pos;
-
-typedef struct s_vec
-{
-  float x;
-  float y;
-  float z;
-} t_vec;
+#include "doom_base.h"
+#include "map.h"
 
 typedef struct s_me
 {
@@ -85,7 +46,6 @@ typedef struct s_data
 
 #define MAX (99)
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
-//#define LIM(x) ((x))
 
 typedef struct s_ray
 {
