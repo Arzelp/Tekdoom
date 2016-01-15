@@ -5,20 +5,22 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 14:33:31 2016 Arnaud Alies
+** Last update Fri Jan 15 14:51:40 2016 Arthur Josso
 */
 
 #include <math.h>
 #include "doom.h"
 #include "map.h"
 
+#define LOLMAGICBITCH (0.0001)
+
 static void	test_x(t_data *data, t_ray *ray, float *k_min)
 {
   t_vec		pt;
   float		k;
-  int		i;
+  float		i;
 
-  i = 0;
+  i = LOLMAGICBITCH;
   while (i < data->map->head.size)
     {
       k = get_range(ray, 'x', i, &pt);
@@ -34,9 +36,9 @@ static void     test_y(t_data *data, t_ray *ray, float *k_min)
 {
   t_vec         pt;
   float         k;
-  int           i;
+  float		i;
 
-  i = 0;
+  i = LOLMAGICBITCH;
   while (i < data->map->head.size)
     {
       k = get_range(ray, 'y', i, &pt);
@@ -52,9 +54,9 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
 {
   t_vec         pt;
   float         k;
-  int           i;
+  float		i;
 
-  i = 0;
+  i = LOLMAGICBITCH;
   while (i < data->map->head.size)
     {
       k = get_range(ray, 'z', i, &pt);

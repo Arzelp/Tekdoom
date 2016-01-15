@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 15:03:08 2016 Paskal Arzel
+** Last update Fri Jan 15 15:03:51 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -39,6 +39,10 @@ t_map		*init_map()
   t_map *map;
   t_block x;
   t_pos pos;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c62cc92e25375be989c9ec967163080d6f6133d
   x.x = 1;
   if ((map = map_gen(8)) == NULL)
     return (NULL);
