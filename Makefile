@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Thu Jan 14 18:33:09 2016 Arthur Josso
+## Last update Fri Jan 15 10:33:53 2016 Arnaud Alies
 ##
 
 NAME    =       tekdoom
@@ -20,7 +20,7 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -Wextra
+		-W -Wall -Wextra -O3
 
 SRC	=	./src/
 
