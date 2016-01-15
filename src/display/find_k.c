@@ -5,14 +5,14 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 19:41:41 2016 Arnaud Alies
+** Last update Fri Jan 15 19:43:06 2016 Arnaud Alies
 */
 
 #include <math.h>
 #include "doom.h"
 #include "map.h"
 
-#define VIEW_DIST 4
+#define VIEW_DIST 5
 #define LOLMAGICBITCH (0.0001)
 
 static void	test_x(t_data *data, t_ray *ray, t_hit *hit)
