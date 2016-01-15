@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 18:30:24 2016 Arthur Josso
+** Last update Fri Jan 15 18:34:32 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
@@ -76,6 +76,10 @@ void    display(t_data *data);
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
+
+t_color	get_texture(t_data *data,
+		    t_pos *block_x,
+		    t_bunny_position *pos);
 
 /*
 ** Core
