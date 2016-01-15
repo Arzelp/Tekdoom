@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 11:12:52 2016 Arnaud Alies
+** Last update Fri Jan 15 14:12:28 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
@@ -56,7 +56,7 @@ typedef struct s_ray
 void    display(t_data *data);
 
 //void    get_ray(t_me *me, t_pos *pos, t_ray *ray);
-void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme);
+void    get_point(t_data *data, t_bunny_position *pos, t_vec *impact, float *norme);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
 

@@ -5,46 +5,43 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 10:14:55 2016 Arthur Josso
+** Last update Fri Jan 15 14:31:32 2016 Arnaud Alies
 */
 
 #include "doom.h"
 
-#define LOIN (80)
+#define LOIN (10)
 
-void	set_pix(t_data *data, t_pos *pos)
+void		set_pix(t_data *data, t_bunny_position *pos)
 {
-  t_vec	impact;
-  float	norme;
-  char	col;
-  t_color color;
-  t_bunny_position p;
+  t_vec		impact;
+  float		norme;
+  char		col;
+  t_color	color;
 
   get_point(data, pos, &impact, &norme);
-  if (norme > LOIN)
-    norme = LOIN;
+  norme = (norme > LOIN ? LOIN : norme);
   col = 255 - MAP(norme, 0, LOIN, 0, 255);
   color.argb[RED_CMP] = col;
   color.argb[BLUE_CMP] = col;
   color.argb[GREEN_CMP] = col;
-  p.x = pos->x;
-  p.y = pos->y;
-  tekpixel(data->pix, &p, &color);
+  tekpixel(data->pix, pos, &color);
 }
 
-void	display(t_data *data)
+void			display(t_data *data)
 {
-  t_pos pos;
+  t_bunny_position	pos;
 
   pos.x = 0;
-  while (pos.x < WIDTH)
+  pos.y = 0;
+  while (pos.y < HEIGHT)
     {
-      pos.y = 0;
-      while (pos.y < HEIGHT)
+      set_pix(data, &pos);
+      pos.x += 1;
+      if (pos.x > WIDTH)
 	{
-	  set_pix(data, &pos);
-	  pos.y++;
+	  pos.y += 1;
+	  pos.x = 0;
 	}
-      pos.x++;
     }
 }

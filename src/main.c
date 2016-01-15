@@ -5,7 +5,11 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
+<<<<<<< HEAD
 ** Last update Fri Jan 15 13:43:23 2016 Paskal Arzel
+=======
+** Last update Fri Jan 15 13:22:08 2016 Arnaud Alies
+>>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
 */
 
 #include <lapin.h>
@@ -40,21 +44,30 @@ t_map		*init_map()
   t_block x;
   t_pos pos;
   x.x = 1;
+<<<<<<< HEAD
 
   if ((map = map_gen(7)) == NULL)
+=======
+  
+  if ((map = map_gen(8)) == NULL)
+>>>>>>> 5fd7d8f2e3d33ea5fe290e8f2be5fe3a957e8163
     return (NULL);
   map_set_flat(map);
   map_set_wall(map);
 
-  pos.x = 5;
+  pos.x = 6;
+  pos.y = 6;
+  pos.z = 4;
+  map_set(map, &pos, x);
+  pos.x = 6;
   pos.y = 5;
   pos.z = 3;
   map_set(map, &pos, x);
-  pos.x = 5;
+  pos.x = 6;
   pos.y = 4;
   pos.z = 2;
   map_set(map, &pos, x);
-  pos.x = 5;
+  pos.x = 6;
   pos.y = 3;
   pos.z = 1;
   map_set(map, &pos, x);

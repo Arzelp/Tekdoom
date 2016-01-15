@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 10:53:35 2016 Arnaud Alies
+** Last update Fri Jan 15 14:33:31 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -66,26 +66,25 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
     }
 }
 
-void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
+void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
 {
   t_vec res;
 
   res.x = DIST;
-  res.y = FOV *(((WIDTH / 2) - (float)sr->x) / WIDTH);
+  res.y = FOV * (((WIDTH / 2) - (float)sr->x) / WIDTH);
   res.z = FOV * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
   ray->beta.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
   ray->beta.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
-  ray->beta.z = res.z/* * sin(me->beta) + res.z * cos(me->beta)*/;
+  ray->beta.z = res.z + me->beta;
   ray->alpha.x = -me->pos.x;
   ray->alpha.y = -me->pos.y;
   ray->alpha.z = -me->pos.z;
 }
 
-void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
+void    get_point(t_data *data, t_bunny_position *pos, t_vec *impact, float *norme)
 {
   float k_min;
   t_ray ray;
-  t_vec vector;
 
   get_ray(&data->me, pos, &ray);
   k_min = 3 * data->map->head.size;
@@ -93,10 +92,12 @@ void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
   test_y(data, &ray, &k_min);
   test_z(data, &ray, &k_min);
   calc_pos(impact, &ray, k_min);
+  /*
   vector.x = impact->x -data->me.pos.x;
   vector.y = impact->y - data->me.pos.y;
   vector.z = impact->z - data->me.pos.z;
   *norme = k_min * sqrt(vector.x * vector.x
 	       + vector.y * vector.y
-	       + vector.z * vector.z);
+	       + vector.z * vector.z);*/
+  *norme = k_min;
 }
