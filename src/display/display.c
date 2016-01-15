@@ -5,19 +5,19 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 14:30:11 2016 Arnaud Alies
+** Last update Fri Jan 15 14:31:32 2016 Arnaud Alies
 */
 
 #include "doom.h"
 
 #define LOIN (10)
 
-void	set_pix(t_data *data, t_bunny_position *pos)
+void		set_pix(t_data *data, t_bunny_position *pos)
 {
-  t_vec	impact;
-  float	norme;
-  char	col;
-  t_color color;
+  t_vec		impact;
+  float		norme;
+  char		col;
+  t_color	color;
 
   get_point(data, pos, &impact, &norme);
   norme = (norme > LOIN ? LOIN : norme);
