@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:11:52 2016 Paskal Arzel
-** Last update Fri Jan 15 15:21:19 2016 Paskal Arzel
+** Last update Fri Jan 15 15:26:44 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -16,5 +16,6 @@
 
 int	gojump(t_data *data)
 {
+  if (data->keys[BKS_SPACE])
 
 }

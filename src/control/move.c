@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Fri Jan 15 14:48:31 2016 Paskal Arzel
+** Last update Fri Jan 15 15:29:47 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -23,6 +23,8 @@ int	walk_checkcoli(t_pos pos, t_data *data)
   while (i <= 2)
     {
       block = map_get(data->map, &pos);
+      if (block == NULL)
+	return (1);
       if (block->x != 0)
 	return (1);
       pos.z--;
