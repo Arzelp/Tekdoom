@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 11:10:58 2016 Arnaud Alies
+** Last update Fri Jan 15 11:27:27 2016 Arnaud Alies
 */
 
 #include <lapin.h>
@@ -26,9 +26,9 @@ int     move(t_data *data)
   if (data->keys != NULL)
     {
       if (data->keys[BKS_LEFT])
-	(data->me).alpha -= 0.05;
-      if (data->keys[BKS_RIGHT])
 	(data->me).alpha += 0.05;
+      if (data->keys[BKS_RIGHT])
+	(data->me).alpha -= 0.05;
       if (data->keys[BKS_UP])
 	(data->me).beta -= 0.05;
       if (data->keys[BKS_DOWN])
