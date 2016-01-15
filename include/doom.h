@@ -5,14 +5,14 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 18:34:32 2016 Arnaud Alies
+** Last update Fri Jan 15 18:42:01 2016 Arnaud Alies
 */
 
 #ifndef DOOM_H_
 #define DOOM_H_
 
-#define WIDTH (400)
-#define HEIGHT (400)
+#define WIDTH (320)
+#define HEIGHT (200)
 #define FPS (40)
 #define FOV (1)
 #define DIST (0.5)
