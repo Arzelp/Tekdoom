@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Fri Jan 15 11:42:56 2016 Paskal Arzel
+** Last update Fri Jan 15 15:25:18 2016 Paskal Arzel
 */
 
 #ifndef CONTROL_H_
@@ -16,5 +16,7 @@ int     move(t_data *data);
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,
 			       void *data_pt);
+int	gomove(t_data *data);
+int	gojump(t_data *data);
 
 #endif

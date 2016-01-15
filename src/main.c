@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 15:03:51 2016 Paskal Arzel
+** Last update Fri Jan 15 15:17:22 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -39,10 +39,7 @@ t_map		*init_map()
   t_map *map;
   t_block x;
   t_pos pos;
-<<<<<<< HEAD
-=======
 
->>>>>>> 4c62cc92e25375be989c9ec967163080d6f6133d
   x.x = 1;
   if ((map = map_gen(8)) == NULL)
     return (NULL);
@@ -69,6 +66,13 @@ t_map		*init_map()
   return (map);
 }
 
+void	init_jump(t_jump *jump)
+{
+  jump->fall = 0;
+  jump->inair = 0;
+  jump->impuls = 0;
+}
+
 void		init_player(t_me *player)
 {
   (player->pos).x = 2.5;
@@ -88,6 +92,7 @@ int		main(int ac, char **av)
   if ((data.map = init_map()) == NULL)
     return (1);
   init_player(&(data.me));
+  init_jump(&(data.jump));
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
   if ((data.win = bunny_start(WIDTH, HEIGHT, false, "Pute")) == NULL)

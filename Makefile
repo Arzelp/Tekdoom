@@ -48,6 +48,7 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)map_check_pos.c \
 		$(CTRL)move.c \
 		$(CTRL)control.c \
+		$(CTRL)jump.c \
 		$(DISP)arithmetic.c \
 		$(DISP)find_k.c \
 		$(DISP)display.c \

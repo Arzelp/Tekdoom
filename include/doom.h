@@ -1,11 +1,11 @@
 /*
 ** doom.h for doom in /home/alies/rendu/gfx_tekdoom/include
-** 
+**
 ** Made by Arnaud Alies
 ** Login   <alies_a@epitech.net>
-** 
+**
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 14:12:28 2016 Arnaud Alies
+** Last update Fri Jan 15 15:17:31 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -31,12 +31,20 @@ typedef struct s_me
   float	beta;
 } t_me;
 
+typedef struct s_jump
+{
+  int	inair;
+  int	fall;
+  int	impuls;
+}t_jump
+
 typedef struct s_data
 {
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
   const bool		*keys;
   t_me			me;
+  t_jump		*jump;
   t_map			*map;
 } t_data;
 

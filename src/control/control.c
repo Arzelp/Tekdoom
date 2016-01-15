@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Fri Jan 15 15:23:13 2016 Paskal Arzel
+** Last update Fri Jan 15 15:25:37 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -19,7 +19,7 @@ int     move(t_data *data)
   if (data->keys != NULL)
     {
       gomove(data);
-      gojump(data->map, (data->me)->vec);
+      gojump(data->map, (data->me).vec);
       /*if (data->keys[BKS_P])
 	p = !p;*/
       if (data->keys[BKS_B])
