@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Fri Jan 15 14:04:34 2016 Arnaud Alies
+** Last update Fri Jan 15 14:15:25 2016 Arnaud Alies
 */
 
 #include <math.h>
@@ -66,7 +66,7 @@ static void     test_z(t_data *data, t_ray *ray, float *k_min)
     }
 }
 
-void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
+void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
 {
   t_vec res;
 
@@ -81,11 +81,10 @@ void    get_ray(t_me *me, t_pos *sr, t_ray *ray)
   ray->alpha.z = -me->pos.z;
 }
 
-void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
+void    get_point(t_data *data, t_bunny_position *pos, t_vec *impact, float *norme)
 {
   float k_min;
   t_ray ray;
-  t_vec vector;
 
   get_ray(&data->me, pos, &ray);
   k_min = 3 * data->map->head.size;
@@ -93,10 +92,11 @@ void    get_point(t_data *data, t_pos *pos, t_vec *impact, float *norme)
   test_y(data, &ray, &k_min);
   test_z(data, &ray, &k_min);
   calc_pos(impact, &ray, k_min);
+  /*
   vector.x = impact->x -data->me.pos.x;
   vector.y = impact->y - data->me.pos.y;
   vector.z = impact->z - data->me.pos.z;
-  /**norme = k_min * sqrt(vector.x * vector.x
+  *norme = k_min * sqrt(vector.x * vector.x
 	       + vector.y * vector.y
 	       + vector.z * vector.z);*/
   *norme = k_min;

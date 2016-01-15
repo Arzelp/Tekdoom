@@ -5,14 +5,14 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 14:08:43 2016 Arnaud Alies
+** Last update Fri Jan 15 14:14:06 2016 Arnaud Alies
 */
 
 #include "doom.h"
 
 #define LOIN (10)
 
-void	set_pix(t_data *data, t_pos *pos)
+void	set_pix(t_data *data, t_bunny_position *pos)
 {
   t_vec	impact;
   float	norme;
@@ -33,7 +33,7 @@ void	set_pix(t_data *data, t_pos *pos)
 
 void	display(t_data *data)
 {
-  t_pos pos;
+  t_bunny_position pos;
 
   pos.x = 0;
   while (pos.x < WIDTH)
