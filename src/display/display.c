@@ -5,9 +5,10 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 15 19:23:55 2016 Arthur Josso
+** Last update Sat Jan 16 18:19:37 2016 alies_a
 */
 
+#include <pthread.h>
 #include "doom.h"
 
 static void	set_hit_info(t_hit *hit)
@@ -32,30 +33,61 @@ static void	set_hit_info(t_hit *hit)
     }
 }
 
+#include <math.h>
+
 static void	set_pix(t_data *data, t_bunny_position *pos)
 {
   t_hit		hit;
   t_color	col;
+  float		d_viewdist;
 
   get_point(data, pos, &hit);
-  set_hit_info(&hit);
-  col = get_texture(data, &hit.blk, &hit.ratio);
-  hit.norm = 1 / hit.norm;
-  if (hit.norm < 1)
+  if (hit.axe == '0')
+    col.full = BLACK;
+  else
     {
-      col.argb[RED_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[RED_CMP]);
-      col.argb[BLUE_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[BLUE_CMP]);
-      col.argb[GREEN_CMP] = MAP(hit.norm, 0, 1, 20, col.argb[GREEN_CMP]);
+      set_hit_info(&hit);
+      col = get_texture(data, &hit.blk, &hit.ratio);
+      d_viewdist = 1.7 * VIEW_DIST;
+      if (hit.norm > d_viewdist)
+	hit.norm = d_viewdist;
+      hit.norm = d_viewdist - hit.norm;
+      col.argb[RED_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[RED_CMP]);
+      col.argb[BLUE_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[BLUE_CMP]);
+      col.argb[GREEN_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[GREEN_CMP]);
     }
   tekpixel(data->pix, pos, &col);
 }
 
-void			display(t_data *data)
+static void *slice1(void *data_pt)
 {
-  t_bunny_position	pos;
+  t_bunny_position      pos;
+  t_data		*data;
 
+  data = (t_data*)data_pt;
   pos.x = 0;
   pos.y = 0;
+  while (pos.y < HEIGHT / 2)
+    {
+      set_pix(data, &pos);
+      pos.x += 1;
+      if (pos.x > WIDTH)
+	{
+	  pos.y += 1;
+	  pos.x = 0;
+	}
+    }
+  return (NULL);
+}
+
+static void *slice2(void *data_pt)
+{
+  t_bunny_position      pos;
+  t_data		*data;
+
+  data = (t_data*)data_pt;
+  pos.x = 0;
+  pos.y = HEIGHT / 2;
   while (pos.y < HEIGHT)
     {
       set_pix(data, &pos);
@@ -66,4 +98,16 @@ void			display(t_data *data)
 	  pos.x = 0;
 	}
     }
+  return (NULL);
+}
+
+void			display(t_data *data)
+{
+  pthread_t ta;
+  pthread_t tb;
+
+  pthread_create (&ta, NULL, slice1, (void*)data);
+  pthread_create (&tb, NULL, slice2, (void*)data);
+  pthread_join(ta, NULL);
+  pthread_join(tb, NULL);
 }

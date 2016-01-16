@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 15 21:59:04 2016 Paskal Arzel
+** Last update Sat Jan 16 15:17:04 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -54,6 +54,8 @@ typedef struct s_data
 
 #define MAX (99)
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
+#define VIEW_DIST (15)
+#define PREC (0.0001)
 
 typedef struct s_ray
 {
@@ -68,6 +70,8 @@ typedef struct s_hit
   float                 norm;
   t_bunny_position      ratio;
   t_pos                 blk;
+  t_pos                 min;
+  t_pos                 max;  
 } t_hit;
 
 void    display(t_data *data);

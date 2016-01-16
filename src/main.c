@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 15 19:44:33 2016 arzel_p
+** Last update Sat Jan 16 14:00:33 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -78,7 +78,7 @@ t_map		*init_map()
   pos.y = 3;
   pos.z = 1;
   map_set(map, &pos, x);
-  map_print(map);
+  //map_print(map);
   return (map);
 }
 
