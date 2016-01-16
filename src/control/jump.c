@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:11:52 2016 Paskal Arzel
-** Last update Fri Jan 15 19:48:31 2016 Paskal Arzel
+** Last update Sat Jan 16 02:50:30 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -13,33 +13,6 @@
 #include "doom.h"
 #include "map.h"
 #include "control.h"
-
-void	my_put_nbr(int a)
-{
-  int	f;
-  int	b;
-
-  b = a;
-  f = 1;
-  if (a == 0)
-    my_putchar(48);
-  if (a < 0)
-    {
-      my_putchar('-');
-      my_put_nbr(-a);
-    }
-  while (b >= 10)
-    {
-      b = b / 10;
-      f = f * 10;
-    }
-  while (f >= 1)
-    {
-      my_putchar(a / f + 48);
-      a = a % f;
-      f = f / 10;
-    }
-}
 
 int	jumpin(t_data *data)
 {
@@ -62,6 +35,13 @@ int	fallen(t_data *data)
   ((data->me).pos).z -= (data->jump)->fall;
   pos.x = (int)((data->me).pos).x;
   pos.y = (int)((data->me).pos).y;
+  pos.z = (int)((data->me).pos).z + 1;
+  if (walk_checkcoli(pos, data) == 1 && (data->jump)->fall < 0)
+    {
+      ((data->me).pos).z = pos.z - 0.05;
+      (data->jump)->fall = 0.05;
+      return (0);
+    }
   pos.z = (int)((data->me).pos).z;
   if (walk_checkcoli(pos, data) == 1 && (data->jump)->fall != -0.5)
     {
