@@ -5,12 +5,12 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Fri Jan 15 19:14:47 2016 Paskal Arzel
+## Last update Sat Jan 16 13:39:40 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
 
-CC	=	gcc
+CC	=	gcc -g
 
 LIB	=	./lib/
 
