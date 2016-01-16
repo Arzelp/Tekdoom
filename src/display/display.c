@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Sat Jan 16 13:56:40 2016 Arthur Josso
+** Last update Sat Jan 16 15:16:19 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -32,6 +32,8 @@ static void	set_hit_info(t_hit *hit)
     }
 }
 
+#include <math.h>
+
 static void	set_pix(t_data *data, t_bunny_position *pos)
 {
   t_hit		hit;
@@ -45,7 +47,7 @@ static void	set_pix(t_data *data, t_bunny_position *pos)
     {
       set_hit_info(&hit);
       col = get_texture(data, &hit.blk, &hit.ratio);
-      d_viewdist = 2 * VIEW_DIST;
+      d_viewdist = 1.7 * VIEW_DIST;
       if (hit.norm > d_viewdist)
 	hit.norm = d_viewdist;
       hit.norm = d_viewdist - hit.norm;

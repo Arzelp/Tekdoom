@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Sat Jan 16 15:03:45 2016 Arthur Josso
+** Last update Sat Jan 16 15:09:40 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -105,8 +105,8 @@ void	set_lim(float alpha, float beta, int *min, int *max)
     }
   else
     {
-      *min = alpha + 1;
-      *max = alpha + VIEW_DIST + 1;
+      *min = -alpha;
+      *max = -alpha + VIEW_DIST;
     }
 }
 
