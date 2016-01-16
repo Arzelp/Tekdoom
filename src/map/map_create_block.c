@@ -14,14 +14,26 @@
 #include "doom_base.h"
 #include "map.h"
 
-void		map_create_block(t_map *map, t_vec vec)
+void		map_create_block(t_data *data, t_map *map, t_vec vec)
 {
   t_pos		pos;
   t_block	x;
 
   x.x = 1;
-  pos.x = vec.x - 1;
-  pos.y = vec.y - 1;
-  pos.z = vec.z - 1;
+  pos.x = vec.x;
+  if (cos((data->me).alpha) >= (sqrt(2) / 2))
+    pos.x++;
+  else if (cos((data->me).alpha) <= -(sqrt(2) / 2))
+    pos.x--;
+  pos.y = vec.y;
+  if (sin((data->me).alpha) >= (sqrt(2) / 2))
+    pos.y++;
+  else if (sin((data->me).alpha) >= -(sqrt(2) / 2))
+    pos.y--;
+  pos.z = vec.z;
+  if (sin((data->me).beta) >= (sqrt(2) / 2))
+    pos.z++;
+  else if (sin((data->me).beta) >= (sqrt(2) / 2))
+    pos.z--;
   map_set(map, &pos, x);
 }
