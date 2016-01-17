@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Sat Jan 16 13:05:19 2016 Arthur Josso
+** Last update Sun Jan 17 21:07:08 2016 Frederic ODDOU
 */
 
 #ifndef CONTROL_H_
@@ -20,5 +20,6 @@ int     walk_checkcoli(t_pos pos, t_data *data);
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,
 			       void *data_pt);
+void	map_create_block(struct s_data *data);
 
 #endif
