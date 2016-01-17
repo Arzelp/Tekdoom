@@ -5,7 +5,11 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
+<<<<<<< HEAD
 ** Last update Sat Jan 16 12:16:17 2016 Paskal Arzel
+=======
+** Last update Sun Jan 17 21:39:11 2016 Frederic ODDOU
+>>>>>>> 72683aedb728150be77ac3cb02d67e947503da0f
 */
 
 #include <lapin.h>
@@ -36,8 +40,10 @@ int     move(t_data *data)
       gojump(data);
       /*if (data->keys[BKS_P])
 	p = !p;*/
-      if (data->keys[BKS_B])
-	map_create_block(data, data->map, (data->me).pos);
+      if (data->keys[BKS_C])
+	map_create_block(data);
+      if (data->keys[BKS_V])
+	map_delete_block(data);
     }
   return (0);
 }

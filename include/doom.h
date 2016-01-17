@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Sat Jan 16 20:55:32 2016 Paskal Arzel
+** Last update Sun Jan 17 23:52:51 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_

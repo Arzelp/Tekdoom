@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Fri Jan 15 19:46:05 2016 arzel_p
+** Last update Mon Jan 18 00:09:08 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -74,7 +74,12 @@ int     walk_side(t_data *data, float speed)
 int	gomove(t_data *data)
 {
   if (data->keys[BKS_E])
-    walk(data, 0.1);
+    {
+      if (data->keys[BKS_LSHIFT])
+	walk(data, 0.25);
+      else
+	walk(data, 0.1);
+    }
   if (data->keys[BKS_D])
     walk(data, -0.1);
   if (data->keys[BKS_S])
