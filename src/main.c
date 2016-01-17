@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Sat Jan 16 14:00:33 2016 Arthur Josso
+** Last update Sun Jan 17 22:58:34 2016 Frederic ODDOU
 */
 
 #include <lapin.h>
@@ -49,6 +49,30 @@ static t_bunny_response	loop(void *data_pt)
   return (GO_ON);
 }
 
+/* Trololol, c'est juste pour tester cette fonction avec beaucoup de param */
+void		create_carre(t_map *map, int large, int lx, int ly, int z, int texture)
+{
+  t_block x;
+  t_pos pos;
+
+  x.x = 1;
+  x.texture = texture;
+  pos.z = z;
+  pos.x = lx;
+  while (pos.x <= lx + large)
+    {
+      pos.y = ly;
+      while (pos.y <= ly + large)
+	{
+	  if ((pos.x == lx || pos.x == lx + large) ||
+	      (pos.y == ly || pos.y == ly + large))
+	    map_set(map, &pos, x);
+	  pos.y++;
+	}
+      pos.x++;
+    }
+}
+
 t_map		*init_map()
 {
   t_map *map;
@@ -78,6 +102,23 @@ t_map		*init_map()
   pos.y = 3;
   pos.z = 1;
   map_set(map, &pos, x);
+
+
+  x.texture = 9;
+  pos.x = 15;
+  pos.y = 15;
+  pos.z = 1;
+  map_set(map, &pos, x);
+
+  create_carre(map, 2, 14, 14, 2, 1);
+  create_carre(map, 4, 13, 13, 3, 2);
+  create_carre(map, 6, 12, 12, 4, 3);
+  create_carre(map, 8, 11, 11, 5, 4);
+  create_carre(map, 10, 10, 10, 4, 5);
+  create_carre(map, 12, 9, 9, 3, 6);
+  create_carre(map, 14, 8, 8, 2, 7);
+  create_carre(map, 16, 7, 7, 1, 8);
+
   //map_print(map);
   return (map);
 }
