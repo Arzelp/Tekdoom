@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Sun Jan 17 22:58:34 2016 Frederic ODDOU
+** Last update Sun Jan 17 23:06:25 2016 Frederic ODDOU
 */
 
 #include <lapin.h>
@@ -87,29 +87,16 @@ t_map		*init_map()
   map_set_wall(map);
 
   pos.x = 6;
-  pos.y = 6;
-  pos.z = 4;
-  map_set(map, &pos, x);
-  pos.x = 6;
-  pos.y = 5;
-  pos.z = 3;
-  map_set(map, &pos, x);
-  pos.x = 6;
-  pos.y = 4;
-  pos.z = 2;
-  map_set(map, &pos, x);
-  pos.x = 6;
-  pos.y = 3;
+  pos.y = 1;
   pos.z = 1;
-  map_set(map, &pos, x);
+  while (pos.y <= 9)
+    {
+      map_set(map, &pos, x);
+      pos.z++;
+      pos.y++;
+    }
 
-
-  x.texture = 9;
-  pos.x = 15;
-  pos.y = 15;
-  pos.z = 1;
-  map_set(map, &pos, x);
-
+  create_carre(map, 1, 15, 15, 1, 9);
   create_carre(map, 2, 14, 14, 2, 1);
   create_carre(map, 4, 13, 13, 3, 2);
   create_carre(map, 6, 12, 12, 4, 3);
