@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Sat Jan 16 15:17:04 2016 Arthur Josso
+** Last update Sat Jan 16 20:55:32 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -71,7 +71,7 @@ typedef struct s_hit
   t_bunny_position      ratio;
   t_pos                 blk;
   t_pos                 min;
-  t_pos                 max;  
+  t_pos                 max;
 } t_hit;
 
 void    display(t_data *data);
