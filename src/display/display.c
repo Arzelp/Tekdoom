@@ -1,11 +1,11 @@
 /*
 ** get_intersec.c for tekdoom in /home/josso/rendu/gfx/gfx_tekdoom
-** 
+**
 ** Made by Arthur Josso
 ** Login   <arthur.josso@epitech.eu>
-** 
+**
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Sat Jan 16 18:19:37 2016 alies_a
+** Last update Mon Jan 18 17:32:47 2016 Paskal Arzel
 */
 
 #include <pthread.h>
@@ -106,8 +106,10 @@ void			display(t_data *data)
   pthread_t ta;
   pthread_t tb;
 
+  (data->me).pos.z -= (data->me).crowd;
   pthread_create (&ta, NULL, slice1, (void*)data);
   pthread_create (&tb, NULL, slice2, (void*)data);
   pthread_join(ta, NULL);
   pthread_join(tb, NULL);
+  (data->me).pos.z += (data->me).crowd;
 }

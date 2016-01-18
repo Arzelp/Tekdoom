@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 17:34:38 2016 alies_a
+** Last update Mon Jan 18 17:53:26 2016 alies_a
 */
 
 #include <lapin.h>
@@ -40,11 +40,7 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   move(data);
-  if (data->keys != NULL && data->keys[BKS_LCONTROL])
-    ((data->me).pos).z -= 0.6;
   display(data);
-  if (data->keys != NULL && data->keys[BKS_LCONTROL])
-    ((data->me).pos).z += 0.6;
   drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   //bunny_blit(&((data->win)->buffer), &((data->texture)->clipable), &zero);

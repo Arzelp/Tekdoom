@@ -15,6 +15,7 @@
 
 int     move(t_data *data)
 {
+  (data->me).crowd = 0;
   if (data->keys != NULL)
     {
       gomove(data);
@@ -23,6 +24,8 @@ int     move(t_data *data)
 	map_create_block(data);
       if (data->keys[BKS_V])
 	map_delete_block(data);
+      if (data->keys[BKS_LCONTROL])
+	(data->me).crowd = 0.6;
     }
   if ((data->me).sprint < 99.8)
     (data->me).sprint += 0.15;
