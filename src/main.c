@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 17:53:26 2016 alies_a
+** Last update Mon Jan 18 18:03:34 2016 alies_a
 */
 
 #include <lapin.h>
@@ -43,7 +43,6 @@ static t_bunny_response	loop(void *data_pt)
   display(data);
   drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
-  //bunny_blit(&((data->win)->buffer), &((data->texture)->clipable), &zero);
   bunny_display(data->win);
   return (GO_ON);
 }

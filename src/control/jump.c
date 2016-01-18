@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:11:52 2016 Paskal Arzel
-** Last update Mon Jan 18 12:52:14 2016 Paskal Arzel
+** Last update Mon Jan 18 18:05:47 2016 alies_a
 */
 
 #include <lapin.h>
@@ -16,7 +16,7 @@
 
 int	jumpin(t_data *data)
 {
-  t_pos		pos;
+  t_pos	pos;
   int	i;
 
   pos.x = (int)((data->me).pos).x;
@@ -29,7 +29,7 @@ int	jumpin(t_data *data)
 
 int	fallen(t_data *data)
 {
-  t_pos		pos;
+  t_pos	pos;
 
   (data->me).fall += 0.05;
   ((data->me).pos).z -= (data->me).fall;
