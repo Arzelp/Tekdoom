@@ -5,13 +5,12 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Mon Jan 18 12:58:08 2016 Paskal Arzel
+** Last update Mon Jan 18 18:00:09 2016 alies_a
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
-#include "map.h"
 #include "control.h"
 
 int	drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
@@ -72,6 +71,7 @@ int	makelines(t_bunny_pixelarray *pix, t_color *color)
   drawsquare(pix, pos, pos2, color);
   return (0);
 }
+//MAGIC NUMBERS ^ LOLOLLOLOL
 
 int	drawjauge(t_data *data, t_bunny_pixelarray *pix)
 {
