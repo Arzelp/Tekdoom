@@ -5,12 +5,11 @@
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
 ** Started on  Wed Jan 13 18:19:15 2016 Frederic ODDOU
-** Last update Wed Jan 13 18:29:23 2016 Arnaud Alies
+** Last update Mon Jan 18 17:52:29 2016 alies_a
 */
 
 #include <stdlib.h>
 #include "doom.h"
-#include "map.h"
 
 int		map_check_pos(t_map *map, t_vec *vec)
 {

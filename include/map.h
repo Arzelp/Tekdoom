@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Sun Jan 17 23:51:52 2016 Paskal Arzel
+** Last update Mon Jan 18 17:45:40 2016 alies_a
 */
 
 #ifndef MAP_H_
@@ -14,7 +14,6 @@
 #define MAP_VERSION (1)
 
 #include <stdint.h>
-#include "doom_base.h"
 
 /*
 ** map file format:
@@ -22,6 +21,13 @@
 ** <textures> textures starts just after header
 ** <blocks> blocks start after offset defined in the header
 */
+
+typedef struct s_pos
+{
+  int x;
+  int y;
+  int z;
+} t_pos;
 
 typedef struct s_block
 {
@@ -45,7 +51,6 @@ typedef struct s_map
 int	map_print(t_map *map);
 t_map   *map_gen(int size);
 t_block *map_get(t_map *map, t_pos *pos);
-int	map_check_pos(t_map *map, t_vec *vec);
 int     map_set(t_map *map, t_pos *pos, t_block block);
 void	map_set_flat(t_map *map);
 void	map_set_wall(t_map *map);

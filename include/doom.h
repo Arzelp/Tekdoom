@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 18 17:28:48 2016 alies_a
+** Last update Mon Jan 18 17:45:36 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -22,13 +22,6 @@
 
 #include <lapin.h>
 #include "map.h"
-
-typedef struct s_pos
-{
-  int x;
-  int y;
-  int z;
-} t_pos;
 
 typedef struct s_vec
 {
@@ -88,6 +81,7 @@ void    display(t_data *data);
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
+int     map_check_pos(t_map *map, t_vec *vec);
 
 t_color	get_texture(t_data *data,
 		    t_pos *block_x,

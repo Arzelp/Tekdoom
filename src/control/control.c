@@ -5,17 +5,12 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-<<<<<<< HEAD
-** Last update Sat Jan 16 12:16:17 2016 Paskal Arzel
-=======
-** Last update Sun Jan 17 21:39:11 2016 Frederic ODDOU
->>>>>>> 72683aedb728150be77ac3cb02d67e947503da0f
+** Last update Mon Jan 18 17:30:09 2016 alies_a
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
-#include "map.h"
 #include "control.h"
 
 int     move(t_data *data)

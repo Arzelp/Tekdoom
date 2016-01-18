@@ -5,20 +5,18 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 17:17:19 2016 alies_a
+** Last update Mon Jan 18 17:34:38 2016 alies_a
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "bmp.h"
 #include "doom.h"
-#include "map.h"
 #include "control.h"
 
-
-t_color		get_texture(t_data *data,
-			    t_pos *block_x,
-			    t_bunny_position *pos)
+t_color			get_texture(t_data *data,
+				    t_pos *block_x,
+				    t_bunny_position *pos)
 {
   t_bunny_pixelarray	*text;
   t_block		*block;

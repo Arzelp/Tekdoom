@@ -5,15 +5,13 @@
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
 ** Started on  Sun Jan 17 21:37:39 2016 Frederic ODDOU
-** Last update Sun Jan 17 21:37:39 2016 Frederic ODDOU
+** Last update Mon Jan 18 17:48:47 2016 alies_a
 */
 
 #include <stdlib.h>
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
-#include "doom_base.h"
-#include "map.h"
 
 void		map_delete_block(t_data *data)
 {
