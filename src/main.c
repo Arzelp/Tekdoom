@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 12:53:29 2016 Paskal Arzel
+** Last update Mon Jan 18 13:07:34 2016 alies_a
 */
 
 #include <lapin.h>
@@ -54,7 +54,7 @@ static t_bunny_response	loop(void *data_pt)
   return (GO_ON);
 }
 
-/* Trololol, c'est juste pour tester cette fonction avec beaucoup de param */
+/* Trololol, c'est juste pour tester cette fonction avec beaucoup de param
 void		create_carre(t_map *map, int large, int lx, int ly, int z, int texture)
 {
   t_block x;
@@ -77,6 +77,7 @@ void		create_carre(t_map *map, int large, int lx, int ly, int z, int texture)
       pos.x++;
     }
 }
+*/
 
 t_map		*init_map()
 {
@@ -84,13 +85,13 @@ t_map		*init_map()
   t_block x;
   t_pos pos;
 
-  x.x = 1;
-  x.texture = 4;
+  //x.x = 1;
+  //x.texture = 4;
   if ((map = map_gen(50)) == NULL)
     return (NULL);
   map_set_flat(map);
-  map_set_wall(map);
-
+  //map_set_wall(map);
+  /*
   pos.x = 6;
   pos.y = 1;
   pos.z = 1;
@@ -110,7 +111,7 @@ t_map		*init_map()
   create_carre(map, 12, 9, 9, 3, 6);
   create_carre(map, 14, 8, 8, 2, 7);
   create_carre(map, 16, 7, 7, 1, 8);
-
+*/
   //map_print(map);
   return (map);
 }
