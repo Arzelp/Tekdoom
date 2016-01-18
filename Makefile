@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Mon Jan 18 01:22:10 2016 Paskal Arzel
+## Last update Mon Jan 18 22:26:01 2016 Paskal Arzel
 ##
 
 NAME    =       tekdoom
@@ -45,6 +45,7 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)map_delete_block.c \
 		$(CTRL)control.c \
 		$(CTRL)drawjauge.c \
+		$(CTRL)fly.c \
 		$(CTRL)jump.c \
 		$(CTRL)move.c \
 		$(DISP)arithmetic.c \

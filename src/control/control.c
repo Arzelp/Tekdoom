@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Mon Jan 18 21:28:19 2016 Paskal Arzel
+** Last update Mon Jan 18 22:28:17 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -19,7 +19,8 @@ int     ctrl_move(t_data *data)
   if (data->keys != NULL)
     {
       ctrl_gomove(data);
-      ctrl_gojump(data);
+      if (data->me.fly == 0)
+	ctrl_gojump(data);
       if (data->keys[BKS_C])
 	map_create_block(data);
       if (data->keys[BKS_V])

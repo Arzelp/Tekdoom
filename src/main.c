@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 22:18:40 2016 Paskal Arzel
+** Last update Mon Jan 18 22:27:45 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -119,6 +119,7 @@ void		init_player(t_me *player)
   player->fall = 0;
   player->inair = 0;
   player->sprint = SPRMAX;
+  player->fly = 0;
 }
 
 int		main(int ac, char **av)

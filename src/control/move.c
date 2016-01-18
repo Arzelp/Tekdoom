@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Mon Jan 18 21:25:28 2016 Paskal Arzel
+** Last update Mon Jan 18 22:20:47 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -108,5 +108,6 @@ int	ctrl_gomove(t_data *data)
   if (data->keys[BKS_F])
     ctrl_walkside(data, -0.1, size);
   ctrl_camera(data);
+  ctrl_fly(data);
   return (0);
 }

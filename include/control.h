@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Mon Jan 18 21:25:22 2016 Paskal Arzel
+** Last update Mon Jan 18 22:43:01 2016 Paskal Arzel
 */
 
 #ifndef CONTROL_H_
@@ -24,6 +24,8 @@ int	ctrl_gomove(t_data *data);
 int     ctrl_checkcoli(t_pos pos, t_data *data, int size);
 int	ctrl_camera(t_data *data);
 int	ctrl_drawjauge(t_data *data, t_bunny_pixelarray *pix);
+int	ctrl_fly(t_data *data);
+int	ctrl_flymove(t_data *data, float speed);
 int	ctrl_filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color);
 int	ctrl_drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
 		   t_bunny_position pos2, t_color *color);
