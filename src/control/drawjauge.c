@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Mon Jan 18 01:35:39 2016 Paskal Arzel
+** Last update Mon Jan 18 12:58:08 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -40,10 +40,10 @@ int	filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color)
   t_bunny_position	pos2;
 
   color->full = 0x0066CC;
-  if (data->sprint == 0)
+  if (data->me.sprint == 0)
     return (0);
   pos.x = 13;
-  pos2.x = data->sprint / 1.295;
+  pos2.x = data->me.sprint / 1.295;
   pos.y = HEIGHT - 17;
   pos2.y = HEIGHT - 8;
   drawsquare(pix, pos, pos2, color);

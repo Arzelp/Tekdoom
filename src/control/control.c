@@ -18,36 +18,19 @@
 #include "map.h"
 #include "control.h"
 
-int	initjump(t_data	*data)
-{
-  t_jump	*jump;
-
-  if ((jump = malloc(sizeof(t_jump))) == NULL)
-    return (1);
-  jump->fall = 0;
-  jump->inair = 0;
-  data->sprint = 100;
-  data->jump = jump;
-  return (0);
-}
-
 int     move(t_data *data)
 {
-  if (data->jump == NULL)
-    initjump(data);
   if (data->keys != NULL)
     {
       gomove(data);
       gojump(data);
-      /*if (data->keys[BKS_P])
-	p = !p;*/
       if (data->keys[BKS_C])
 	map_create_block(data);
       if (data->keys[BKS_V])
 	map_delete_block(data);
     }
-  if (data->sprint < 99.8)
-    data->sprint += 0.15;
+  if ((data->me).sprint < 99.8)
+    (data->me).sprint += 0.15;
   return (0);
 }
 

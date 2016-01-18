@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 18 00:50:50 2016 Paskal Arzel
+** Last update Mon Jan 18 12:53:20 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -26,16 +26,13 @@
 
 typedef struct s_me
 {
-  t_vec	pos;
-  float	alpha;
-  float	beta;
-} t_me;
-
-typedef struct s_jump
-{
-  float		inair;
+  int		inair;
   float		fall;
-} t_jump;
+  float		sprint;
+  t_vec		pos;
+  float		alpha;
+  float		beta;
+} t_me;
 
 typedef struct s_data
 {
@@ -44,8 +41,6 @@ typedef struct s_data
   t_bunny_pixelarray	*texture;
   const bool		*keys;
   t_me			me;
-  float			sprint;
-  t_jump		*jump;
   t_map			*map;
 } t_data;
 
