@@ -20,9 +20,9 @@ void		map_delete_block(t_data *data)
   t_pos		pos;
   t_block	*block;
 
-  pos.x = (data->me.pos).x + cos((data->me).alpha);
-  pos.y = (data->me.pos).y + sin((data->me).alpha);
-  pos.z = (data->me.pos).z - 2;
+  pos.x = (data->me.pos).x + cos((data->me).alpha) * 2;
+  pos.y = (data->me.pos).y + sin((data->me).alpha) * 2;
+  pos.z = (data->me.pos).z + sin((data->me).beta) * 2;
   if ((block = map_get(data->map, &pos)) != NULL)
     {
       if (block->x >= 1)
