@@ -5,9 +5,10 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Fri Jan 15 18:59:44 2016 Arnaud Alies
+** Last update Mon Jan 18 21:32:23 2016 alies_a
 */
 
+#include <lapin.h>
 #include <stdlib.h>
 #include "map.h"
 
@@ -18,13 +19,13 @@ t_map	*map_gen(int size)
   int	max;
 
   max = (size * size * size);
-  if ((res = malloc(sizeof(t_map))) == NULL)
+  if ((res = bunny_malloc(sizeof(t_map))) == NULL)
     return (NULL);
   (res->head).version = MAP_VERSION;
   (res->head).size = size;
   (res->head).offset = 0;
   x = 0;
-  if ((res->blocks = malloc(sizeof(t_block) * max)) == NULL)
+  if ((res->blocks = bunny_malloc(sizeof(t_block) * max)) == NULL)
     return (NULL);
   while (x < max)
     {
