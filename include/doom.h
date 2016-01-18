@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 18 12:53:20 2016 Paskal Arzel
+** Last update Mon Jan 18 17:29:50 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -29,6 +29,7 @@ typedef struct s_me
   int		inair;
   float		fall;
   float		sprint;
+  float		crowd;
   t_vec		pos;
   float		alpha;
   float		beta;

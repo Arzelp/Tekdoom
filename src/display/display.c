@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Mon Jan 18 17:26:06 2016 Paskal Arzel
+** Last update Mon Jan 18 17:32:47 2016 Paskal Arzel
 */
 
 #include <pthread.h>
@@ -106,12 +106,10 @@ void			display(t_data *data)
   pthread_t ta;
   pthread_t tb;
 
-  if (data->keys != NULL && data->keys[BKS_LCONTROL])
-    ((data->me).pos).z -= 0.6;
+  (data->me).pos.z -= (data->me).crowd;
   pthread_create (&ta, NULL, slice1, (void*)data);
   pthread_create (&tb, NULL, slice2, (void*)data);
   pthread_join(ta, NULL);
   pthread_join(tb, NULL);
-  if (data->keys != NULL && data->keys[BKS_LCONTROL])
-    ((data->me).pos).z += 0.6;
+  (data->me).pos.z += (data->me).crowd;
 }
