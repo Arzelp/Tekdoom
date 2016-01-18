@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 18 17:29:50 2016 Paskal Arzel
+** Last update Mon Jan 18 17:33:23 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -21,8 +21,21 @@
 #define ABS(x) ((x) < 0 ? -(x) : (x))
 
 #include <lapin.h>
-#include "doom_base.h"
 #include "map.h"
+
+typedef struct s_pos
+{
+  int x;
+  int y;
+  int z;
+} t_pos;
+
+typedef struct s_vec
+{
+  float x;
+  float y;
+  float z;
+} t_vec;
 
 typedef struct s_me
 {
