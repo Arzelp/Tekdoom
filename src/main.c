@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 13:07:34 2016 alies_a
+** Last update Mon Jan 18 17:17:19 2016 alies_a
 */
 
 #include <lapin.h>
@@ -90,7 +90,7 @@ t_map		*init_map()
   if ((map = map_gen(50)) == NULL)
     return (NULL);
   map_set_flat(map);
-  //map_set_wall(map);
+  map_set_wall(map);
   /*
   pos.x = 6;
   pos.y = 1;
