@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Sun Jan 17 23:52:51 2016 Paskal Arzel
+** Last update Mon Jan 18 00:50:50 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -44,6 +44,7 @@ typedef struct s_data
   t_bunny_pixelarray	*texture;
   const bool		*keys;
   t_me			me;
+  float			sprint;
   t_jump		*jump;
   t_map			*map;
 } t_data;

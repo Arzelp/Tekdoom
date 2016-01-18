@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Mon Jan 18 00:27:31 2016 Paskal Arzel
+** Last update Mon Jan 18 01:35:11 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -79,10 +79,11 @@ int	gomove(t_data *data)
   size = (data->keys[BKS_LCONTROL]) ? 1 : 0;
   if (data->keys[BKS_E])
     {
-      if (data->keys[BKS_LSHIFT])
+      if (data->keys[BKS_LSHIFT] && data->sprint > 0)
 	walk(data, 0.25, 0);
       else
 	walk(data, 0.1, size);
+      data->sprint -= (data->keys[BKS_LSHIFT] && data->sprint > 0) ? 0.55 : 0;
     }
   if (data->keys[BKS_D])
     walk(data, -0.1, size);

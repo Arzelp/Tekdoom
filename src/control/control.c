@@ -26,6 +26,7 @@ int	initjump(t_data	*data)
     return (1);
   jump->fall = 0;
   jump->inair = 0;
+  data->sprint = 100;
   data->jump = jump;
   return (0);
 }
@@ -45,6 +46,8 @@ int     move(t_data *data)
       if (data->keys[BKS_V])
 	map_delete_block(data);
     }
+  if (data->sprint < 99.8)
+    data->sprint += 0.15;
   return (0);
 }
 
