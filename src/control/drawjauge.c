@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Mon Jan 18 12:58:08 2016 Paskal Arzel
+** Last update Mon Jan 18 22:18:13 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -34,54 +34,29 @@ int	drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
   return (0);
 }
 
-int	filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color)
+int	ctrl_filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color)
 {
   t_bunny_position	pos;
   t_bunny_position	pos2;
+  int	sizex;
 
-  color->full = 0x0066CC;
+  sizex = HUD * (WIDTH / 50);
+  color->full = RED;
   if (data->me.sprint == 0)
     return (0);
-  pos.x = 13;
-  pos2.x = data->me.sprint / 1.295;
-  pos.y = HEIGHT - 17;
-  pos2.y = HEIGHT - 8;
+  pos.x = STAJAU + HUD / 2;
+  pos2.y = HEIGHT - STAJAU;
+  pos2.x = pos.x + (data->me.sprint * (sizex - HUD)) / SPRMAX;
+  pos.y = HEIGHT - STAJAU - sizex / 6;
   drawsquare(pix, pos, pos2, color);
   return (0);
 }
 
-int	makelines(t_bunny_pixelarray *pix, t_color *color)
-{
-  t_bunny_position	pos;
-  t_bunny_position	pos2;
-
-  pos.x = 10;
-  pos2.x = 80;
-  pos.y = HEIGHT - 20;
-  pos2.y = HEIGHT - 18;
-  color->full = 0;
-  drawsquare(pix, pos, pos2, color);
-  pos.y = HEIGHT - 7;
-  pos2.y = HEIGHT - 5;
-  drawsquare(pix, pos, pos2, color);
-  pos2.x = 12;
-  pos.y = HEIGHT - 20;
-  drawsquare(pix, pos, pos2, color);
-  pos.x = 78;
-  pos2.x = 80;
-  drawsquare(pix, pos, pos2, color);
-  return (0);
-}
-
-int	drawjauge(t_data *data, t_bunny_pixelarray *pix)
+int	ctrl_drawjauge(t_data *data, t_bunny_pixelarray *pix)
 {
   t_bunny_position	pos;
   t_color 		color;
 
-  if (WIDTH >= 200 && HEIGHT >= 200)
-    {
-      makelines(pix, &color);
-      filljauge(data, pix, &color);
-    }
+  ctrl_filljauge(data, pix, &color);
   return (0);
 }

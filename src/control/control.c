@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Mon Jan 18 17:30:09 2016 alies_a
+** Last update Mon Jan 18 21:28:19 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -13,13 +13,13 @@
 #include "doom.h"
 #include "control.h"
 
-int     move(t_data *data)
+int     ctrl_move(t_data *data)
 {
   (data->me).crowd = 0;
   if (data->keys != NULL)
     {
-      gomove(data);
-      gojump(data);
+      ctrl_gomove(data);
+      ctrl_gojump(data);
       if (data->keys[BKS_C])
 	map_create_block(data);
       if (data->keys[BKS_V])
@@ -27,8 +27,8 @@ int     move(t_data *data)
       if (data->keys[BKS_LCONTROL])
 	(data->me).crowd = 0.6;
     }
-  if ((data->me).sprint < 99.8)
-    (data->me).sprint += 0.15;
+  if ((data->me).sprint + REGENSPR <= SPRMAX)
+    (data->me).sprint += REGENSPR;
   return (0);
 }
 
