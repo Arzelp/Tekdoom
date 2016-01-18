@@ -5,13 +5,12 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Mon Jan 18 22:18:13 2016 Paskal Arzel
+** Last update Mon Jan 18 22:19:37 2016 Paskal Arzel
 */
 
 #include <lapin.h>
 #include <math.h>
 #include "doom.h"
-#include "map.h"
 #include "control.h"
 
 int	drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
