@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 18:58:47 2016 Arthur Josso
+** Last update Tue Jan 19 10:14:00 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -41,11 +41,10 @@ static t_bunny_response	loop(void *data_pt)
   zero.x = 0;
   zero.y = 0;
   data = (t_data*)data_pt;
-  move(data);
+  ctrl_move(data);
   display(data);
-  drawjauge(data, data->pix);
+  ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
-  //bunny_blit(&((data->win)->buffer), &((data->texture)->clipable), &zero);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -121,7 +120,8 @@ void		init_player(t_me *player)
   player->beta = 0;
   player->fall = 0;
   player->inair = 0;
-  player->sprint = 60;
+  player->sprint = SPRMAX;
+  player->fly = 0;
 }
 
 int		main(int ac, char **av)
