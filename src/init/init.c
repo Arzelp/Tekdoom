@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 19 11:33:08 2016 Arthur Josso
+** Last update Tue Jan 19 16:15:32 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -17,10 +17,12 @@ t_map	*init_map()
 {
   t_map *map;
 
+  map = load_map("test.josso");
+  /*
   if ((map = map_gen(50)) == NULL)
     return (NULL);
   map_set_flat(map);
-  map_set_wall(map);
+  map_set_wall(map);*/
   return (map);
 }
 

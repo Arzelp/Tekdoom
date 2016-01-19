@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Tue Jan 19 11:41:01 2016 Arthur Josso
+** Last update Tue Jan 19 16:11:21 2016 alies_a
 */
 
 #ifndef MAP_H_
@@ -54,5 +54,8 @@ t_block *map_get(t_map *map, t_pos *pos);
 int     map_set(t_map *map, t_pos *pos, t_block block);
 void	map_set_flat(t_map *map);
 void	map_set_wall(t_map *map);
+
+int     map_save(t_map *data, const char *name);
+t_map   *load_map(const char *name);
 
 #endif
