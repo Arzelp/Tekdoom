@@ -5,10 +5,11 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 19 15:46:45 2016 alies_a
-** Last update Tue Jan 19 15:59:38 2016 alies_a
+** Last update Tue Jan 19 16:50:56 2016 alies_a
 */
 
 #include <lapin.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -24,11 +25,14 @@ int	map_save(t_map *map, const char *name)
   max = (map->head).size * (map->head).size * (map->head).size;//yolo
   if ((fd = open(name, O_CREAT | O_WRONLY, 0666)) == -1)
     return (1);
-  write(fd, &(map->head), sizeof(t_map_head));
+  if (write(fd, &(map->head), sizeof(t_map_head)) != sizeof(t_map_head))
+    return (1);
   while (x < max)
     {
-      write(fd, &((map->blocks)[x]), sizeof(t_block));
+      if (write(fd, &((map->blocks)[x]), sizeof(t_block)) != sizeof(t_block))
+	return (1);
       x += 1;
     }
   close(fd);
+  return (0);
 }
