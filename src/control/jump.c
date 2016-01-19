@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:11:52 2016 Paskal Arzel
-s** Last update Mon Jan 18 22:18:49 2016 Paskal Arzel
+s** Last update Tue Jan 19 15:06:05 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -23,7 +23,7 @@ int	ctrl_jumpin(t_data *data)
   pos.y = (int)((data->me).pos).y;
   pos.z = (int)((data->me).pos).z;
   if ((i = ctrl_checkcoli(pos, data, 0)) == 0 && (data->me).fall == 0)
-    (data->me).fall = (data->me).fall - 0.4;
+    (data->me).fall = (data->me).fall - 0.3;
   return (0);
 }
 
@@ -31,15 +31,16 @@ int	ctrl_fallen(t_data *data)
 {
   t_pos	pos;
 
-  (data->me).fall += 0.05;
+  if ((data->me).fall < 0.8)
+    (data->me).fall += 0.03;
   ((data->me).pos).z -= (data->me).fall;
   pos.x = (int)((data->me).pos).x;
   pos.y = (int)((data->me).pos).y;
   pos.z = (int)((data->me).pos).z + 1;
   if (ctrl_checkcoli(pos, data, 0) == 1 && (data->me).fall < 0)
     {
-      ((data->me).pos).z = pos.z - 0.05;
-      (data->me).fall = 0.05;
+      ((data->me).pos).z = pos.z - 0.03;
+      (data->me).fall = 0.03;
       return (0);
     }
   pos.z = (int)((data->me).pos).z;
