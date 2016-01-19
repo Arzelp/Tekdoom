@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 18 22:20:58 2016 Paskal Arzel
+** Last update Tue Jan 19 11:41:45 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -42,6 +42,12 @@ typedef struct s_me
   int		fly;
 } t_me;
 
+typedef struct s_mob
+{
+  t_vec			pos;
+  t_bunny_pixelarray	*tex;
+} t_mob;
+
 typedef struct s_data
 {
   t_bunny_window	*win;
@@ -49,6 +55,7 @@ typedef struct s_data
   t_bunny_pixelarray	*texture;
   const bool		*keys;
   t_me			me;
+  t_mob			*mob;
   t_map			*map;
 } t_data;
 
@@ -79,6 +86,7 @@ typedef struct s_hit
 } t_hit;
 
 void    display(t_data *data);
+void    disp_mob(t_data *data);
 
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
@@ -99,5 +107,19 @@ t_color	get_pixel(t_bunny_pixelarray *pix,
 void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,
 		 t_color *color);
+
+/*
+** Initialize
+*/
+
+int	init_all(t_data *data);
+
+/*
+** Texture
+*/
+
+t_color	get_texture(t_data *data,
+		    t_pos *block_x,
+		    t_bunny_position *pos);
 
 #endif

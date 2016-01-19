@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Mon Jan 18 22:19:37 2016 Paskal Arzel
+** Last update Tue Jan 19 11:20:01 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -53,7 +53,6 @@ int	ctrl_filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color)
 
 int	ctrl_drawjauge(t_data *data, t_bunny_pixelarray *pix)
 {
-  t_bunny_position	pos;
   t_color 		color;
 
   ctrl_filljauge(data, pix, &color);

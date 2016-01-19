@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Jan 13 13:36:19 2016 Arnaud Alies
-** Last update Mon Jan 18 17:45:40 2016 alies_a
+** Last update Tue Jan 19 11:41:01 2016 Arthur Josso
 */
 
 #ifndef MAP_H_
