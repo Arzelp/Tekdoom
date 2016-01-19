@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 18 17:53:26 2016 alies_a
+** Last update Mon Jan 18 18:58:47 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -26,7 +26,9 @@ t_color			get_texture(t_data *data,
   if ((block = map_get(data->map, block_x)) == NULL)
     return (res);
   text = data->texture;
-  pos->x += block->texture * 32;
+  pos->y = 31 - pos->y;
+  pos->x += (block->texture % 16) * 32;
+  pos->y += (block->texture / 16) * 32;
   res = get_pixel(text, pos);
   return (res);
 }

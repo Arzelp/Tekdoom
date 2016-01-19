@@ -5,7 +5,7 @@
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:16:04 2016 Frederic ODDOU
-** Last update Mon Jan 18 17:48:27 2016 alies_a
+** Last update Mon Jan 18 18:49:40 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -29,6 +29,6 @@ void		map_create_block(t_data *data)
       if (block->x == 0)
 	map_set(data->map, &pos, x);
       else
-	block->texture = (block->texture + 1) % 18;
+	block->texture = (block->texture + 1) % 96;
     }
 }
