@@ -18,17 +18,24 @@ void		map_create_block(t_data *data)
   t_pos		pos;
   t_block	x;
   t_block	*block;
+  int		i;
 
+  i = 2;
   x.x = 1;
   x.texture = 4;
-  pos.x = (data->me.pos).x + cos((data->me).alpha) * 2;
-  pos.y = (data->me.pos).y + sin((data->me).alpha) * 2;
-  pos.z = (data->me.pos).z + sin((data->me).beta) * 2;
-  if ((block = map_get(data->map, &pos)) != NULL)
+  while (i <= 7)
     {
-      if (block->x == 0)
-	map_set(data->map, &pos, x);
-      else
-	block->texture = (block->texture + 1) % 96;
+      pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
+      pos.y = (data->me.pos).y + sin((data->me).alpha) * i;
+      pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
+      if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
+	{
+	  pos.x = (data->me.pos).x + cos((data->me).alpha) * (i - 1);
+	  pos.y = (data->me.pos).y + sin((data->me).alpha) * (i - 1);
+	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 0)
+	    map_set(data->map, &pos, x);
+	  return ;
+	}
+      i++;
     }
 }
