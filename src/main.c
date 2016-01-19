@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 19 11:35:04 2016 Arthur Josso
+** Last update Tue Jan 19 11:44:22 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -13,6 +13,19 @@
 #include "bmp.h"
 #include "doom.h"
 #include "control.h"
+
+t_bunny_response key_listenner(t_bunny_event_state state,
+			       t_bunny_keysym keysym,
+			       void *data_pt)
+{
+  t_data        *data;
+
+  data = (t_data*)data_pt;
+  data->keys = bunny_get_keyboard();
+  if (state == GO_DOWN && keysym == BKS_ESCAPE)
+    return (EXIT_ON_SUCCESS);
+  return (GO_ON);
+}
 
 static t_bunny_response	loop(void *data_pt)
 {

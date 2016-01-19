@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Mon Jan 18 22:43:01 2016 Paskal Arzel
+** Last update Tue Jan 19 11:44:50 2016 Arthur Josso
 */
 
 #ifndef CONTROL_H_
@@ -29,9 +29,6 @@ int	ctrl_flymove(t_data *data, float speed);
 int	ctrl_filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color);
 int	ctrl_drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
 		   t_bunny_position pos2, t_color *color);
-t_bunny_response key_listenner(t_bunny_event_state state,
-			       t_bunny_keysym keysym,
-			       void *data_pt);
 void	map_create_block(t_data *data);
 void	map_delete_block(t_data *data);
 
