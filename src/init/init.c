@@ -1,11 +1,11 @@
 /*
 ** init.c for tekdoom in /home/josso/rendu/gfx/gfx_tekdoom
-** 
+**
 ** Made by Arthur Josso
 ** Login   <arthur.josso@epitech.eu>
-** 
+**
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 19 11:33:08 2016 Arthur Josso
+** Last update Tue Jan 19 15:38:39 2016 Paskal Arzel
 */
 
 #include <stdlib.h>
@@ -35,6 +35,8 @@ void	init_player(t_me *player)
   player->inair = 0;
   player->sprint = SPRMAX;
   player->fly = 0;
+  player->speedfront = 0;
+  player->speedside = 0;
 }
 
 int	init_mob(t_data *data)

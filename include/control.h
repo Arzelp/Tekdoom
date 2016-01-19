@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Tue Jan 19 11:44:50 2016 Arthur Josso
+** Last update Tue Jan 19 16:16:47 2016 Paskal Arzel
 */
 
 #ifndef CONTROL_H_
@@ -15,10 +15,16 @@
 #define STAJAU (5)
 #define SPRMAX (100)
 #define REGENSPR (0.15)
+#define ACC (0.02)
+#define INER (0.008)
+#define VITMAX (0.12)
+#define CAMSENS (0.07)
 
 int     ctrl_walk(t_data *data, float speed, int size);
 int     ctrl_walkside(t_data *data, float speed, int size);
 int     ctrl_move(t_data *data);
+int	ctrl_speed(t_data *data);
+int	ctrl_inertie(t_data *data);
 int	ctrl_gojump(t_data *data);
 int	ctrl_gomove(t_data *data);
 int     ctrl_checkcoli(t_pos pos, t_data *data, int size);

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 19 14:35:42 2016 Paskal Arzel
+** Last update Tue Jan 19 15:19:49 2016 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -40,6 +40,8 @@ typedef struct s_me
   float		alpha;
   float		beta;
   int		fly;
+  float		speedfront;
+  float		speedside;
 } t_me;
 
 typedef struct s_mob

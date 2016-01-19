@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 13:14:31 2016 Paskal Arzel
-** Last update Mon Jan 18 22:20:47 2016 Paskal Arzel
+** Last update Tue Jan 19 16:12:33 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -77,13 +77,13 @@ int     ctrl_walkside(t_data *data, float speed, int size)
 int	ctrl_camera(t_data *data)
 {
   if (data->keys[BKS_LEFT])
-    (data->me).alpha += 0.07;
+    (data->me).alpha += CAMSENS;
   if (data->keys[BKS_RIGHT])
-    (data->me).alpha -= 0.07;
+    (data->me).alpha -= CAMSENS;
   if (data->keys[BKS_UP])
-    (data->me).beta -= 0.07;
+    (data->me).beta -= CAMSENS;
   if (data->keys[BKS_DOWN])
-    (data->me).beta += 0.07;
+    (data->me).beta += CAMSENS;
   return (0);
 }
 
@@ -95,18 +95,12 @@ int	ctrl_gomove(t_data *data)
   if (data->keys[BKS_E])
     {
       if (data->keys[BKS_LSHIFT] && data->me.sprint > 0)
-	ctrl_walk(data, 0.25, 0);
-      else
-	ctrl_walk(data, 0.1, size);
+	ctrl_walk(data, (data->me).speedfront * 1.5, 0);
       data->me.sprint -= (data->keys[BKS_LSHIFT] &&
 		       data->me.sprint > 0) ? 0.55 : 0;
     }
-  if (data->keys[BKS_D])
-    ctrl_walk(data, -0.1, size);
-  if (data->keys[BKS_S])
-    ctrl_walkside(data, 0.1, size);
-  if (data->keys[BKS_F])
-    ctrl_walkside(data, -0.1, size);
+  ctrl_walk(data, (data->me).speedfront, size);
+  ctrl_walkside(data, (data->me).speedside, size);
   ctrl_camera(data);
   ctrl_fly(data);
   return (0);
