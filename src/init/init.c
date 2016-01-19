@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 19 15:38:39 2016 Paskal Arzel
+** Last update Tue Jan 19 19:32:08 2016 Paskal Arzel
 */
 
 #include <stdlib.h>
@@ -13,14 +13,22 @@
 #include "control.h"
 #include "bmp.h"
 
-t_map	*init_map()
+t_map	*init_map(int ac, char **av)
 {
   t_map *map;
 
-  if ((map = map_gen(50)) == NULL)
-    return (NULL);
-  map_set_flat(map);
-  map_set_wall(map);
+  if (ac >= 2)
+    {
+      if ((map = load_map(av[1])) == NULL)
+	return (NULL);
+    }
+  else
+    {
+      if ((map = map_gen(50)) == NULL)
+	return (NULL);
+      map_set_flat(map);
+      map_set_wall(map);
+    }
   return (map);
 }
 
@@ -51,11 +59,11 @@ int	init_mob(t_data *data)
   return (0);
 }
 
-int	init_all(t_data *data)
+int	init_all(t_data *data, int ac, char **av)
 {
   if ((data->texture = load_bitmap("res/textures.bmp")) == NULL)
     return (1);
-  if ((data->map = init_map()) == NULL)
+  if ((data->map = init_map(ac, av)) == NULL)
     return (1);
   init_player(&(data->me));
   if (init_mob(data) == 1)
