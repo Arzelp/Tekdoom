@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 19 14:35:42 2016 Paskal Arzel
+** Last update Tue Jan 19 16:19:32 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -112,7 +112,7 @@ void    tekpixel(t_bunny_pixelarray *pix,
 ** Initialize
 */
 
-int	init_all(t_data *data);
+int	init_all(t_data *data, int ac, char **av);
 
 /*
 ** Texture

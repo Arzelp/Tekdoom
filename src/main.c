@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 19 16:15:53 2016 alies_a
+** Last update Tue Jan 19 16:39:21 2016 alies_a
 */
 
 #include <lapin.h>
@@ -50,7 +50,7 @@ int		main(int ac, char **av)
   (void)ac;
   (void)av;
   data.keys = NULL;
-  if (init_all(&data) == 1)
+  if (init_all(&data, ac, av) == 1)
     return (1);
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
@@ -61,6 +61,6 @@ int		main(int ac, char **av)
   bunny_loop(data.win, FPS, (void*)(&data));
   bunny_delete_clipable(&((data.pix)->clipable));
   bunny_stop(data.win);
-  //map_save(data.map, "test.josso");
+  map_save(data.map, "autosave.josso");
   return (0);
 }
