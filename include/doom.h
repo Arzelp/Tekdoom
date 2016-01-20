@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 20 17:10:58 2016 alies_a
+** Last update Wed Jan 20 17:31:18 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -125,6 +125,8 @@ int	init_all(t_data *data, int ac, char **av);
 /*
 ** Texture
 */
+
+#define MAX_TEXT (96)
 
 void	show_textures(t_data *data);
 
