@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Tue Jan 19 19:34:59 2016 Paskal Arzel
+** Last update Tue Jan 19 19:52:46 2016 Paskal Arzel
 */
 
 #ifndef CONTROL_H_
