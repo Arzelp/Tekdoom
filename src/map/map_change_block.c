@@ -1,11 +1,11 @@
 /*
-** map_delete_block.c for map delete in /src/map/
+** map_change_block.c for map change in /src/map/
 **
 ** Made by Frederic ODDOU
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
-** Started on  Sun Jan 17 21:37:39 2016 Frederic ODDOU
-** Last update Mon Jan 18 17:48:47 2016 alies_a
+** Started on  Wed Jan 20 14:03:13 2016 Frederic ODDOU
+** Last update Wed Jan 20 14:03:13 2016 Frederic ODDOU
 */
 
 #include <stdlib.h>
@@ -13,7 +13,7 @@
 #include <math.h>
 #include "doom.h"
 
-void		map_delete_block(t_data *data)
+void		map_change_block(t_data *data)
 {
   t_pos		pos;
   t_block	*block;
@@ -28,7 +28,7 @@ void		map_delete_block(t_data *data)
       if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
 	{
 	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
-	    block->x = 0;
+	    block->texture = (block->texture + 1) % 20;
 	  return ;
 	}
       i++;

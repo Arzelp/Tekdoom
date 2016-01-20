@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Tue Jan 19 16:08:22 2016 Paskal Arzel
+** Last update Wed Jan 20 14:07:18 2016 Frederic ODDOU
 */
 
 #include <lapin.h>
@@ -66,6 +66,8 @@ int     ctrl_move(t_data *data)
       if (data->keys[BKS_C])
 	map_create_block(data);
       if (data->keys[BKS_V])
+	map_change_block(data);
+      if (data->keys[BKS_X])
 	map_delete_block(data);
       if (data->keys[BKS_LCONTROL])
 	(data->me).crowd = 0.6;
