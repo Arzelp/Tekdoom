@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 20 17:33:27 2016 alies_a
+** Last update Wed Jan 20 17:36:33 2016 alies_a
 */
 
 #include <lapin.h>
@@ -38,14 +38,17 @@ t_bunny_response key_listenner(t_bunny_event_state state,
     map_create_block(data);
   if (state == GO_DOWN && keysym == BKS_X)
     map_delete_block(data);
-  if (state == GO_DOWN && keysym == BKS_RIGHT && (data->select).open)
-    set_select(&(data->select), 1);
-  if (state == GO_DOWN && keysym == BKS_LEFT && (data->select).open)
-    set_select(&(data->select), -1);
-  if (state == GO_DOWN && keysym == BKS_UP && (data->select).open)
-    set_select(&(data->select), -16);
-  if (state == GO_DOWN && keysym == BKS_DOWN && (data->select).open)
-    set_select(&(data->select), 16);
+  if ((data->select).open && state == GO_DOWN)
+    {
+      if (keysym == BKS_RIGHT)
+	set_select(&(data->select), 1);
+      if (keysym == BKS_LEFT)
+	set_select(&(data->select), -1);
+      if (keysym == BKS_UP)
+	set_select(&(data->select), -16);
+      if (keysym == BKS_DOWN)
+	set_select(&(data->select), 16);
+    }
   return (GO_ON);
 }
 
