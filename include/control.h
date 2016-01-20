@@ -5,13 +5,13 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Tue Jan 19 16:16:47 2016 Paskal Arzel
+** Last update Tue Jan 19 19:52:46 2016 Paskal Arzel
 */
 
 #ifndef CONTROL_H_
 #define CONTROL_H_
 
-#define HUD (7)
+#define HUD (12)
 #define STAJAU (5)
 #define SPRMAX (100)
 #define REGENSPR (0.15)

@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 18 00:57:50 2016 Paskal Arzel
-** Last update Tue Jan 19 11:20:01 2016 Arthur Josso
+** Last update Tue Jan 19 19:34:36 2016 Paskal Arzel
 */
 
 #include <lapin.h>
@@ -40,13 +40,13 @@ int	ctrl_filljauge(t_data *data, t_bunny_pixelarray *pix, t_color *color)
   int	sizex;
 
   sizex = HUD * (WIDTH / 50);
-  color->full = RED;
+  color->full = 0xFFCC00;
   if (data->me.sprint == 0)
     return (0);
   pos.x = STAJAU + HUD / 2;
   pos2.y = HEIGHT - STAJAU;
   pos2.x = pos.x + (data->me.sprint * (sizex - HUD)) / SPRMAX;
-  pos.y = HEIGHT - STAJAU - sizex / 6;
+  pos.y = HEIGHT - STAJAU - sizex / 8;
   drawsquare(pix, pos, pos2, color);
   return (0);
 }
