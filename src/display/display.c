@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Mon Jan 18 17:32:47 2016 Paskal Arzel
+** Last update Wed Jan 20 16:44:37 2016 alies_a
 */
 
 #include <pthread.h>

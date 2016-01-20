@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 20 16:19:07 2016 alies_a
-** Last update Wed Jan 20 16:25:58 2016 alies_a
+** Last update Wed Jan 20 17:13:05 2016 alies_a
 */
 
 #include <lapin.h>
@@ -61,7 +61,7 @@ static void		set_selected(t_bunny_pixelarray *pix,
   draw_square(pix, start, 32, 4);
 }
 
-void                    show_textures(t_data *data, int selected)
+void                    show_textures(t_data *data)
 {
   int                   margin;
   t_bunny_pixelarray    *buffer;
@@ -73,7 +73,7 @@ void                    show_textures(t_data *data, int selected)
   zero.y = margin;
   if ((buffer = copy_pix(data->texture)) == NULL)
     return ;
-  set_selected(buffer, selected);
+  set_selected(buffer, (data->select).selected);
   if ((new = bunny_new_pixelarray(WIDTH - margin * 2,
 				  HEIGHT - margin * 2)) == NULL)
     return ;

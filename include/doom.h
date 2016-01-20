@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 20 16:27:03 2016 alies_a
+** Last update Wed Jan 20 17:10:58 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -32,11 +32,11 @@ typedef struct s_vec
 
 typedef struct s_me
 {
+  t_vec		pos;
   int		inair;
   float		fall;
   float		sprint;
   float		crowd;
-  t_vec		pos;
   float		alpha;
   float		beta;
   int		fly;
@@ -50,6 +50,12 @@ typedef struct s_mob
   t_bunny_pixelarray	*tex;
 } t_mob;
 
+typedef struct s_select
+{
+  int selected;
+  int open;
+} t_select;
+
 typedef struct s_data
 {
   t_bunny_window	*win;
@@ -59,6 +65,7 @@ typedef struct s_data
   t_me			me;
   t_mob			*mob;
   t_map			*map;
+  t_select		select;
 } t_data;
 
 /*
@@ -119,7 +126,7 @@ int	init_all(t_data *data, int ac, char **av);
 ** Texture
 */
 
-void	show_textures(t_data *data, int selected);
+void	show_textures(t_data *data);
 
 t_color	get_texture(t_data *data,
 		    t_pos *block_x,

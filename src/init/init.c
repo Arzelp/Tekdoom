@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 19 19:32:08 2016 Paskal Arzel
+** Last update Wed Jan 20 17:12:05 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -61,6 +61,8 @@ int	init_mob(t_data *data)
 
 int	init_all(t_data *data, int ac, char **av)
 {
+  (data->select).selected = 0;
+  (data->select).open = 0;
   if ((data->texture = load_bitmap("res/textures.bmp")) == NULL)
     return (1);
   if ((data->map = init_map(ac, av)) == NULL)

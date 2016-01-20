@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Wed Jan 20 16:27:32 2016 alies_a
+** Last update Wed Jan 20 17:19:33 2016 alies_a
 */
 
 #include <lapin.h>
@@ -25,6 +25,14 @@ t_bunny_response key_listenner(t_bunny_event_state state,
   data->keys = bunny_get_keyboard();
   if (state == GO_DOWN && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
+  if (state == GO_DOWN && keysym == BKS_C)
+    map_create_block(data);
+  if (state == GO_DOWN && keysym == BKS_X)
+    map_delete_block(data);
+  if (state == GO_DOWN && keysym == BKS_RIGHT && (data->select).open)
+    (data->select).selected += 1;
+  if (state == GO_DOWN && keysym == BKS_LEFT && (data->select).open)
+    (data->select).selected -= 1;
   return (GO_ON);
 }
 
@@ -36,11 +44,11 @@ static t_bunny_response	loop(void *data_pt)
   zero.x = 0;
   zero.y = 0;
   data = (t_data*)data_pt;
-  ctrl_move(data);
   display(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
   //show_textures(data, 17);
+  ctrl_move(data);
   bunny_display(data->win);
   return (GO_ON);
 }

@@ -5,7 +5,7 @@
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:16:04 2016 Frederic ODDOU
-** Last update Mon Jan 18 18:49:40 2016 Arthur Josso
+** Last update Wed Jan 20 17:21:59 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ void		map_create_block(t_data *data)
 
   i = 2;
   x.x = 1;
-  x.texture = 4;
+  x.texture = (data->select).selected;
   while (i <= 7)
     {
       pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
