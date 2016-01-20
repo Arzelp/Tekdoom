@@ -5,12 +5,12 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Nov 10 09:53:39 2015 Arnaud Alies
-** Last update Fri Jan 15 18:26:14 2016 Arnaud Alies
+** Last update Wed Jan 20 16:26:42 2016 alies_a
 */
 
 #include <lapin.h>
 
-t_color         get_pixel(t_bunny_pixelarray *pix,
+t_color         get_pixel(const t_bunny_pixelarray *pix,
 			  t_bunny_position *pos)
 {
   t_color       color;

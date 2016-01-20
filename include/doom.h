@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 19 19:32:21 2016 Paskal Arzel
+** Last update Wed Jan 20 16:27:03 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -95,15 +95,14 @@ float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
 int     map_check_pos(t_map *map, t_vec *vec);
 
-t_color	get_texture(t_data *data,
-		    t_pos *block_x,
-		    t_bunny_position *pos);
+void	stretch(t_bunny_pixelarray *pix,
+		const t_bunny_pixelarray *ori);
 
 /*
 ** Core
 */
 
-t_color	get_pixel(t_bunny_pixelarray *pix,
+t_color	get_pixel(const t_bunny_pixelarray *pix,
 		  t_bunny_position *pos);
 
 void    tekpixel(t_bunny_pixelarray *pix,
@@ -119,6 +118,8 @@ int	init_all(t_data *data, int ac, char **av);
 /*
 ** Texture
 */
+
+void	show_textures(t_data *data, int selected);
 
 t_color	get_texture(t_data *data,
 		    t_pos *block_x,

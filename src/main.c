@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 19 16:53:23 2016 alies_a
+** Last update Wed Jan 20 16:27:32 2016 alies_a
 */
 
 #include <lapin.h>
@@ -13,6 +13,7 @@
 #include "bmp.h"
 #include "doom.h"
 #include "control.h"
+#include "my.h"
 
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,
@@ -39,6 +40,7 @@ static t_bunny_response	loop(void *data_pt)
   display(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  //show_textures(data, 17);
   bunny_display(data->win);
   return (GO_ON);
 }

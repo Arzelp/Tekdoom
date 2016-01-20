@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Wed Jan 20 14:05:56 2016 Frederic ODDOU
+## Last update Wed Jan 20 16:24:30 2016 alies_a
 ##
 
 NAME    =       tekdoom
@@ -40,6 +40,8 @@ MOB	=	./src/mob/
 
 SRCS	=	$(SRC)main.c \
 		$(SRC)tekpixel.c \
+		$(SRC)stretch.c \
+		$(SRC)show_texture.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
 		$(MAP)gen.c \
