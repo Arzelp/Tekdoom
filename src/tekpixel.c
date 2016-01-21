@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Nov 10 09:53:39 2015 Arnaud Alies
-** Last update Fri Jan 15 18:26:14 2016 Arnaud Alies
+** Last update Wed Jan 20 18:45:19 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -22,7 +22,7 @@ t_color         get_pixel(t_bunny_pixelarray *pix,
   if ((pos->x < w && pos->y < h) && (pos->x >= 0 && pos->y >= 0))
     color.full = (((t_color*)pix->pixels)[w * pos->y + pos->x]).full;
   else
-    color.full = BLACK;
+    color.full = TEAL;
   return (color);
 }
 

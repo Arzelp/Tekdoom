@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 19 11:33:08 2016 Arthur Josso
+** Last update Thu Jan 21 16:12:47 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -39,13 +39,23 @@ void	init_player(t_me *player)
 
 int	init_mob(t_data *data)
 {
-  if ((data->mob = malloc(1 * sizeof(t_mob))) == NULL)
+  if ((data->mob = malloc(sizeof(t_mob) * NB_MOB)) == NULL)
     return (1);
   if ((data->mob[0].tex = load_bitmap("res/boss.bmp")) == NULL)
     return (1);
-  data->mob[0].pos.x = 10;
-  data->mob[0].pos.y = 10;
+  data->mob[0].pos.x = 10.5;
+  data->mob[0].pos.y = 10.5;
   data->mob[0].pos.z = 0;
+  data->mob[0].size.x = 2;
+  data->mob[0].size.y = 4;
+  data->mob[0].old_x = 9999;
+  if ((data->mob[1].tex = load_bitmap("res/josso.bmp")) == NULL)
+    return (1);
+  data->mob[1].pos.x = 20;
+  data->mob[1].pos.y = 5;
+  data->mob[1].pos.z = 0;
+  data->mob[1].size.x = 2;
+  data->mob[1].size.y = 4;
   return (0);
 }
 

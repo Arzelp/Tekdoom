@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 19 11:41:45 2016 Arthur Josso
+** Last update Thu Jan 21 16:05:24 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -30,6 +30,14 @@ typedef struct s_vec
   float z;
 } t_vec;
 
+typedef struct s_plane
+{
+  float	a;
+  float	b;
+  float	c;
+  float	d;
+} t_plane;
+
 typedef struct s_me
 {
   int		inair;
@@ -45,7 +53,11 @@ typedef struct s_me
 typedef struct s_mob
 {
   t_vec			pos;
+  t_vec			size;
   t_bunny_pixelarray	*tex;
+  t_plane		p;
+  t_vec			dir;
+  float			old_x;
 } t_mob;
 
 typedef struct s_data
@@ -67,6 +79,7 @@ typedef struct s_data
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
 #define VIEW_DIST (15)
 #define PREC (0.0001)
+#define NB_MOB (1)
 
 typedef struct s_ray
 {
@@ -83,10 +96,15 @@ typedef struct s_hit
   t_pos                 blk;
   t_pos                 min;
   t_pos                 max;
+  t_color		pix;
 } t_hit;
 
 void    display(t_data *data);
-void    disp_mob(t_data *data);
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
+
+void	test_x(t_data *data, t_ray *ray, t_hit *hit);
+void	test_y(t_data *data, t_ray *ray, t_hit *hit);
+void	test_z(t_data *data, t_ray *ray, t_hit *hit);
 
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);

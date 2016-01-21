@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Mon Jan 18 17:32:47 2016 Paskal Arzel
+** Last update Wed Jan 20 18:52:39 2016 Arthur Josso
 */
 
 #include <pthread.h>
@@ -33,30 +33,30 @@ static void	set_hit_info(t_hit *hit)
     }
 }
 
-#include <math.h>
-
 static void	set_pix(t_data *data, t_bunny_position *pos)
 {
   t_hit		hit;
-  t_color	col;
   float		d_viewdist;
 
   get_point(data, pos, &hit);
   if (hit.axe == '0')
-    col.full = BLACK;
-  else
+    hit.pix.full = BLACK;
+  else if (hit.axe != 'm')
     {
       set_hit_info(&hit);
-      col = get_texture(data, &hit.blk, &hit.ratio);
+      hit.pix = get_texture(data, &hit.blk, &hit.ratio);
       d_viewdist = 1.7 * VIEW_DIST;
       if (hit.norm > d_viewdist)
 	hit.norm = d_viewdist;
       hit.norm = d_viewdist - hit.norm;
-      col.argb[RED_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[RED_CMP]);
-      col.argb[BLUE_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[BLUE_CMP]);
-      col.argb[GREEN_CMP] = MAP(hit.norm, 0, d_viewdist, 0, col.argb[GREEN_CMP]);
+      hit.pix.argb[RED_CMP] =
+	MAP(hit.norm, 0, d_viewdist, 0, hit.pix.argb[RED_CMP]);
+      hit.pix.argb[BLUE_CMP] =
+	MAP(hit.norm, 0, d_viewdist, 0, hit.pix.argb[BLUE_CMP]);
+      hit.pix.argb[GREEN_CMP] =
+	MAP(hit.norm, 0, d_viewdist, 0, hit.pix.argb[GREEN_CMP]);
     }
-  tekpixel(data->pix, pos, &col);
+  tekpixel(data->pix, pos, &hit.pix);
 }
 
 static void *slice1(void *data_pt)
