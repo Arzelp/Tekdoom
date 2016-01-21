@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Wed Jan 20 17:16:58 2016 alies_a
+** Last update Thu Jan 21 19:22:41 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -52,6 +52,7 @@ int	ctrl_speed(t_data *data)
     (data->me).speedside += ((data->me).speedside > VITMAX - ACC) ? 0 : ACC;
   if (data->keys[BKS_F])
     (data->me).speedside -= ((data->me).speedside < -VITMAX + ACC) ? 0 : ACC;
+  return (0);
 }
 
 /*

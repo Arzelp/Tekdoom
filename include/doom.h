@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Thu Jan 21 18:00:24 2016 alies_a
+** Last update Thu Jan 21 19:21:12 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -110,6 +110,8 @@ typedef struct s_hit
 } t_hit;
 
 void    display(t_data *data);
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
+void	test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob);
 
 void	test_x(t_data *data, t_ray *ray, t_hit *hit);
 void	test_y(t_data *data, t_ray *ray, t_hit *hit);
