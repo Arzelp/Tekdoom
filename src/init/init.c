@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Thu Jan 21 16:26:20 2016 Arthur Josso
+** Last update Thu Jan 21 17:16:13 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -58,7 +58,6 @@ int	init_mob(t_data *data)
   data->mob[0].pos.z = 0;
   data->mob[0].size.x = 2;
   data->mob[0].size.y = 4;
-  data->mob[0].old_x = 9999;
   if ((data->mob[1].tex = load_bitmap("res/josso.bmp")) == NULL)
     return (1);
   data->mob[1].pos.x = 20;
