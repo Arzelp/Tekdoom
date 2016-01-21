@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Thu Jan 21 16:27:26 2016 Arthur Josso
+## Last update Thu Jan 21 18:01:23 2016 alies_a
 ##
 
 NAME    =       tekdoom
@@ -41,6 +41,7 @@ MOB	=	./src/mob/
 SRCS	=	$(SRC)main.c \
 		$(SRC)tekpixel.c \
 		$(SRC)stretch.c \
+		$(SRC)vecnorm.c \
 		$(SRC)show_texture.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
@@ -64,6 +65,7 @@ SRCS	=	$(SRC)main.c \
 		$(DISP)display.c \
 		$(DISP)test_axes.c \
 		$(MOB)mob.c \
+		$(MOB)mob_loop.c \
 		$(DISP)viseur.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \

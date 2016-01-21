@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 21 17:26:18 2016 alies_a
+** Last update Thu Jan 21 17:59:33 2016 alies_a
 */
 
 #include <lapin.h>
@@ -61,11 +61,9 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   display(data);
-  ((data->mob)->pos).x -= (((data->mob)->pos).x - ((data->me).pos).x) / 100;
-  ((data->mob)->pos).y -= (((data->mob)->pos).y - ((data->me).pos).y) / 100;
+  mob_loop(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
-  //show_textures(data, 17);
   ctrl_move(data);
   bunny_display(data->win);
   return (GO_ON);
