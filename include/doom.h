@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Wed Jan 20 17:31:18 2016 alies_a
+** Last update Thu Jan 21 16:03:09 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -14,7 +14,8 @@
 #define WIDTH (320)
 #define HEIGHT (200)
 #define FPS (40)
-#define FOV (1)
+#define FOVX (1)
+#define FOVY (0.7)
 #define DIST (0.5)
 
 #define MAP(x, sA, eA, sB, eB) ((((sA - x) / (sA - eA)) * (eB - sB)) + sB)
