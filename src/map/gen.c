@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Mon Jan 18 21:32:23 2016 alies_a
+** Last update Thu Jan 21 19:27:14 2016 alies_a
 */
 
 #include <lapin.h>
@@ -79,7 +79,7 @@ void            map_set_wall(t_map *map)
 	  pos.z + 2 > size ||
 	  pos.x == 0 ||
 	  pos.y == 0 ||
-	  pos.z == 0)
+	  pos.z < 10)
 	map_set(map, &pos, block);
       pos.x += 1;
       if (pos.x > size)

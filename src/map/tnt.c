@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 18:48:39 2016 alies_a
-** Last update Thu Jan 21 19:13:37 2016 alies_a
+** Last update Thu Jan 21 19:26:07 2016 alies_a
 */
 
 #include <math.h>
@@ -16,29 +16,23 @@ static void	blow_rad(t_map *map, t_pos *pos, int size)
   t_pos		bpos;
   t_block	block;
   float		radx;
-  float		rady;
-  float 	radz;
+  float		radz;
 
   block.x = 0;
   block.texture = 0;
-  rady = 0;
-  while (rady < 2 * M_PI)
+  radz = 0;
+  while (radz < 2 * M_PI)
     {
-      radz = 0;
-      while (radz < 2 * M_PI)
+      radx = 0;
+      while (radx < 2 * M_PI)
 	{
-	  radx = 0;
-	  while (radx < 2 * M_PI)
-	    {
-	      bpos.x = cos(radx) * size + pos->x;
-	      bpos.y = cos(rady) * size + pos->y;
-	      bpos.z = sin(radz) * size + pos->z;
-	      map_set(map, &bpos, block);
-	      radx += 0.2;
-	    }
-	  radz += 0.2;
+	  bpos.x = cos(radx) * size + pos->x;
+	  bpos.y = sin(radx) * size + pos->y;
+	  bpos.z = sin(radz) * size + pos->z;
+	  map_set(map, &bpos, block);
+	  radx += 0.1;
 	}
-      rady += 0.2;
+      radz += 0.1;
     }
 }
 
