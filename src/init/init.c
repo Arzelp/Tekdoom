@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Thu Jan 21 18:29:31 2016 Arthur Josso
+** Last update Thu Jan 21 19:20:55 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -65,6 +65,10 @@ int	init_mob(t_data *data)
   data->mob[1].pos.z = 0;
   data->mob[1].size.x = 2;
   data->mob[1].size.y = 4;
+  if (((data->mob)->loop = bunny_load_music("res/roux.ogg")) != NULL)
+    {
+      bunny_sound_loop((data->mob)->loop, 5);
+    }
   return (0);
 }
 

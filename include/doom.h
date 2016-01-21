@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Thu Jan 21 19:17:47 2016 Arthur Josso
+** Last update Thu Jan 21 19:21:12 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -60,6 +60,7 @@ typedef struct s_mob
   t_bunny_pixelarray	*tex;
   t_plane		p;
   t_vec			dir;
+  t_bunny_music		*loop;
 } t_mob;
 
 typedef struct s_select
@@ -135,6 +136,9 @@ void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,
 		 t_color *color);
 
+double	vecnorm(t_bunny_position *coord0,
+		t_bunny_position *coord1);
+
 /*
 ** Initialize
 */
@@ -152,5 +156,12 @@ void	show_textures(t_data *data);
 t_color	get_texture(t_data *data,
 		    t_pos *block_x,
 		    t_bunny_position *pos);
+
+/*
+** Mobs
+*/
+
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
+void    mob_loop(t_data *data);
 
 #endif
