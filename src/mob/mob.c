@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Tue Jan 19 10:17:50 2016 Arthur Josso
-** Last update Thu Jan 21 17:14:58 2016 Arthur Josso
+** Last update Thu Jan 21 17:17:24 2016 alies_a
 */
 
 #include <math.h>
