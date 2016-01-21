@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Tue Jan 19 10:17:50 2016 Arthur Josso
-** Last update Thu Jan 21 16:24:31 2016 Arthur Josso
+** Last update Thu Jan 21 17:14:58 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -44,41 +44,21 @@ static void	set_plane(t_data *data, int mob)
     - data->mob[mob].dir.z * data->mob[mob].pos.z;
 }
 
-static float	get_dist(t_vec *o, t_vec *a, t_vec *b, float *old_x)
+static float	get_dist(t_vec *o, t_vec *a, t_vec *b)
 {
   float	ret;
+  float teta_a;
+  float teta_b;
 
   ret = sqrt((o->x - b->x) * (o->x - b->x)
 	     + (o->y - b->y) * (o->y - b->y)
 	     - (o->x - a->x) * (o->x - a->x)
 	     - (o->y - a->y) * (o->y - a->y));
-  //if (ret < *old_x)
-  //ret *= -1;
-  *old_x = ABS(ret);
+  teta_a = atan2((a->x - o->x), (a->y - o->y));
+  teta_b = atan2((b->x - o->x), (b->y - o->y));
+  if (teta_a > teta_b)
+    ret *= -1;
   return (ret);
-}
-
-static char	is_inv(t_vec *o, t_vec *b, float alpha)
-{
-  float	s;
-  float	c;
-  float	denom;
-  float	nom;
-
-  s = sin(alpha);
-  c = cos(alpha);
-  denom = c * c + s * s;
-  if (denom == 0)
-    return (0);
-  nom = (b->x - o->x) * c + (b->y - o->y) * s;
-  nom /= denom;
-  //printf("trans : %.3f\n", (b->x - o->x));
-  //printf("trans : %.3f\n", (b->y - o->y));
-  //printf("%.3f\n", nom);
-  if (nom >= 0)
-    return (1);
-  else
-    return (0);
 }
 
 static t_color		get_color(t_data *data, int mob, t_vec *pt)
@@ -87,9 +67,7 @@ static t_color		get_color(t_data *data, int mob, t_vec *pt)
   t_bunny_position	ratio;
   float			x;
 
-  x = get_dist(&data->me.pos, &data->mob[mob].pos, pt, &data->mob[mob].old_x);
-  if (is_inv(&data->me.pos, pt, -data->me.alpha))
-    x *= -1;
+  x = get_dist(&data->me.pos, &data->mob[mob].pos, pt);
   if (ABS(x) > data->mob[mob].size.x
       || pt->z > data->mob[mob].size.y
       || pt->z < 0)
