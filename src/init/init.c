@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Thu Jan 21 19:20:55 2016 Arthur Josso
+** Last update Thu Jan 21 19:31:16 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -36,7 +36,7 @@ void	init_player(t_me *player)
 {
   (player->pos).x = 2.5;
   (player->pos).y = 2.5;
-  (player->pos).z = 3;
+  (player->pos).z = 20;
   player->alpha = 0.5;
   player->beta = 0;
   player->fall = 0;
