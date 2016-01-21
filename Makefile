@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Thu Jan 21 18:01:23 2016 alies_a
+## Last update Thu Jan 21 18:57:37 2016 alies_a
 ##
 
 NAME    =       tekdoom
@@ -55,6 +55,7 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)texture.c \
 		$(MAP)save_map.c \
 		$(MAP)load_map.c \
+		$(MAP)tnt.c \
 		$(CTRL)control.c \
 		$(CTRL)drawjauge.c \
 		$(CTRL)fly.c \
