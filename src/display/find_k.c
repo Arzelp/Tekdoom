@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Wed Jan 13 19:52:48 2016 Arthur Josso
-** Last update Thu Jan 21 14:50:28 2016 Arthur Josso
+** Last update Thu Jan 21 16:26:29 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -17,8 +17,8 @@ static void    get_ray(t_me *me, t_bunny_position *sr, t_ray *ray)
   t_vec res;
 
   res.x = DIST;
-  res.y = FOV * (((WIDTH / 2) - (float)sr->x) / WIDTH);
-  res.z = FOV * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
+  res.y = FOVX * (((WIDTH / 2) - (float)sr->x) / WIDTH);
+  res.z = FOVY * (((HEIGHT / 2) - (float)sr->y) / HEIGHT);
   ray->beta.x = res.x * cos(me->alpha) - res.y * sin(me->alpha);
   ray->beta.y = res.x * sin(me->alpha) + res.y * cos(me->alpha);
   ray->beta.z = res.z + me->beta;

@@ -1,11 +1,11 @@
 /*
-** map_create_block.c for map create block in /src/map/
+** map_change_block.c for map change in /src/map/
 **
 ** Made by Frederic ODDOU
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
-** Started on  Fri Jan 15 15:16:04 2016 Frederic ODDOU
-** Last update Wed Jan 20 17:21:59 2016 alies_a
+** Started on  Wed Jan 20 14:03:13 2016 Frederic ODDOU
+** Last update Wed Jan 20 14:03:13 2016 Frederic ODDOU
 */
 
 #include <stdlib.h>
@@ -13,16 +13,13 @@
 #include <math.h>
 #include "doom.h"
 
-void		map_create_block(t_data *data)
+void		map_change_block(t_data *data)
 {
   t_pos		pos;
-  t_block	x;
   t_block	*block;
   int		i;
 
   i = 2;
-  x.x = 1;
-  x.texture = (data->select).selected;
   while (i <= 7)
     {
       pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
@@ -30,10 +27,8 @@ void		map_create_block(t_data *data)
       pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
       if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
 	{
-	  pos.x = (data->me.pos).x + cos((data->me).alpha) * (i - 1);
-	  pos.y = (data->me.pos).y + sin((data->me).alpha) * (i - 1);
-	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 0)
-	    map_set(data->map, &pos, x);
+	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
+	    block->texture = (block->texture + 1) % 20;
 	  return ;
 	}
       i++;

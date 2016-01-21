@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 21 12:15:44 2016 Arthur Josso
+** Last update Thu Jan 21 16:26:07 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -13,6 +13,16 @@
 #include "bmp.h"
 #include "doom.h"
 #include "control.h"
+#include "my.h"
+
+void	set_select(t_select *select, int add)
+{
+  int	buf;
+
+  buf = select->selected + add;
+  if (buf >= 0 && buf < MAX_TEXT)
+    select->selected += add;
+}
 
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,
@@ -24,6 +34,21 @@ t_bunny_response key_listenner(t_bunny_event_state state,
   data->keys = bunny_get_keyboard();
   if (state == GO_DOWN && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
+  if (state == GO_DOWN && keysym == BKS_C)
+    map_create_block(data);
+  if (state == GO_DOWN && keysym == BKS_X)
+    map_delete_block(data);
+  if ((data->select).open && state == GO_DOWN)
+    {
+      if (keysym == BKS_RIGHT)
+	set_select(&(data->select), 1);
+      if (keysym == BKS_LEFT)
+	set_select(&(data->select), -1);
+      if (keysym == BKS_UP)
+	set_select(&(data->select), -16);
+      if (keysym == BKS_DOWN)
+	set_select(&(data->select), 16);
+    }
   return (GO_ON);
 }
 
@@ -35,10 +60,11 @@ static t_bunny_response	loop(void *data_pt)
   zero.x = 0;
   zero.y = 0;
   data = (t_data*)data_pt;
-  ctrl_move(data);
   display(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  //show_textures(data, 17);
+  ctrl_move(data);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -50,7 +76,7 @@ int		main(int ac, char **av)
   (void)ac;
   (void)av;
   data.keys = NULL;
-  if (init_all(&data) == 1)
+  if (init_all(&data, ac, av) == 1)
     return (1);
   if ((data.pix = bunny_new_pixelarray(WIDTH, HEIGHT)) == NULL)
     return (1);
@@ -61,5 +87,10 @@ int		main(int ac, char **av)
   bunny_loop(data.win, FPS, (void*)(&data));
   bunny_delete_clipable(&((data.pix)->clipable));
   bunny_stop(data.win);
+  if (map_save(data.map, "autosave.josso"))
+    {
+      my_putstr("Error while saving\n");
+      return (1);
+    }
   return (0);
 }

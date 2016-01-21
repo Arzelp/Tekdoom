@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Tue Jan 19 16:05:18 2016 Arthur Josso
+## Last update Thu Jan 21 16:27:26 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -40,6 +40,8 @@ MOB	=	./src/mob/
 
 SRCS	=	$(SRC)main.c \
 		$(SRC)tekpixel.c \
+		$(SRC)stretch.c \
+		$(SRC)show_texture.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
 		$(MAP)gen.c \
@@ -48,7 +50,10 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)map_check_pos.c \
 		$(MAP)map_create_block.c \
 		$(MAP)map_delete_block.c \
+		$(MAP)map_change_block.c \
 		$(MAP)texture.c \
+		$(MAP)save_map.c \
+		$(MAP)load_map.c \
 		$(CTRL)control.c \
 		$(CTRL)drawjauge.c \
 		$(CTRL)fly.c \
@@ -59,6 +64,7 @@ SRCS	=	$(SRC)main.c \
 		$(DISP)display.c \
 		$(DISP)test_axes.c \
 		$(MOB)mob.c \
+		$(DISP)viseur.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \
 		$(MY)my_strcat.c \
