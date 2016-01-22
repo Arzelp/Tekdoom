@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Thu Jan 21 19:32:49 2016 alies_a
+** Last update Fri Jan 22 12:04:11 2016 alies_a
 */
 
 #include <lapin.h>
@@ -82,12 +82,6 @@ int		main(int ac, char **av)
     return (1);
   if ((data.win = bunny_start(WIDTH, HEIGHT, false, "TekDoom")) == NULL)
     return (1);
-  t_pos pos;
-
-  pos.x = 15;
-  pos.y = 15;
-  pos.z = 10;
-  blow_at(data.map, &pos, 6);
   bunny_set_loop_main_function(loop);
   bunny_set_key_response(&key_listenner);
   bunny_loop(data.win, FPS, (void*)(&data));

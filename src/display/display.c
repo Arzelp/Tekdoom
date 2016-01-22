@@ -5,13 +5,13 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Thu Jan 21 16:26:42 2016 Arthur Josso
+** Last update Fri Jan 22 11:58:44 2016 alies_a
 */
 
 #include <pthread.h>
 #include "doom.h"
 
-static void	set_hit_info(t_hit *hit)
+void	set_hit_info(t_hit *hit)
 {
   hit->blk.x = hit->pt.x;
   hit->blk.y = hit->pt.y;

@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Thu Jan 21 19:22:41 2016 Arthur Josso
+** Last update Fri Jan 22 11:58:38 2016 alies_a
 */
 
 #include <lapin.h>
@@ -60,11 +60,36 @@ int	ctrl_speed(t_data *data)
 ** Lol.
 */
 
+void			interact(t_data *data)
+{
+  t_bunny_position 	pos;
+  t_hit			hit;
+  t_block		*block;
+
+  pos.x = WIDTH / 2;
+  pos.y = HEIGHT / 2;
+  get_point(data, &pos, &hit);
+  if (hit.axe == 'm' || hit.axe == '0')
+    return ;
+  set_hit_info(&hit);
+  if ((block = map_get(data->map, &(hit.blk))) == NULL)
+     return ;
+  if (data->keys[BKS_R])
+    {
+      printf("%d %d %d\n", (hit.blk).x, (hit.blk).y, (hit.blk).z);
+      printf("%d\n", block->texture);
+      
+      if (block->texture == 8)
+	blow_at(data->map, &hit.blk, 6);
+    }
+}
+
 int     ctrl_move(t_data *data)
 {
   (data->me).crowd = 0;
   if (data->keys != NULL)
     {
+      interact(data);
       if (data->keys[BKS_TAB])
 	{
 	  show_textures(data);
