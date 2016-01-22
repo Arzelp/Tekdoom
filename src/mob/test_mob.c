@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Thu Jan 21 19:14:30 2016 Arthur Josso
-** Last update Fri Jan 22 12:10:05 2016 Arthur Josso
+** Last update Fri Jan 22 14:13:07 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -16,31 +16,17 @@ static float    get_k(t_data *data, t_ray *ray, int mob)
   float		denom;
   float		nom;
 
-    denom = data->mob[mob].p.a * ray->beta.x
-          + data->mob[mob].p.b * ray->beta.y
-      + data->mob[mob].p.c * ray->beta.z;
-    if (denom == 0)
-      return (MAX);
-      nom =
-	    - data->mob[mob].p.a * -ray->alpha.x
-	    - data->mob[mob].p.b * -ray->alpha.y
-	    - data->mob[mob].p.c * -ray->alpha.z
-	- data->mob[mob].p.d;
-      return (nom / denom);
-}
-
-static void     set_plane(t_data *data, int mob)
-{
-  data->mob[mob].dir.x = data->mob[mob].pos.x - data->me.pos.x;
-  data->mob[mob].dir.y = data->mob[mob].pos.y - data->me.pos.y;
-  data->mob[mob].dir.z = 0;
-  data->mob[mob].p.a = data->mob[mob].dir.x;
-  data->mob[mob].p.b = data->mob[mob].dir.y;
-  data->mob[mob].p.c = data->mob[mob].dir.z;
-    data->mob[mob].p.d =
-          - data->mob[mob].dir.x * data->mob[mob].pos.x
-          - data->mob[mob].dir.y * data->mob[mob].pos.y
-      - data->mob[mob].dir.z * data->mob[mob].pos.z - PREC;
+  denom = data->mob[mob].p.a * ray->beta.x
+    + data->mob[mob].p.b * ray->beta.y
+    + data->mob[mob].p.c * ray->beta.z;
+  if (denom == 0)
+    return (MAX);
+  nom =
+    - data->mob[mob].p.a * -ray->alpha.x
+    - data->mob[mob].p.b * -ray->alpha.y
+    - data->mob[mob].p.c * -ray->alpha.z
+    - data->mob[mob].p.d;
+  return (nom / denom);
 }
 
 static float    get_dist(t_vec *o, t_vec *a, t_vec *b)
@@ -68,14 +54,15 @@ static t_color          get_color(t_data *data, int mob, t_vec *pt)
 
   x = get_dist(&data->me.pos, &data->mob[mob].pos, pt);
   if (ABS(x) > data->mob[mob].size.x
-            || pt->z > data->mob[mob].size.y
+      || pt->z > data->mob[mob].size.y
       || pt->z < 0)
     col.full = TEAL;
   else
     {
       ratio.x = MAP(x, -data->mob[mob].size.x, data->mob[mob].size.x,
 		    0, data->mob[mob].tex->clipable.clip_width);
-      ratio.y = MAP(pt->z, 0, data->mob[mob].size.y,
+      ratio.y = MAP(pt->z, data->mob[mob].pos.z,
+		    data->mob[mob].size.y + data->mob[mob].pos.z,
 		    0, data->mob[mob].tex->clipable.clip_height);
       ratio.y = data->mob[mob].tex->clipable.clip_height - ratio.y;
       col = get_pixel(data->mob[mob].tex, &ratio);
@@ -84,13 +71,12 @@ static t_color          get_color(t_data *data, int mob, t_vec *pt)
   return (col);
 }
 
-void		test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
+static void	test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
 {
   float		k;
   t_vec		pt;
   t_color	pix;
 
-  set_plane(data, mob);
   k = get_k(data, ray, mob);
   calc_pos(&pt, ray, k);
   pix = get_color(data, mob, &pt);
@@ -103,5 +89,17 @@ void		test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
       hit->axe = 'm';
       hit->pt = pt;
       hit->pix = pix;
+    }
+}
+
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit)
+{
+  int   i;
+
+  i = 0;
+  while (i < NB_MOB)
+    {
+      test_mob(data, ray, hit, i);
+      i++;
     }
 }

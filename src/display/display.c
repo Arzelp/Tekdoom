@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 22 11:58:44 2016 alies_a
+** Last update Fri Jan 22 14:00:02 2016 Arthur Josso
 */
 
 #include <pthread.h>
@@ -106,6 +106,7 @@ void			display(t_data *data)
   pthread_t ta;
   pthread_t tb;
 
+  gen_mob_plane(data);
   (data->me).pos.z -= (data->me).crowd;
   pthread_create (&ta, NULL, slice1, (void*)data);
   pthread_create (&tb, NULL, slice2, (void*)data);
