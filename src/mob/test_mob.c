@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Thu Jan 21 19:14:30 2016 Arthur Josso
-** Last update Fri Jan 22 12:02:27 2016 Arthur Josso
+** Last update Fri Jan 22 12:10:05 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -84,10 +84,10 @@ static t_color          get_color(t_data *data, int mob, t_vec *pt)
   return (col);
 }
 
-void	test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
+void		test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
 {
-  float	k;
-  t_vec	pt;
+  float		k;
+  t_vec		pt;
   t_color	pix;
 
   set_plane(data, mob);
