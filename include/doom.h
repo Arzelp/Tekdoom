@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 22 12:08:01 2016 Arthur Josso
+** Last update Fri Jan 22 12:09:31 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -116,6 +116,7 @@ void	test_x(t_data *data, t_ray *ray, t_hit *hit);
 void	test_y(t_data *data, t_ray *ray, t_hit *hit);
 void	test_z(t_data *data, t_ray *ray, t_hit *hit);
 
+void    set_hit_info(t_hit *hit);
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
