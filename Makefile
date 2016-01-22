@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Thu Jan 21 19:21:52 2016 Arthur Josso
+## Last update Fri Jan 22 15:24:07 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -38,6 +38,8 @@ INIT	=	./src/init/
 
 MOB	=	./src/mob/
 
+SPRITE	=	./src/sprite/
+
 SRCS	=	$(SRC)main.c \
 		$(SRC)tekpixel.c \
 		$(SRC)stretch.c \
@@ -68,6 +70,7 @@ SRCS	=	$(SRC)main.c \
 		$(MOB)mob.c \
 		$(MOB)test_mob.c \
 		$(MOB)mob_loop.c \
+		$(SPRITE)gun.c \
 		$(DISP)viseur.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \

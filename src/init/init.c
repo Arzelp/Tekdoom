@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Fri Jan 22 14:14:20 2016 Arthur Josso
+** Last update Fri Jan 22 17:45:12 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -89,6 +89,23 @@ int	init_mob(t_data *data)
   return (0);
 }
 
+int	init_gun(t_gun *gun)
+{
+  if ((gun->tex = load_bitmap("res/gun.bmp")) == NULL)
+    return (1);
+  gun->beg.x = (2 * WIDTH) / 5;
+  gun->end.x = (4 * WIDTH) / 5;
+  gun->beg.y =  HEIGHT / 2;
+  gun->end.y = HEIGHT;
+  gun->size.x = 155;
+  gun->size.y = 110;
+  gun->frame_pos.x = 0;
+  gun->frame_pos.y = 0;
+  gun->fire = 0;
+  gun->speed = 0.4;
+  return (0);
+}
+
 int	init_all(t_data *data, int ac, char **av)
 {
   (data->select).selected = 0;
@@ -99,6 +116,8 @@ int	init_all(t_data *data, int ac, char **av)
     return (1);
   init_player(&(data->me));
   if (init_mob(data) == 1)
+    return (1);
+  if (init_gun(&data->gun) == 1)
     return (1);
   return (0);
 }

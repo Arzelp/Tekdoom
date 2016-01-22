@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 22 14:01:55 2016 Arthur Josso
+** Last update Fri Jan 22 17:20:12 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -68,6 +68,17 @@ typedef struct s_select
   int open;
 } t_select;
 
+typedef struct s_gun
+{
+  t_bunny_pixelarray	*tex;
+  t_bunny_position	beg;
+  t_bunny_position	end;
+  t_bunny_position	size;
+  t_bunny_position	frame_pos;
+  float			speed;
+  char			fire;
+} t_gun;
+
 typedef struct s_data
 {
   t_bunny_window	*win;
@@ -78,6 +89,7 @@ typedef struct s_data
   t_mob			*mob;
   t_map			*map;
   t_select		select;
+  t_gun			gun;
 } t_data;
 
 /*
@@ -124,6 +136,8 @@ int     map_check_pos(t_map *map, t_vec *vec);
 
 void	stretch(t_bunny_pixelarray *pix,
 		const t_bunny_pixelarray *ori);
+
+void    display_gun(t_bunny_pixelarray *pix, t_gun *gun);
 
 /*
 ** Core

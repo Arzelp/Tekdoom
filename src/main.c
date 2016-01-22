@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Fri Jan 22 12:04:11 2016 alies_a
+** Last update Fri Jan 22 16:35:10 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -38,6 +38,8 @@ t_bunny_response key_listenner(t_bunny_event_state state,
     map_create_block(data);
   if (state == GO_DOWN && keysym == BKS_X)
     map_delete_block(data);
+  if (state == GO_DOWN && keysym == BKS_LALT)
+    data->gun.fire = 1;
   if ((data->select).open && state == GO_DOWN)
     {
       if (keysym == BKS_RIGHT)
@@ -61,6 +63,7 @@ static t_bunny_response	loop(void *data_pt)
   zero.y = 0;
   data = (t_data*)data_pt;
   display(data);
+  display_gun(data->pix, &data->gun);
   mob_loop(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
