@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 22 11:59:14 2016 alies_a
+** Last update Fri Jan 22 12:04:52 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -88,7 +88,7 @@ typedef struct s_data
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
 #define VIEW_DIST (15)
 #define PREC (0.0001)
-#define NB_MOB (1)
+#define NB_MOB (2)
 
 typedef struct s_ray
 {
