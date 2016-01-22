@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 22 11:50:20 2016 Arthur Josso
+** Last update Fri Jan 22 11:51:09 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -60,7 +60,6 @@ typedef struct s_mob
   t_bunny_pixelarray	*tex;
   t_plane		p;
   t_vec			dir;
-  t_bunny_music		*loop;
 } t_mob;
 
 typedef struct s_select
