@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Fri Jan 22 10:49:26 2016 alies_a
+** Last update Fri Jan 22 12:07:25 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -58,13 +58,34 @@ int	init_mob(t_data *data)
   data->mob[0].pos.z = 0;
   data->mob[0].size.x = 2;
   data->mob[0].size.y = 4;
-  if ((data->mob[1].tex = load_bitmap("res/josso.bmp")) == NULL)
-    return (1);
-  data->mob[1].pos.x = 20;
-  data->mob[1].pos.y = 5;
+  
+  data->mob[1].tex = data->mob[0].tex;
+  data->mob[1].pos.x = 10.5;
+  data->mob[1].pos.y = 10.5;
   data->mob[1].pos.z = 0;
   data->mob[1].size.x = 2;
   data->mob[1].size.y = 4;
+
+  data->mob[2].tex = data->mob[0].tex;
+  data->mob[2].pos.x = 12.5;
+  data->mob[2].pos.y = 12.5;
+  data->mob[2].pos.z = 0;
+  data->mob[2].size.x = 2;
+  data->mob[2].size.y = 4;
+
+  data->mob[3].tex = data->mob[0].tex;
+  data->mob[3].pos.x = 10.5;
+  data->mob[3].pos.y = 12.5;
+  data->mob[3].pos.z = 0;
+  data->mob[3].size.x = 2;
+  data->mob[3].size.y = 4;
+
+  data->mob[4].tex = data->mob[0].tex;
+  data->mob[4].pos.x = 12.5;
+  data->mob[4].pos.y = 10.5;
+  data->mob[4].pos.z = 0;
+  data->mob[4].size.x = 2;
+  data->mob[4].size.y = 4;
   return (0);
 }
 

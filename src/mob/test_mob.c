@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Thu Jan 21 19:14:30 2016 Arthur Josso
-** Last update Fri Jan 22 11:49:32 2016 Arthur Josso
+** Last update Fri Jan 22 12:02:27 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -88,18 +88,20 @@ void	test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
 {
   float	k;
   t_vec	pt;
+  t_color	pix;
 
   set_plane(data, mob);
   k = get_k(data, ray, mob);
   calc_pos(&pt, ray, k);
-  hit->pix = get_color(data, mob, &pt);
+  pix = get_color(data, mob, &pt);
   if (k >= 0 && k < hit->norm
       && pt.x < hit->max.x && pt.y < hit->max.y
       && pt.x > hit->min.x && pt.y > hit->min.y
-      && (int)hit->pix.full != TEAL)
+      && (int)pix.full != TEAL)
     {
       hit->norm = k;
       hit->axe = 'm';
       hit->pt = pt;
+      hit->pix = pix;
     }
 }
