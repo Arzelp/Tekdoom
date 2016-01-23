@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Sat Jan 23 18:51:37 2016 Arthur Josso
+** Last update Sat Jan 23 18:54:32 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -95,7 +95,6 @@ int     ctrl_move(t_data *data)
       interact(data);
       if (data->keys[BKS_TAB])
 	{
-	  show_textures(data);
 	  (data->select).open = 1;
 	  return (0);
 	}
