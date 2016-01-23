@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Fri Jan 22 17:45:12 2016 Arthur Josso
+** Last update Sat Jan 23 18:52:02 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -93,6 +93,9 @@ int	init_gun(t_gun *gun)
 {
   if ((gun->tex = load_bitmap("res/gun.bmp")) == NULL)
     return (1);
+  if ((gun->sound = bunny_load_effect("res/pan.ogg")) == NULL)
+    return (1);
+  bunny_sound_volume(gun->sound, 100);
   gun->beg.x = (2 * WIDTH) / 5;
   gun->end.x = (4 * WIDTH) / 5;
   gun->beg.y =  HEIGHT / 2;
@@ -112,6 +115,9 @@ int	init_all(t_data *data, int ac, char **av)
   (data->select).open = 0;
   if ((data->texture = load_bitmap("res/textures.bmp")) == NULL)
     return (1);
+  if ((data->sound.boom = bunny_load_effect("res/boom.ogg")) == NULL)
+    return (1);
+  bunny_sound_volume(data->sound.boom, 100);
   if ((data->map = init_map(ac, av)) == NULL)
     return (1);
   init_player(&(data->me));

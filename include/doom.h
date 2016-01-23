@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Fri Jan 22 17:20:12 2016 Arthur Josso
+** Last update Sat Jan 23 18:47:45 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -71,6 +71,7 @@ typedef struct s_select
 typedef struct s_gun
 {
   t_bunny_pixelarray	*tex;
+  t_bunny_effect	*sound;
   t_bunny_position	beg;
   t_bunny_position	end;
   t_bunny_position	size;
@@ -78,6 +79,11 @@ typedef struct s_gun
   float			speed;
   char			fire;
 } t_gun;
+
+typedef struct s_sound
+{
+  t_bunny_effect	*boom;
+} t_sound;
 
 typedef struct s_data
 {
@@ -90,6 +96,7 @@ typedef struct s_data
   t_map			*map;
   t_select		select;
   t_gun			gun;
+  t_sound		sound;
 } t_data;
 
 /*

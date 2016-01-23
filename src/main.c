@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Sat Jan 23 18:18:02 2016 alies_a
+** Last update Sat Jan 23 18:50:02 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -90,6 +90,8 @@ int		main(int ac, char **av)
   bunny_loop(data.win, FPS, (void*)(&data));
   bunny_delete_clipable(&((data.pix)->clipable));
   bunny_stop(data.win);
+  bunny_delete_sound(data.gun.sound);
+  bunny_delete_sound(data.sound.boom);
   if (map_save(data.map, "autosave.josso"))
     {
       my_putstr("Error while saving\n");

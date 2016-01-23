@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Fri Jan 22 15:24:16 2016 Arthur Josso
-** Last update Fri Jan 22 17:20:42 2016 Arthur Josso
+** Last update Sat Jan 23 18:40:49 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -15,6 +15,8 @@ static void	fire(t_gun *gun)
   static float	frame;
   static char	down;
 
+  if (frame == 0)
+    bunny_sound_play(gun->sound);
   if (!down && frame <= 5 - gun->speed)
     frame += gun->speed;
   else
