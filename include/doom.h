@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 19 19:32:21 2016 Paskal Arzel
+** Last update Sun Jan 24 13:43:17 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -14,7 +14,8 @@
 #define WIDTH (320)
 #define HEIGHT (200)
 #define FPS (40)
-#define FOV (1)
+#define FOVX (1)
+#define FOVY (0.7)
 #define DIST (0.5)
 
 #define MAP(x, sA, eA, sB, eB) ((((sA - x) / (sA - eA)) * (eB - sB)) + sB)
@@ -30,13 +31,21 @@ typedef struct s_vec
   float z;
 } t_vec;
 
+typedef struct s_plane
+{
+  float	a;
+  float	b;
+  float	c;
+  float	d;
+} t_plane;
+
 typedef struct s_me
 {
+  t_vec		pos;
   int		inair;
   float		fall;
   float		sprint;
   float		crowd;
-  t_vec		pos;
   float		alpha;
   float		beta;
   int		fly;
@@ -47,8 +56,34 @@ typedef struct s_me
 typedef struct s_mob
 {
   t_vec			pos;
+  t_vec			size;
   t_bunny_pixelarray	*tex;
+  t_plane		p;
+  t_vec			dir;
 } t_mob;
+
+typedef struct s_select
+{
+  int selected;
+  int open;
+} t_select;
+
+typedef struct s_gun
+{
+  t_bunny_pixelarray	*tex;
+  t_bunny_effect	*sound;
+  t_bunny_position	beg;
+  t_bunny_position	end;
+  t_bunny_position	size;
+  t_bunny_position	frame_pos;
+  float			speed;
+  char			fire;
+} t_gun;
+
+typedef struct s_sound
+{
+  t_bunny_effect	*boom;
+} t_sound;
 
 typedef struct s_data
 {
@@ -59,6 +94,9 @@ typedef struct s_data
   t_me			me;
   t_mob			*mob;
   t_map			*map;
+  t_select		select;
+  t_gun			gun;
+  t_sound		sound;
 } t_data;
 
 /*
@@ -69,6 +107,7 @@ typedef struct s_data
 #define LIM(x) ((x) < -(MAX) ? -(MAX) : ((x) > MAX ? MAX : (x)))
 #define VIEW_DIST (15)
 #define PREC (0.0001)
+#define NB_MOB (5)
 
 typedef struct s_ray
 {
@@ -85,43 +124,66 @@ typedef struct s_hit
   t_pos                 blk;
   t_pos                 min;
   t_pos                 max;
+  t_color		pix;
 } t_hit;
 
 void    display(t_data *data);
-void    disp_mob(t_data *data);
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
+void    gen_mob_plane(t_data *data);
 
+void	test_x(t_data *data, t_ray *ray, t_hit *hit);
+void	test_y(t_data *data, t_ray *ray, t_hit *hit);
+void	test_z(t_data *data, t_ray *ray, t_hit *hit);
+
+void    set_hit_info(t_hit *hit);
 void    get_point(t_data *data, t_bunny_position *pos, t_hit *hit);
 float   get_range(t_ray *ray, char plane, float lvl, t_vec *point);
 void    calc_pos(t_vec *result, t_ray *param, float k);
 int     map_check_pos(t_map *map, t_vec *vec);
 
-t_color	get_texture(t_data *data,
-		    t_pos *block_x,
-		    t_bunny_position *pos);
+void	stretch(t_bunny_pixelarray *pix,
+		const t_bunny_pixelarray *ori);
+
+void    display_gun(t_bunny_pixelarray *pix, t_gun *gun);
 
 /*
 ** Core
 */
 
-t_color	get_pixel(t_bunny_pixelarray *pix,
+t_color	get_pixel(const t_bunny_pixelarray *pix,
 		  t_bunny_position *pos);
 
 void    tekpixel(t_bunny_pixelarray *pix,
 		 t_bunny_position *pos,
 		 t_color *color);
 
+double	vecnorm(t_bunny_position *coord0,
+		t_bunny_position *coord1);
+
 /*
 ** Initialize
 */
 
 int	init_all(t_data *data, int ac, char **av);
+void    delete_all(t_data *data);
 
 /*
 ** Texture
 */
 
+#define MAX_TEXT (96)
+
+void	show_textures(t_data *data);
+
 t_color	get_texture(t_data *data,
 		    t_pos *block_x,
 		    t_bunny_position *pos);
+
+/*
+** Mobs
+*/
+
+void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
+void    mob_loop(t_data *data);
 
 #endif

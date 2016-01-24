@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Tue Jan 19 16:47:56 2016 Frederic ODDOU
+## Last update Sun Jan 24 12:28:52 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -38,8 +38,15 @@ INIT	=	./src/init/
 
 MOB	=	./src/mob/
 
+SPRITE	=	./src/sprite/
+
+DELETE	=	./src/delete/
+
 SRCS	=	$(SRC)main.c \
 		$(SRC)tekpixel.c \
+		$(SRC)stretch.c \
+		$(SRC)vecnorm.c \
+		$(SRC)show_texture.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
 		$(MAP)gen.c \
@@ -48,9 +55,11 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)map_check_pos.c \
 		$(MAP)map_create_block.c \
 		$(MAP)map_delete_block.c \
+		$(MAP)map_change_block.c \
 		$(MAP)texture.c \
 		$(MAP)save_map.c \
 		$(MAP)load_map.c \
+		$(MAP)tnt.c \
 		$(CTRL)control.c \
 		$(CTRL)drawjauge.c \
 		$(CTRL)fly.c \
@@ -59,7 +68,13 @@ SRCS	=	$(SRC)main.c \
 		$(DISP)arithmetic.c \
 		$(DISP)find_k.c \
 		$(DISP)display.c \
+		$(DISP)test_axes.c \
+		$(MOB)mob.c \
+		$(MOB)test_mob.c \
+		$(MOB)mob_loop.c \
+		$(SPRITE)gun.c \
 		$(DISP)viseur.c \
+		$(DELETE)delete.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \
 		$(MY)my_strcat.c \

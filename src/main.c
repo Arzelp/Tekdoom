@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Tue Jan 19 16:53:23 2016 alies_a
+** Last update Sun Jan 24 13:43:53 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -13,6 +13,16 @@
 #include "bmp.h"
 #include "doom.h"
 #include "control.h"
+#include "my.h"
+
+void	set_select(t_select *select, int add)
+{
+  int	buf;
+
+  buf = select->selected + add;
+  if (buf >= 0 && buf < MAX_TEXT)
+    select->selected += add;
+}
 
 t_bunny_response key_listenner(t_bunny_event_state state,
 			       t_bunny_keysym keysym,
@@ -24,6 +34,23 @@ t_bunny_response key_listenner(t_bunny_event_state state,
   data->keys = bunny_get_keyboard();
   if (state == GO_DOWN && keysym == BKS_ESCAPE)
     return (EXIT_ON_SUCCESS);
+  if (state == GO_DOWN && keysym == BKS_C)
+    map_create_block(data);
+  if (state == GO_DOWN && keysym == BKS_X)
+    map_delete_block(data);
+  if (state == GO_DOWN && keysym == BKS_LALT)
+    data->gun.fire = 1;
+  if ((data->select).open && state == GO_DOWN)
+    {
+      if (keysym == BKS_RIGHT)
+	set_select(&(data->select), 1);
+      if (keysym == BKS_LEFT)
+	set_select(&(data->select), -1);
+      if (keysym == BKS_UP)
+	set_select(&(data->select), -16);
+      if (keysym == BKS_DOWN)
+	set_select(&(data->select), 16);
+    }
   return (GO_ON);
 }
 
@@ -37,8 +64,12 @@ static t_bunny_response	loop(void *data_pt)
   data = (t_data*)data_pt;
   ctrl_move(data);
   display(data);
+  display_gun(data->pix, &data->gun);
+  mob_loop(data);
   ctrl_drawjauge(data, data->pix);
   bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  if ((data->select).open)
+    show_textures(data);
   bunny_display(data->win);
   return (GO_ON);
 }
@@ -59,8 +90,7 @@ int		main(int ac, char **av)
   bunny_set_loop_main_function(loop);
   bunny_set_key_response(&key_listenner);
   bunny_loop(data.win, FPS, (void*)(&data));
-  bunny_delete_clipable(&((data.pix)->clipable));
-  bunny_stop(data.win);
+  delete_all(&data);
   if (map_save(data.map, "autosave.josso"))
     {
       my_putstr("Error while saving\n");

@@ -17,13 +17,20 @@ void		map_delete_block(t_data *data)
 {
   t_pos		pos;
   t_block	*block;
+  int		i;
 
-  pos.x = (data->me.pos).x + cos((data->me).alpha) * 2;
-  pos.y = (data->me.pos).y + sin((data->me).alpha) * 2;
-  pos.z = (data->me.pos).z + sin((data->me).beta) * 2;
-  if ((block = map_get(data->map, &pos)) != NULL)
+  i = 2;
+  while (i <= 7)
     {
-      if (block->x >= 1)
-	block->x = 0;
+      pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
+      pos.y = (data->me.pos).y + sin((data->me).alpha) * i;
+      pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
+      if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
+	{
+	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
+	    block->x = 0;
+	  return ;
+	}
+      i++;
     }
 }
