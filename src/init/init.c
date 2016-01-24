@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Sat Jan 23 18:52:02 2016 Arthur Josso
+** Last update Sun Jan 24 13:49:15 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -49,7 +49,7 @@ void	init_player(t_me *player)
 
 int	init_mob(t_data *data)
 {
-  if ((data->mob = malloc(sizeof(t_mob) * NB_MOB)) == NULL)
+  if ((data->mob = bunny_malloc(sizeof(t_mob) * NB_MOB)) == NULL)
     return (1);
   if ((data->mob[0].tex = load_bitmap("res/boss.bmp")) == NULL)
     return (1);

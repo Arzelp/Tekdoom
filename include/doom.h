@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Sat Jan 23 18:47:45 2016 Arthur Josso
+** Last update Sun Jan 24 13:43:17 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -165,6 +165,7 @@ double	vecnorm(t_bunny_position *coord0,
 */
 
 int	init_all(t_data *data, int ac, char **av);
+void    delete_all(t_data *data);
 
 /*
 ** Texture

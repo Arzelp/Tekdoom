@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Sat Jan 23 18:54:19 2016 Arthur Josso
+** Last update Sun Jan 24 13:43:53 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -90,10 +90,7 @@ int		main(int ac, char **av)
   bunny_set_loop_main_function(loop);
   bunny_set_key_response(&key_listenner);
   bunny_loop(data.win, FPS, (void*)(&data));
-  bunny_delete_clipable(&((data.pix)->clipable));
-  bunny_stop(data.win);
-  bunny_delete_sound(data.gun.sound);
-  bunny_delete_sound(data.sound.boom);
+  delete_all(&data);
   if (map_save(data.map, "autosave.josso"))
     {
       my_putstr("Error while saving\n");
