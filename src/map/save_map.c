@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 19 15:46:45 2016 alies_a
-** Last update Tue Jan 19 16:50:56 2016 alies_a
+** Last update Sun Jan 24 16:14:23 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -22,7 +22,7 @@ int	map_save(t_map *map, const char *name)
   int	x;
 
   x = 0;
-  max = (map->head).size * (map->head).size * (map->head).size;//yolo
+  max = (map->head).size * (map->head).size * (map->head).size;
   if ((fd = open(name, O_CREAT | O_WRONLY, 0666)) == -1)
     return (1);
   if (write(fd, &(map->head), sizeof(t_map_head)) != sizeof(t_map_head))

@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Sun Jan 24 12:28:52 2016 Arthur Josso
+## Last update Sun Jan 24 16:15:34 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -50,7 +50,6 @@ SRCS	=	$(SRC)main.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
 		$(MAP)gen.c \
-		$(MAP)print.c \
 		$(MAP)pos.c \
 		$(MAP)map_check_pos.c \
 		$(MAP)map_create_block.c \

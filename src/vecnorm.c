@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Dec  9 18:54:50 2015 Arnaud Alies
-** Last update Wed Dec  9 19:08:16 2015 Arnaud Alies
+** Last update Sun Jan 24 16:09:57 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -16,7 +16,7 @@ double		vecnorm(t_bunny_position *coord0,
 {
   double	norm;
 
-  norm = sqrt(pow(((double)coord1->x - (double)coord0->x), 2.0) +
-	      pow(((double)coord1->y - (double)coord0->y), 2.0));
+  norm = sqrt(pow(((double)coord1->x - (double)coord0->x), 2.0)
+	      + pow(((double)coord1->y - (double)coord0->y), 2.0));
   return (norm);
 }
