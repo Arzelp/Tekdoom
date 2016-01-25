@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Sat Jan 23 18:54:32 2016 Arthur Josso
+** Last update Sun Jan 24 16:10:49 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -55,11 +55,6 @@ int	ctrl_speed(t_data *data)
   return (0);
 }
 
-/*
-** le swag de ces fonctions est negatif
-** Lol.
-*/
-
 void			interact(t_data *data)
 {
   t_bunny_position 	pos;
@@ -76,9 +71,6 @@ void			interact(t_data *data)
      return ;
   if (data->keys[BKS_R])
     {
-      printf("%d %d %d\n", (hit.blk).x, (hit.blk).y, (hit.blk).z);
-      printf("%d\n", block->texture);
-      
       if (block->texture == 8)
 	{
 	  bunny_sound_play(data->sound.boom);

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 20 16:19:07 2016 alies_a
-** Last update Wed Jan 20 17:13:05 2016 alies_a
+** Last update Sun Jan 24 16:09:43 2016 Arthur Josso
 */
 
 #include <lapin.h>
@@ -55,7 +55,7 @@ static void		set_selected(t_bunny_pixelarray *pix,
 				     int selected)
 {
   t_bunny_position	start;
-  
+
   start.x = (selected % 16) * 32;
   start.y = (selected / 16) * 32;
   draw_square(pix, start, 32, 4);
