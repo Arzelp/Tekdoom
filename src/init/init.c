@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Mon Jan 25 11:38:15 2016 Arthur Josso
+** Last update Mon Jan 25 18:58:50 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -26,7 +26,6 @@ t_map	*init_map(int ac, char **av)
     {
       if ((map = map_gen(50)) == NULL)
 	return (NULL);
-      map_set_flat(map);
       map_set_wall(map);
     }
   return (map);
