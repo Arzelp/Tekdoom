@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Sun Jan 24 16:15:34 2016 Arthur Josso
+## Last update Mon Jan 25 13:18:26 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -68,11 +68,12 @@ SRCS	=	$(SRC)main.c \
 		$(DISP)find_k.c \
 		$(DISP)display.c \
 		$(DISP)test_axes.c \
+		$(DISP)viseur.c \
 		$(MOB)mob.c \
 		$(MOB)test_mob.c \
 		$(MOB)mob_loop.c \
+		$(MOB)kill_boss.c \
 		$(SPRITE)gun.c \
-		$(DISP)viseur.c \
 		$(DELETE)delete.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \

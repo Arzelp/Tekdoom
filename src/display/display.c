@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Fri Jan 22 14:00:02 2016 Arthur Josso
+** Last update Mon Jan 25 13:17:58 2016 Arthur Josso
 */
 
 #include <pthread.h>
@@ -56,6 +56,8 @@ static void	set_pix(t_data *data, t_bunny_position *pos)
       hit.pix.argb[GREEN_CMP] =
 	MAP(hit.norm, 0, d_viewdist, 0, hit.pix.argb[GREEN_CMP]);
     }
+  if (pos->x == WIDTH / 2 && pos->y == HEIGHT / 2)
+    data->me.pointed_mob = hit.axe == 'm' ? hit.mob : -1;
   tekpixel(data->pix, pos, &hit.pix);
 }
 

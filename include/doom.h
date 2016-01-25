@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Sun Jan 24 16:12:32 2016 Arthur Josso
+** Last update Mon Jan 25 13:18:50 2016 Arthur Josso
 */
 
 #ifndef DOOM_H_
@@ -51,13 +51,17 @@ typedef struct s_me
   int		fly;
   float		speedfront;
   float		speedside;
+  int		pointed_mob;
 } t_me;
 
 typedef struct s_mob
 {
-  t_vec			pos;
-  t_vec			size;
   t_bunny_pixelarray	*tex;
+  t_bunny_pixelarray	*tex_alive;
+  t_bunny_pixelarray	*tex_hurt;
+  t_bunny_pixelarray	*tex_dead;
+  t_vec                 pos;
+  t_vec                 size;
   t_plane		p;
   t_vec			dir;
 } t_mob;
@@ -125,6 +129,7 @@ typedef struct s_hit
   t_pos                 min;
   t_pos                 max;
   t_color		pix;
+  char			mob;
 } t_hit;
 
 void    display(t_data *data);
@@ -144,7 +149,10 @@ int     map_check_pos(t_map *map, t_vec *vec);
 void	stretch(t_bunny_pixelarray *pix,
 		const t_bunny_pixelarray *ori);
 
-void    display_gun(t_bunny_pixelarray *pix, t_gun *gun);
+void    display_gun(t_bunny_pixelarray *pix, t_gun *gun, t_data *data);
+
+void	hurt_boss(t_data *data);
+void	kill_boss(t_data *data);
 
 /*
 ** Core

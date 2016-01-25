@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Thu Jan 21 19:14:30 2016 Arthur Josso
-** Last update Fri Jan 22 14:13:07 2016 Arthur Josso
+** Last update Mon Jan 25 12:06:58 2016 Arthur Josso
 */
 
 #include <math.h>
@@ -89,6 +89,7 @@ static void	test_mob(t_data *data, t_ray *ray, t_hit *hit, int mob)
       hit->axe = 'm';
       hit->pt = pt;
       hit->pix = pix;
+      hit->mob = mob;
     }
 }
 
