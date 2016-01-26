@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Fri Jan 22 15:24:16 2016 Arthur Josso
-** Last update Mon Jan 25 14:47:12 2016 Arthur Josso
+** Last update Tue Jan 26 19:08:37 2016 alies_a
 */
 
 #include "doom.h"
@@ -37,7 +37,7 @@ static void	fire(t_gun *gun, t_data *data)
   gun->frame_pos.x = (int)frame * gun->size.x;
 }
 
-void	display_gun(t_bunny_pixelarray *pix, t_gun *gun, t_data *data)
+void			display_gun(t_bunny_pixelarray *pix, t_gun *gun, t_data *data)
 {
   t_bunny_position	pos;
   t_bunny_position	ratio;

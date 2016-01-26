@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 26 17:27:03 2016 alies_a
+** Last update Tue Jan 26 19:11:02 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -55,7 +55,7 @@ int	init_gun(t_gun *gun)
   bunny_sound_volume(gun->sound, 100);
   gun->beg.x = (2 * WIDTH) / 5;
   gun->end.x = (4 * WIDTH) / 5;
-  gun->beg.y =  HEIGHT / 2;
+  gun->beg.y =  HEIGHT / 3 + 10;
   gun->end.y = HEIGHT;
   gun->size.x = 155;
   gun->size.y = 110;

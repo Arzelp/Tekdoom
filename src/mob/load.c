@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Tue Jan 26 17:26:31 2016 alies_a
-** Last update Tue Jan 26 17:45:53 2016 alies_a
+** Last update Tue Jan 26 18:16:48 2016 alies_a
 */
 
 #include "doom.h"
@@ -33,7 +33,7 @@ int     init_mob(t_data *data)
       data->mob[x].size.x = 2;
       data->mob[x].size.y = 5;
       data->mob[x].dead = 0;
-      data->mob[x].speed = 0.005 * (rand() % 10);
+      data->mob[x].speed = 0.005 * (rand() % 10 + 1);
       x += 1;
     }
   return (0);
