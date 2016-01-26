@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Wed Jan 13 14:43:11 2016 Arnaud Alies
-** Last update Thu Jan 21 19:27:14 2016 alies_a
+** Last update Mon Jan 25 18:58:42 2016 alies_a
 */
 
 #include <lapin.h>
@@ -36,28 +36,13 @@ t_map	*map_gen(int size)
   return (res);
 }
 
-void		map_set_flat(t_map *map)
+static void	init_set_wall(t_block *block, t_pos *pos)
 {
-  t_block	block;
-  t_pos		pos;
-  int		size;
-
-  block.x = 1;
-  block.texture = 3;
-  size = (map->head).size;
-  pos.x = 0;
-  pos.y = 0;
-  pos.z = 0;
-  while (pos.y < size)
-    {
-      map_set(map, &pos, block);
-      pos.x += 1;
-      if (pos.x > size)
-	{
-	  pos.x = 0;
-	  pos.y += 1;
-	}
-    }
+  block->x = 1;
+  block->texture = 1;
+  pos->x = 0;
+  pos->y = 0;
+  pos->z = 0;
 }
 
 void            map_set_wall(t_map *map)
@@ -66,20 +51,12 @@ void            map_set_wall(t_map *map)
   t_pos		pos;
   int		size;
 
-  block.x = 1;
-  block.texture = 1;
+  init_set_wall(&block, &pos);
   size = (map->head).size;
-  pos.x = 0;
-  pos.y = 0;
-  pos.z = 0;
   while (pos.z < size)
     {
-      if (pos.x + 2 > size ||
-	  pos.y + 2 > size ||
-	  pos.z + 2 > size ||
-	  pos.x == 0 ||
-	  pos.y == 0 ||
-	  pos.z < 10)
+      if (pos.x + 2 > size || pos.y + 2 > size || pos.z + 2 > size ||
+	  pos.x == 0 || pos.y == 0 || pos.z < 15)
 	map_set(map, &pos, block);
       pos.x += 1;
       if (pos.x > size)

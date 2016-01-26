@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Mon Jan 25 13:18:50 2016 Arthur Josso
+** Last update Tue Jan 26 13:44:29 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -64,6 +64,7 @@ typedef struct s_mob
   t_vec                 size;
   t_plane		p;
   t_vec			dir;
+  int			dead;
 } t_mob;
 
 typedef struct s_select
@@ -135,6 +136,7 @@ typedef struct s_hit
 void    display(t_data *data);
 void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
 void    gen_mob_plane(t_data *data);
+void    blow_at(t_data *data, t_pos *pos, int size);
 
 void	test_x(t_data *data, t_ray *ray, t_hit *hit);
 void	test_y(t_data *data, t_ray *ray, t_hit *hit);

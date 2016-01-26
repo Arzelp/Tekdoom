@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Mon Jan 25 14:36:51 2016 Arthur Josso
+## Last update Tue Jan 26 15:21:36 2016 Paskal Arzel
 ##
 
 NAME    =       tekdoom
@@ -20,7 +20,7 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -Werror -ansi -pedantic \
+		-W -Wall -ansi -pedantic \
 		-lpthread -O3
 
 SRC	=	./src/
@@ -41,6 +41,8 @@ MOB	=	./src/mob/
 
 SPRITE	=	./src/sprite/
 
+POL = ./src/Police/
+
 DELETE	=	./src/delete/
 
 SRCS	=	$(SRC)main.c \
@@ -60,6 +62,14 @@ SRCS	=	$(SRC)main.c \
 		$(MAP)save_map.c \
 		$(MAP)load_map.c \
 		$(MAP)tnt.c \
+		$(POL)AE.c \
+		$(POL)FJ.c \
+		$(POL)KO.c \
+		$(POL)PT.c \
+		$(POL)UY.c \
+		$(POL)Z.c \
+		$(POL)godess.c \
+		$(POL)police.c \
 		$(CTRL)control.c \
 		$(CTRL)drawjauge.c \
 		$(CTRL)fly.c \

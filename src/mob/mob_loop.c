@@ -5,13 +5,36 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 17:57:17 2016 alies_a
-** Last update Thu Jan 21 17:59:09 2016 alies_a
+** Last update Tue Jan 26 13:46:17 2016 alies_a
 */
 
 #include "doom.h"
 
+static void	mob_attack(t_data *data, t_mob *mob)
+{
+  t_pos		pos;
+
+  pos.x = (mob->pos).x;
+  pos.y = (mob->pos).y;
+  pos.z = (mob->pos).z + 1;
+  blow_at(data, &pos, 2);
+}
+
 void	mob_loop(t_data *data)
 {
-  ((data->mob)->pos).x -= (((data->mob)->pos).x - ((data->me).pos).x) / 100;
-  ((data->mob)->pos).y -= (((data->mob)->pos).y - ((data->me).pos).y) / 100;
+  t_mob	*mob;
+  int	x;
+
+  mob = data->mob;
+  x = 0;
+  while (x < NB_MOB)
+    {
+      if (!(mob[x]).dead)
+	{
+	  ((mob[x]).pos).x -= (((mob[x]).pos).x - ((data->me).pos).x) / 100;
+	  ((mob[x]).pos).y -= (((mob[x]).pos).y - ((data->me).pos).y) / 100;
+	  mob_attack(data, &(mob[x]));
+	}
+      x += 1;
+    }
 }
