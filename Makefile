@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Mon Jan 25 14:36:51 2016 Arthur Josso
+## Last update Tue Jan 26 14:04:30 2016 alies_a
 ##
 
 NAME    =       tekdoom
@@ -20,7 +20,7 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -Werror -ansi -pedantic \
+		-W -Wall -ansi -pedantic \
 		-lpthread -O3
 
 SRC	=	./src/
@@ -48,6 +48,7 @@ SRCS	=	$(SRC)main.c \
 		$(SRC)stretch.c \
 		$(SRC)vecnorm.c \
 		$(SRC)show_texture.c \
+		$(SRC)kill_all.c \
 		$(INIT)load_bmp.c \
 		$(INIT)init.c \
 		$(MAP)gen.c \
