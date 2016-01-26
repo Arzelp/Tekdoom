@@ -5,7 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Tue Jan 26 18:53:09 2016 Frederic ODDOU
+## Last update Tue Jan 26 19:59:48 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
@@ -20,7 +20,7 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -ansi -pedantic \
+		-W -Wall -Werror -ansi -pedantic \
 		-lpthread -O3
 
 SRC	=	./src/
@@ -41,7 +41,7 @@ MOB	=	./src/mob/
 
 SPRITE	=	./src/sprite/
 
-POL = ./src/Police/
+POL 	=	./src/Police/
 
 DELETE	=	./src/delete/
 
