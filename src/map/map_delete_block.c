@@ -16,21 +16,18 @@
 void		map_delete_block(t_data *data)
 {
   t_pos		pos;
+  t_hit		hit;
   t_block	*block;
-  int		i;
 
-  i = 2;
-  while (i <= 7)
+  pos.x = WIDTH / 2;
+  pos.y = HEIGHT / 2;
+  get_point(data, &pos, &hit);
+  set_hit_info(&hit);
+  if (map_limite_portee(data, hit) == 0)
     {
-      pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
-      pos.y = (data->me.pos).y + sin((data->me).alpha) * i;
-      pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
-      if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
-	{
-	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
-	    block->x = 0;
-	  return ;
-	}
-      i++;
+      if (!((hit.blk).y == (int)(data->me.pos).y &&
+	    (hit.blk).x == (int)(data->me.pos).x) &&
+	  (block = map_get(data->map, &(hit.blk))) != NULL && block->x == 1)
+	block->x = 0;
     }
 }

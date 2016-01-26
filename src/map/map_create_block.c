@@ -17,27 +17,26 @@ void		map_create_block(t_data *data)
 {
   t_pos		pos;
   t_block	x;
+  t_hit		hit;
   t_block	*block;
-  int		i;
 
-  i = 2;
   x.x = 1;
   x.texture = (data->select).selected;
-  while (i <= 7)
+  pos.x = WIDTH / 2;
+  pos.y = HEIGHT / 2;
+  get_point(data, &pos, &hit);
+  set_hit_info(&hit);
+  if (map_limite_portee(data, hit) == 0)
     {
-      pos.x = (data->me.pos).x + cos((data->me).alpha) * i;
-      pos.y = (data->me.pos).y + sin((data->me).alpha) * i;
-      pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
-      if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
-	{
-	  if (pos.z < (data->me.pos).z + sin((data->me).beta) * 3)
-	    pos.z += 1;
-	  pos.x = (data->me.pos).x + cos((data->me).alpha) * (i - 1);
-	  pos.y = (data->me.pos).y + sin((data->me).alpha) * (i - 1);
-	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 0)
-	    map_set(data->map, &pos, x);
-	  return ;
-	}
-      i++;
+      if (hit.axe == 'z')
+	(hit.blk).z += (sin((data->me).beta) < 0) ? 1 : -1;
+      else if (hit.axe == 'y')
+	(hit.blk).y += (sin((data->me).alpha) < 0) ? 1 : -1;
+      else if (hit.axe == 'x')
+	(hit.blk).x += (cos((data->me).alpha) < 0) ? 1 : -1;
+      if (!((hit.blk).y == (int)(data->me.pos).y &&
+	    (hit.blk).x == (int)(data->me.pos).x) &&
+	  (block = map_get(data->map, &(hit.blk))) != NULL && block->x == 0)
+	map_set(data->map, &(hit.blk), x);
     }
 }
