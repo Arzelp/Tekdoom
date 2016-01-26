@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 ** 
 ** Started on  Sun Jan 24 12:29:05 2016 Arthur Josso
-** Last update Sun Jan 24 13:49:55 2016 Arthur Josso
+** Last update Mon Jan 25 11:36:44 2016 Arthur Josso
 */
 
 #include "doom.h"
@@ -18,7 +18,9 @@ static void	sound(t_data *data)
 
 static void	pixel_array(t_data *data)
 {
-  bunny_delete_clipable(&data->mob[0].tex->clipable);
+  bunny_delete_clipable(&data->mob[0].tex_alive->clipable);
+  bunny_delete_clipable(&data->mob[0].tex_hurt->clipable);
+  bunny_delete_clipable(&data->mob[0].tex_dead->clipable);
   bunny_delete_clipable(&data->pix->clipable);
   bunny_delete_clipable(&data->texture->clipable);
   bunny_delete_clipable(&data->gun.tex->clipable);

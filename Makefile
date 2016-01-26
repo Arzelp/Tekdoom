@@ -5,12 +5,12 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-## Last update Sun Jan 24 16:15:34 2016 Arthur Josso
+## Last update Mon Jan 25 14:36:51 2016 Arthur Josso
 ##
 
 NAME    =       tekdoom
 
-CC	=	gcc -g
+CC	=	gcc
 
 LIB	=	./lib/
 
@@ -20,7 +20,8 @@ CFLAGS	=	-I/home/${USER}/.froot/include \
 		-L/home/${USER}/.froot/lib \
 		-llapin -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lstdc++ -ldl -lm \
 		-I$(INC) \
-		-W -Wall -lpthread -Wextra -O3
+		-W -Wall -Werror -ansi -pedantic \
+		-lpthread -O3
 
 SRC	=	./src/
 
@@ -68,11 +69,12 @@ SRCS	=	$(SRC)main.c \
 		$(DISP)find_k.c \
 		$(DISP)display.c \
 		$(DISP)test_axes.c \
+		$(DISP)viseur.c \
 		$(MOB)mob.c \
 		$(MOB)test_mob.c \
 		$(MOB)mob_loop.c \
+		$(MOB)kill_boss.c \
 		$(SPRITE)gun.c \
-		$(DISP)viseur.c \
 		$(DELETE)delete.c \
 		$(MY)my_putchar.c \
 		$(MY)my_putstr.c \

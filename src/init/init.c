@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Sun Jan 24 16:12:20 2016 Arthur Josso
+** Last update Mon Jan 25 11:38:15 2016 Arthur Josso
 */
 
 #include <stdlib.h>
@@ -51,20 +51,25 @@ int	init_mob(t_data *data)
 {
   if ((data->mob = bunny_malloc(sizeof(t_mob) * NB_MOB)) == NULL)
     return (1);
-  if ((data->mob[0].tex = load_bitmap("res/boss.bmp")) == NULL)
+  if ((data->mob[0].tex_alive = load_bitmap("res/boss_alive.bmp")) == NULL)
     return (1);
+  if ((data->mob[0].tex_hurt = load_bitmap("res/boss_hurt.bmp")) == NULL)
+    return (1);
+  if ((data->mob[0].tex_dead = load_bitmap("res/boss_dead.bmp")) == NULL)
+    return (1);
+  data->mob[0].tex = data->mob[0].tex_alive;
   data->mob[0].pos.x = 10.5;
   data->mob[0].pos.y = 10.5;
   data->mob[0].pos.z = 1;
   data->mob[0].size.x = 2;
   data->mob[0].size.y = 5;
-  data->mob[1].tex = data->mob[0].tex;
+  data->mob[1].tex = data->mob[0].tex_alive;
   data->mob[1].pos.x = 10.5;
   data->mob[1].pos.y = 10.5;
   data->mob[1].pos.z = 1;
   data->mob[1].size.x = 2;
   data->mob[1].size.y = 5;
-  data->mob[2].tex = data->mob[0].tex;
+  data->mob[2].tex = data->mob[0].tex_alive;
   data->mob[2].pos.x = 12.5;
   data->mob[2].pos.y = 12.5;
   data->mob[2].pos.z = 1;
