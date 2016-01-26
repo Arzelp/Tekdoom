@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 13:44:29 2016 alies_a
+** Last update Tue Jan 26 14:03:20 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -195,5 +195,6 @@ t_color	get_texture(t_data *data,
 
 void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
 void    mob_loop(t_data *data);
+void    kill_all_in_zone(t_data *data, t_pos *pos);
 
 #endif

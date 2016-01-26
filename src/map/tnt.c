@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 18:48:39 2016 alies_a
-** Last update Tue Jan 26 13:43:05 2016 alies_a
+** Last update Tue Jan 26 13:49:16 2016 alies_a
 */
 
 #include <math.h>
@@ -29,6 +29,7 @@ static void	blow_rad(t_data *data, t_pos *pos, int size)
 	  bpos.x = sin(radx) * cos(rady) * size + pos->x;
 	  bpos.y = sin(rady) * size + pos->y;
 	  bpos.z = cos(radx) * size + pos->z;
+	  kill_all_in_zone(data, &bpos);
 	  if (bpos.z > 0)
 	    map_set((data->map), &bpos, block);
 	  radx += 0.1;
