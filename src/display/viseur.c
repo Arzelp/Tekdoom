@@ -17,10 +17,10 @@ void			viseur(t_data *data)
   t_color		color;
 
   i = 0;
-  color.full = WHITE;
-  pos.x = (data->pix->clipable).clip_width / 2 - 10;
+  color.full = 0xa5a5a5;
+  pos.x = (data->pix->clipable).clip_width / 2 - 7;
   pos.y = (data->pix->clipable).clip_height / 2;
-  while (i < 20)
+  while (i < 14)
     {
       pos.x += 1;
       tekpixel(data->pix, &pos, &color);
@@ -28,8 +28,8 @@ void			viseur(t_data *data)
     }
   i = 0;
   pos.x = (data->pix->clipable).clip_width / 2;
-  pos.y = (data->pix->clipable).clip_height / 2 - 10;
-  while (i < 20)
+  pos.y = (data->pix->clipable).clip_height / 2 - 7;
+  while (i < 14)
     {
       pos.y += 1;
       tekpixel(data->pix, &pos, &color);
