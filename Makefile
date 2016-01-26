@@ -5,11 +5,7 @@
 ## Login   <alies_a@epitech.net>
 ##
 ## Started on  Tue Jan 12 17:04:21 2016 Arnaud Alies
-<<<<<<< HEAD
-## Last update Tue Jan 26 15:21:36 2016 Paskal Arzel
-=======
-## Last update Tue Jan 26 14:04:30 2016 alies_a
->>>>>>> 2d175581e41fc3ced5005a1ef4b34c2d054ac8bc
+## Last update Tue Jan 26 15:23:24 2016 Paskal Arzel
 ##
 
 NAME    =       tekdoom
