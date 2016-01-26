@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 18:58:13 2016 Frederic ODDOU
+** Last update Tue Jan 26 19:05:03 2016 Frederic ODDOU
 */
 
 #ifndef DOOM_H_
@@ -159,6 +159,7 @@ void    display_gun(t_bunny_pixelarray *pix, t_gun *gun, t_data *data);
 
 void	hurt_boss(t_data *data);
 void	kill_boss(t_data *data);
+void	viseur(t_data *data);
 
 /*
 ** Core
