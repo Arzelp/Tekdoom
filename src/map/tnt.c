@@ -5,13 +5,13 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 18:48:39 2016 alies_a
-** Last update Tue Jan 26 13:35:51 2016 alies_a
+** Last update Tue Jan 26 13:43:05 2016 alies_a
 */
 
 #include <math.h>
 #include "doom.h"
 
-static void	blow_rad(t_map *map, t_pos *pos, int size)
+static void	blow_rad(t_data *data, t_pos *pos, int size)
 {
   t_pos		bpos;
   t_block	block;
@@ -30,21 +30,21 @@ static void	blow_rad(t_map *map, t_pos *pos, int size)
 	  bpos.y = sin(rady) * size + pos->y;
 	  bpos.z = cos(radx) * size + pos->z;
 	  if (bpos.z > 0)
-	    map_set(map, &bpos, block);
+	    map_set((data->map), &bpos, block);
 	  radx += 0.1;
 	}
       rady += 0.1;
     }
 }
 
-void	blow_at(t_map *map, t_pos *pos, int size)
+void	blow_at(t_data *data, t_pos *pos, int size)
 {
   int	x;
 
   x = 0;
   while (x < size)
     {
-      blow_rad(map, pos, x);
+      blow_rad(data, pos, x);
       x += 1;
     }
 }

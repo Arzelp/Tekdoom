@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:37:21 2016 Paskal Arzel
-** Last update Mon Jan 25 18:47:32 2016 alies_a
+** Last update Tue Jan 26 13:45:49 2016 alies_a
 */
 
 #include <lapin.h>
@@ -74,7 +74,7 @@ void			interact(t_data *data)
       if (block->texture == 8)
 	{
 	  bunny_sound_play(data->sound.boom);
-	  blow_at(data->map, &hit.blk, 6);
+	  blow_at(data, &hit.blk, 6);
 	}
     }
 }

@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 17:57:17 2016 alies_a
-** Last update Tue Jan 26 10:28:53 2016 alies_a
+** Last update Tue Jan 26 13:46:17 2016 alies_a
 */
 
 #include "doom.h"
@@ -17,7 +17,7 @@ static void	mob_attack(t_data *data, t_mob *mob)
   pos.x = (mob->pos).x;
   pos.y = (mob->pos).y;
   pos.z = (mob->pos).z + 1;
-  blow_at(data->map, &pos, 2);
+  blow_at(data, &pos, 2);
 }
 
 void	mob_loop(t_data *data)
