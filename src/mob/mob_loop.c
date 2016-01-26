@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 ** 
 ** Started on  Thu Jan 21 17:57:17 2016 alies_a
-** Last update Tue Jan 26 13:46:17 2016 alies_a
+** Last update Tue Jan 26 16:41:42 2016 alies_a
 */
 
 #include "doom.h"
@@ -31,8 +31,10 @@ void	mob_loop(t_data *data)
     {
       if (!(mob[x]).dead)
 	{
-	  ((mob[x]).pos).x -= (((mob[x]).pos).x - ((data->me).pos).x) / 100;
-	  ((mob[x]).pos).y -= (((mob[x]).pos).y - ((data->me).pos).y) / 100;
+	  ((mob[x]).pos).x -= (((mob[x]).pos).x - ((data->me).pos).x) *
+	    (mob[x]).speed;
+	  ((mob[x]).pos).y -= (((mob[x]).pos).y - ((data->me).pos).y) *
+	    (mob[x]).speed;
 	  mob_attack(data, &(mob[x]));
 	}
       x += 1;

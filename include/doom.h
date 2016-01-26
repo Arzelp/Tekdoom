@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 16:11:59 2016 alies_a
+** Last update Tue Jan 26 16:38:23 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -65,6 +65,7 @@ typedef struct s_mob
   t_plane		p;
   t_vec			dir;
   int			dead;
+  float			speed;
 } t_mob;
 
 typedef struct s_select
