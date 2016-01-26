@@ -13,11 +13,11 @@
 #include <math.h>
 #include "doom.h"
 
-void		map_delete_block(t_data *data)
+void			map_delete_block(t_data *data)
 {
-  t_pos		pos;
-  t_hit		hit;
-  t_block	*block;
+  t_bunny_position	pos;
+  t_hit			hit;
+  t_block		*block;
 
   pos.x = WIDTH / 2;
   pos.y = HEIGHT / 2;

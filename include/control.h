@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Fri Jan 15 11:42:00 2016 Paskal Arzel
-** Last update Tue Jan 26 18:49:54 2016 Frederic ODDOU
+** Last update Tue Jan 26 18:57:15 2016 Frederic ODDOU
 */
 
 #ifndef CONTROL_H_
@@ -37,6 +37,5 @@ int	ctrl_drawsquare(t_bunny_pixelarray *pix, t_bunny_position pos,
 		   t_bunny_position pos2, t_color *color);
 void	map_create_block(t_data *data);
 void	map_delete_block(t_data *data);
-int	map_limite_portee(t_data *data, t_hit hit);
 
 #endif

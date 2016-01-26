@@ -13,12 +13,12 @@
 #include <math.h>
 #include "doom.h"
 
-void		map_create_block(t_data *data)
+void			map_create_block(t_data *data)
 {
-  t_pos		pos;
-  t_block	x;
-  t_hit		hit;
-  t_block	*block;
+  t_bunny_position	pos;
+  t_block		x;
+  t_hit			hit;
+  t_block		*block;
 
   x.x = 1;
   x.texture = (data->select).selected;
