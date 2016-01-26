@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 26 16:12:30 2016 alies_a
+** Last update Tue Jan 26 17:22:23 2016 Paskal Arzel
 */
 
 #include <stdlib.h>
@@ -63,6 +63,7 @@ int	init_mob(t_data *data)
   data->mob[0].size.x = 2;
   data->mob[0].size.y = 5;
   data->mob[0].dead = 0;
+  data->mob[0].speed = 0.01;
   data->mob[1].tex = data->mob[0].tex_alive;
   data->mob[1].pos.x = 10.5;
   data->mob[1].pos.y = 10.5;
@@ -70,6 +71,7 @@ int	init_mob(t_data *data)
   data->mob[1].size.x = 2;
   data->mob[1].size.y = 5;
   data->mob[1].dead = 0;
+  data->mob[1].speed = 0.03;
   data->mob[2].tex = data->mob[0].tex_alive;
   data->mob[2].pos.x = 12.5;
   data->mob[2].pos.y = 12.5;
@@ -77,6 +79,7 @@ int	init_mob(t_data *data)
   data->mob[2].size.x = 2;
   data->mob[2].size.y = 5;
   data->mob[2].dead = 0;
+  data->mob[2].speed = 0.05;
   return (0);
 }
 
