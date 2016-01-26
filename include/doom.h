@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 16:38:23 2016 alies_a
+** Last update Tue Jan 26 17:46:43 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -140,6 +140,7 @@ void    display(t_data *data);
 void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
 void    gen_mob_plane(t_data *data);
 void    blow_at(t_data *data, t_pos *pos, int size);
+int     init_mob(t_data *data);
 
 void	test_x(t_data *data, t_ray *ray, t_hit *hit);
 void	test_y(t_data *data, t_ray *ray, t_hit *hit);

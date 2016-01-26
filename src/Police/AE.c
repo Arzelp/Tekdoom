@@ -5,7 +5,7 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 25 14:48:35 2016 Paskal Arzel
-** Last update Tue Jan 26 14:49:36 2016 Paskal Arzel
+** Last update Tue Jan 26 17:21:27 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -67,6 +67,7 @@ int	letter_D(t_bunny_pixelarray *pix, t_pol *list)
 int	letter_E(t_bunny_pixelarray *pix, t_pol *list)
 {
   char	*tab[5];
+
   tab[0] = "11111";
   tab[1] = "10000";
   tab[2] = "11110";
