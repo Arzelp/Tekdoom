@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Wed Dec  2 20:18:06 2015 Arnaud Alies
-** Last update Mon Jan 25 11:43:42 2016 Arthur Josso
+** Last update Tue Jan 26 16:30:26 2016 alies_a
 */
 
 #include <lapin.h>
@@ -62,12 +62,17 @@ static t_bunny_response	loop(void *data_pt)
   zero.x = 0;
   zero.y = 0;
   data = (t_data*)data_pt;
+  if ((data->end -= 1) == 0)
+    return (EXIT_ON_SUCCESS);
   ctrl_move(data);
   display(data);
   display_gun(data->pix, &data->gun, data);
   mob_loop(data);
   ctrl_drawjauge(data, data->pix);
-  bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  if (data->end < 0)
+    bunny_blit(&((data->win)->buffer), &((data->pix)->clipable), &zero);
+  else
+    bunny_blit(&((data->win)->buffer), &((data->end_pix)->clipable), &zero);
   if ((data->select).open)
     show_textures(data);
   bunny_display(data->win);

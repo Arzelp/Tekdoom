@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 14:03:20 2016 alies_a
+** Last update Tue Jan 26 16:11:59 2016 alies_a
 */
 
 #ifndef DOOM_H_
@@ -102,6 +102,8 @@ typedef struct s_data
   t_select		select;
   t_gun			gun;
   t_sound		sound;
+  int			end;
+  t_bunny_pixelarray	*end_pix;
 } t_data;
 
 /*

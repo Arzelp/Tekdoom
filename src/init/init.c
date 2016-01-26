@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Tue Jan 19 11:25:43 2016 Arthur Josso
-** Last update Tue Jan 26 09:51:56 2016 alies_a
+** Last update Tue Jan 26 16:12:30 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -104,6 +104,9 @@ int	init_all(t_data *data, int ac, char **av)
 {
   (data->select).selected = 0;
   (data->select).open = 0;
+  data->end = -1;
+  if ((data->end_pix = load_bitmap("res/end.bmp")) == NULL)
+    return (1);
   if ((data->texture = load_bitmap("res/textures.bmp")) == NULL)
     return (1);
   if ((data->sound.boom = bunny_load_effect("res/boom.ogg")) == NULL)
