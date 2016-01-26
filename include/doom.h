@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 16:38:23 2016 alies_a
+** Last update Tue Jan 26 19:05:03 2016 Frederic ODDOU
 */
 
 #ifndef DOOM_H_
@@ -140,6 +140,7 @@ void    display(t_data *data);
 void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
 void    gen_mob_plane(t_data *data);
 void    blow_at(t_data *data, t_pos *pos, int size);
+int     init_mob(t_data *data);
 
 void	test_x(t_data *data, t_ray *ray, t_hit *hit);
 void	test_y(t_data *data, t_ray *ray, t_hit *hit);
@@ -158,6 +159,7 @@ void    display_gun(t_bunny_pixelarray *pix, t_gun *gun, t_data *data);
 
 void	hurt_boss(t_data *data);
 void	kill_boss(t_data *data);
+void	viseur(t_data *data);
 
 /*
 ** Core
@@ -199,5 +201,7 @@ t_color	get_texture(t_data *data,
 void    test_mobs(t_data *data, t_ray *ray, t_hit *hit);
 void    mob_loop(t_data *data);
 void    kill_all_in_zone(t_data *data, t_pos *pos);
+
+int	map_limite_portee(t_data *data, t_hit hit);
 
 #endif

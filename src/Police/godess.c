@@ -5,12 +5,13 @@
 ** Login   <arzel_p@epitech.eu>
 **
 ** Started on  Mon Jan 25 18:48:28 2016 Paskal Arzel
-** Last update Tue Jan 26 15:21:52 2016 Paskal Arzel
+** Last update Tue Jan 26 17:47:10 2016 alies_a
 */
 
 #include <stdlib.h>
-#include "lapin.h"
+#include <lapin.h>
 #include "police.h"
+#include "doom.h"
 
 int	gocarre(t_bunny_pixelarray *pix, t_pol *list)
 {

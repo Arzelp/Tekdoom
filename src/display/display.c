@@ -5,7 +5,7 @@
 ** Login   <arthur.josso@epitech.eu>
 **
 ** Started on  Wed Jan 13 17:21:08 2016 Arthur Josso
-** Last update Mon Jan 25 13:17:58 2016 Arthur Josso
+** Last update Tue Jan 26 19:05:52 2016 Frederic ODDOU
 */
 
 #include <pthread.h>
@@ -115,4 +115,5 @@ void			display(t_data *data)
   pthread_join(ta, NULL);
   pthread_join(tb, NULL);
   (data->me).pos.z += (data->me).crowd;
+  viseur(data);
 }
