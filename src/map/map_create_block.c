@@ -5,7 +5,7 @@
 ** Login oddou_f <frederic.oddou@epitech.eu>
 **
 ** Started on  Fri Jan 15 15:16:04 2016 Frederic ODDOU
-** Last update Wed Jan 20 17:21:59 2016 alies_a
+** Last update Tue Jan 26 17:53:00 2016 alies_a
 */
 
 #include <stdlib.h>
@@ -30,8 +30,6 @@ void		map_create_block(t_data *data)
       pos.z = (data->me.pos).z + sin((data->me).beta) * 3;
       if ((block = map_get(data->map, &pos)) != NULL && block->x == 1)
 	{
-	  if (pos.z < (data->me.pos).z + sin((data->me).beta) * 3)
-	    pos.z += 1;
 	  pos.x = (data->me.pos).x + cos((data->me).alpha) * (i - 1);
 	  pos.y = (data->me.pos).y + sin((data->me).alpha) * (i - 1);
 	  if ((block = map_get(data->map, &pos)) != NULL && block->x == 0)
