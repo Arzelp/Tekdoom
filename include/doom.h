@@ -5,7 +5,7 @@
 ** Login   <alies_a@epitech.net>
 **
 ** Started on  Tue Jan 12 16:58:58 2016 Arnaud Alies
-** Last update Tue Jan 26 19:05:03 2016 Frederic ODDOU
+** Last update Tue Feb 14 14:46:32 2017 Paskal Arzel
 */
 
 #ifndef DOOM_H_
@@ -96,6 +96,8 @@ typedef struct s_data
   t_bunny_window	*win;
   t_bunny_pixelarray	*pix;
   t_bunny_pixelarray	*texture;
+  t_bunny_position *mousecurrent;
+  t_bunny_position *mouseprev;
   const bool		*keys;
   t_me			me;
   t_mob			*mob;
